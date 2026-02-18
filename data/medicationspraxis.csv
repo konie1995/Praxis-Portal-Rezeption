@@ -1,0 +1,1356 @@
+name,wirkstoff,staerke,pzn,kategorie,standard_dosierung,einnahme_hinweis
+Latanoprost AT,Latanoprost,50µg/ml,,Antiglaukomatosa,0-0-0-1,Abends 1 Tropfen
+Xalatan,Latanoprost,50µg/ml,01348522,Antiglaukomatosa,0-0-0-1,Abends 1 Tropfen
+Monoprost,Latanoprost,50µg/ml,10547614,Antiglaukomatosa,0-0-0-1,Abends 1 Tropfen (EDO)
+Travatan,Travoprost,40µg/ml,03775519,Antiglaukomatosa,0-0-0-1,Abends 1 Tropfen
+Lumigan,Bimatoprost,0.3mg/ml,04853203,Antiglaukomatosa,0-0-0-1,Abends 1 Tropfen
+Tafluprost AT,Tafluprost,15µg/ml,,Antiglaukomatosa,0-0-0-1,Abends 1 Tropfen
+Taflotan,Tafluprost,15µg/ml,07261838,Antiglaukomatosa,0-0-0-1,Abends 1 Tropfen (EDO)
+Saflutan,Tafluprost,15µg/ml,07261844,Antiglaukomatosa,0-0-0-1,Abends 1 Tropfen
+Timolol AT 0.5%,Timolol,5mg/ml,,Antiglaukomatosa,1-0-1-0,
+Tim-Ophtal,Timolol,5mg/ml,,Antiglaukomatosa,1-0-1-0,
+Timolol-POS 0.5%,Timolol,5mg/ml,02422027,Antiglaukomatosa,1-0-1-0,
+Dispatim,Timolol,5mg/ml,06755020,Antiglaukomatosa,1-0-1-0,
+Betoptima,Betaxolol,2.5mg/ml,02738686,Antiglaukomatosa,1-0-1-0,
+Azopt,Brinzolamid,10mg/ml,00662566,Antiglaukomatosa,1-0-1-0,
+Brinzolamid AT,Brinzolamid,10mg/ml,,Antiglaukomatosa,1-0-1-0,
+Trusopt,Dorzolamid,20mg/ml,00557558,Antiglaukomatosa,1-0-1-0,
+Dorzolamid AT,Dorzolamid,20mg/ml,,Antiglaukomatosa,1-0-1-0,
+Alphagan,Brimonidin,2mg/ml,03034986,Antiglaukomatosa,1-0-1-0,
+Brimonidin AT,Brimonidin,2mg/ml,,Antiglaukomatosa,1-0-1-0,
+Iopidine,Apraclonidin,5mg/ml,00676096,Antiglaukomatosa,1-0-1-0,Peri-/postoperativ
+DuoTrav,Travoprost/Timolol,40µg+5mg/ml,07316267,Antiglaukomatosa,1-0-0-0,Morgens
+Ganfort,Bimatoprost/Timolol,0.3mg+5mg/ml,04891439,Antiglaukomatosa,1-0-0-0,Morgens
+Cosopt,Dorzolamid/Timolol,20mg+5mg/ml,00557699,Antiglaukomatosa,1-0-1-0,
+Azarga,Brinzolamid/Timolol,10mg+5mg/ml,03612632,Antiglaukomatosa,1-0-1-0,
+Xalacom,Latanoprost/Timolol,50µg+5mg/ml,03028618,Antiglaukomatosa,1-0-0-0,Morgens
+Fotil,Pilocarpin/Timolol,20mg+5mg/ml,00244756,Antiglaukomatosa,1-0-1-0,
+Combigan,Brimonidin/Timolol,2mg+5mg/ml,04284553,Antiglaukomatosa,1-0-1-0,
+Simbrinza,Brinzolamid/Brimonidin,10mg+2mg/ml,10185706,Antiglaukomatosa,1-0-1-0,
+Taptiqom,Tafluprost/Timolol,15µg+5mg/ml,11100632,Antiglaukomatosa,1-0-0-0,Morgens (EDO)
+Diamox,Acetazolamid,250mg,01200046,Antiglaukomatosa (oral),1-0-1-0,Kaliumsubstitution beachten
+Glaupax,Acetazolamid,250mg,,Antiglaukomatosa (oral),1-0-1-0,Kaliumsubstitution beachten
+Pilocarpin AT 1%,Pilocarpin,10mg/ml,,Miotika,1-1-1-1,Alle 6 Stunden
+Pilocarpin AT 2%,Pilocarpin,20mg/ml,,Miotika,1-1-1-1,Alle 6 Stunden
+Spersacarpin,Pilocarpin,20mg/ml,,Miotika,1-1-1-1,
+Tropicamid AT 0.5%,Tropicamid,5mg/ml,,Mydriatika,Bei Bedarf,Diagnostik
+Tropicamid AT 1%,Tropicamid,10mg/ml,,Mydriatika,Bei Bedarf,Diagnostik
+Mydriaticum Stulln,Tropicamid,5mg/ml,03225020,Mydriatika,Bei Bedarf,
+Mydrum,Tropicamid,5mg/ml,01009091,Mydriatika,Bei Bedarf,
+Cyclopentolat AT 1%,Cyclopentolat,10mg/ml,,Mydriatika,Bei Bedarf,Diagnostik/Skiaskopie
+Atropin AT 0.5%,Atropin,5mg/ml,,Mydriatika,Bei Bedarf,Zur Cycloplegie
+Atropin AT 1%,Atropin,10mg/ml,,Mydriatika,Bei Bedarf,Zur Cycloplegie
+Phenylephrin AT 2.5%,Phenylephrin,25mg/ml,,Mydriatika,Bei Bedarf,
+Phenylephrin AT 10%,Phenylephrin,100mg/ml,,Mydriatika,Bei Bedarf,
+Neosynephrin-POS 5%,Phenylephrin,50mg/ml,03435350,Mydriatika,Bei Bedarf,
+Neosynephrin-POS 10%,Phenylephrin,100mg/ml,03435367,Mydriatika,Bei Bedarf,
+Hylo-Comod,Hyaluronsäure,1mg/ml,04047553,Tränenersatz,Bei Bedarf,Nach Bedarf mehrmals täglich
+Hylo-Gel,Hyaluronsäure,2mg/ml,06079422,Tränenersatz,Bei Bedarf,Bei stärkerem Trockenheitsgefühl
+Hylo-Fresh,Hyaluronsäure/Euphrasia,1mg/ml,13814638,Tränenersatz,Bei Bedarf,
+Hylo-Dual,Hyaluronsäure/Ectoin,0.5mg/ml,16009612,Tränenersatz,Bei Bedarf,Bei Allergien
+Hylo-Protect,Hyaluronsäure/Vitamin B12,1mg/ml,18829930,Tränenersatz,Bei Bedarf,
+Artelac Splash,Hyaluronsäure,2.4mg/ml,07707024,Tränenersatz,Bei Bedarf,
+Artelac Complete,Hyaluronsäure/Lipide,,10431548,Tränenersatz,Bei Bedarf,Bei Lipidmangel
+Artelac Lipids EDO,Triglyceride,,10732571,Tränenersatz,Bei Bedarf,Bei MGD
+Systane Ultra,Polyethylenglycol/Propylenglycol,,04082093,Tränenersatz,Bei Bedarf,
+Systane Complete,PEG/Propylenglycol/HP-Guar,,14446302,Tränenersatz,Bei Bedarf,
+Systane Balance,PEG/Propylenglycol/Lipid,,06947206,Tränenersatz,Bei Bedarf,Bei MGD
+Bepanthen Augentropfen,Dexpanthenol,50mg/ml,08700045,Tränenersatz,Bei Bedarf,Wundheilend
+Vidisic Gel,Carbomer,2mg/g,01578838,Tränenersatz,Zur Nacht,Vor dem Schlafengehen
+Vidisic EDO,Carbomer,2mg/g,04920420,Tränenersatz,Bei Bedarf,
+VitA-POS,Vitamin A/Paraffin,,04420521,Tränenersatz,Zur Nacht,Augensalbe zur Nacht
+Corneregel,Dexpanthenol,50mg/g,03558811,Tränenersatz,Bei Bedarf,Gel zur Wundheilung
+Liposic,Carbomer,2mg/g,08776061,Tränenersatz,Bei Bedarf,
+Lacophtal,Polyvinylalkohol,,04952656,Tränenersatz,Bei Bedarf,
+Thealoz Duo,Trehalose/Hyaluronsäure,,10758519,Tränenersatz,Bei Bedarf,
+Optive Fusion,Carboxymethylcellulose/Hyaluronsäure,,11564696,Tränenersatz,Bei Bedarf,
+Cationorm,Kationische Emulsion,,10344837,Tränenersatz,Bei Bedarf,
+Tears Again,Liposomenspray,,04021563,Tränenersatz,Bei Bedarf,Spray auf geschl. Lid
+EvoTears,Perfluorohexyloctane,,12381036,Tränenersatz,Bei Bedarf,Wasserfreier Tränenersatz
+Floxal AT,Ofloxacin,3mg/ml,03820927,Antibiotika,1-1-1-1,
+Floxal Augensalbe,Ofloxacin,3mg/g,03820904,Antibiotika,Zur Nacht,
+Oftaquix,Levofloxacin,5mg/ml,01660891,Antibiotika,1-1-1-1,
+Vigamox,Moxifloxacin,5mg/ml,01355821,Antibiotika,1-0-1-0,
+Ciloxan,Ciprofloxacin,3mg/ml,07422619,Antibiotika,1-1-1-1,
+Ciloxan Salbe,Ciprofloxacin,3.5mg/g,10347640,Antibiotika,Zur Nacht,
+Refobacin Augensalbe,Gentamicin,5mg/g,03524632,Antibiotika,Zur Nacht,
+Gentamicin AT,Gentamicin,3mg/ml,,Antibiotika,1-1-1-1,
+Tobramycin AT,Tobramycin,3mg/ml,,Antibiotika,1-1-1-1,
+Tobradex,Tobramycin/Dexamethason,3mg+1mg/ml,00302579,Antibiotika+Kortison,1-1-1-1,
+Tobradex Salbe,Tobramycin/Dexamethason,3mg+1mg/g,00302591,Antibiotika+Kortison,Zur Nacht,
+Isopto-Max,Neomycin/Polymyxin/Dexamethason,,00047961,Antibiotika+Kortison,1-1-1-1,
+Dexa-Gentamicin,Gentamicin/Dexamethason,5mg+0.3mg/ml,01820328,Antibiotika+Kortison,1-1-1-1,
+Kanamycin-POS,Kanamycin,7.5mg/ml,07264116,Antibiotika,1-1-1-1,
+Erythromycin AS,Erythromycin,5mg/g,,Antibiotika,Zur Nacht,Bei Chlamydien
+Azyter,Azithromycin,15mg/g,06133652,Antibiotika,1-0-0-0,3 Tage Therapie
+Fucithalmic,Fusidinsäure,10mg/g,03557986,Antibiotika,1-0-1-0,
+Zovirax Augensalbe,Aciclovir,30mg/g,02581046,Virostatika,5x täglich,Alle 4 Stunden
+Aciclovir Augensalbe,Aciclovir,30mg/g,,Virostatika,5x täglich,Alle 4 Stunden
+Virgan,Ganciclovir,1.5mg/g,05877903,Virostatika,5x täglich,Bei Keratitis
+Dexamethason AT 0.1%,Dexamethason,1mg/ml,,Kortikosteroide,Nach Schema,Ausschleichen
+Dexamethason EDO,Dexamethason,1mg/ml,04462625,Kortikosteroide,Nach Schema,
+Dexa-sine,Dexamethason,1mg/ml,02028839,Kortikosteroide,Nach Schema,
+Monodex,Dexamethason,1mg/ml,09091462,Kortikosteroide,Nach Schema,EDO
+Prednisolon AT 1%,Prednisolon,10mg/ml,,Kortikosteroide,Nach Schema,
+Inflanefran forte,Prednisolon,10mg/ml,01529908,Kortikosteroide,Nach Schema,
+Predni-POS,Prednisolon,1mg/ml,00693377,Kortikosteroide,Nach Schema,Mild
+Ultracortenol,Prednisolon,2.5mg/ml,00287073,Kortikosteroide,Nach Schema,
+Fluorometholon AT,Fluorometholon,1mg/ml,,Kortikosteroide,Nach Schema,Geringere IOD-Wirkung
+Flucon,Fluorometholon,1mg/ml,02432251,Kortikosteroide,Nach Schema,
+Lotemax,Loteprednol,5mg/ml,04571029,Kortikosteroide,Nach Schema,Geringere IOD-Wirkung
+Rimexolon AT,Rimexolon,10mg/ml,,Kortikosteroide,Nach Schema,
+Vexol,Rimexolon,10mg/ml,00687782,Kortikosteroide,Nach Schema,
+Softacort,Hydrocortison,3.35mg/ml,14020152,Kortikosteroide,Nach Schema,Mild EDO
+Opatanol,Olopatadin,1mg/ml,01839654,Antiallergika,1-0-1-0,
+Zaditen ophtha,Ketotifen,0.25mg/ml,03530987,Antiallergika,1-0-1-0,
+Livocab Augentropfen,Levocabastin,0.5mg/ml,09529287,Antiallergika,1-0-1-0,
+Allergodil AT,Azelastin,0.5mg/ml,08820765,Antiallergika,1-0-1-0,
+Vividrin akut,Azelastin,0.5mg/ml,09064092,Antiallergika,Bei Bedarf,
+Cromohexal AT,Cromoglicinsäure,20mg/ml,01234567,Antiallergika,1-1-1-1,Prophylaktisch
+Cromo-Stulln,Cromoglicinsäure,20mg/ml,03925800,Antiallergika,1-1-1-1,
+Nedocromil AT,Nedocromil,20mg/ml,,Antiallergika,1-0-1-0,
+Acular,Ketorolac,5mg/ml,00802287,NSAID,1-1-1-1,Postoperativ
+Voltaren ophtha,Diclofenac,1mg/ml,04533956,NSAID,1-1-1-1,Postoperativ
+Nevanac,Nepafenac,1mg/ml,06897959,NSAID,1-0-1-0,Peri-/postoperativ
+Yellox,Bromfenac,0.9mg/ml,08512589,NSAID,1-0-0-0,1x täglich postoperativ
+Indocolir,Indometacin,1mg/ml,00242001,NSAID,1-1-1-1,
+Eylea,Aflibercept,40mg/ml,10127557,IVOM,,Intravitreale Injektion
+Lucentis,Ranibizumab,10mg/ml,04931083,IVOM,,Intravitreale Injektion
+Avastin (off-label),Bevacizumab,25mg/ml,,IVOM,,Off-Label IVOM
+Beovu,Brolucizumab,120mg/ml,15730055,IVOM,,Intravitreale Injektion
+Vabysmo,Faricimab,120mg/ml,17869606,IVOM,,Intravitreale Injektion
+Ozurdex,Dexamethason-Implantat,700µg,09930173,IVOM-Implantat,,Intravitreales Implantat
+Iluvien,Fluocinolon-Implantat,190µg,10040161,IVOM-Implantat,,DMÖ-Implantat
+Jetrea,Ocriplasmin,0.5mg,,IVOM,,Bei vitreomakulärer Traktion
+Ocuvite Lutein,Lutein/Zeaxanthin/Omega-3,,04871528,Nahrungsergänzung AMD,1-0-0-0,Zur Mahlzeit
+Ocuvite Complete,Lutein/Zeaxanthin/Vitamine,,14401220,Nahrungsergänzung AMD,1-0-0-0,
+Macusan,Lutein/Zeaxanthin,,07318861,Nahrungsergänzung AMD,1-0-0-0,
+Preservision,Lutein/Vitamine/Zink,,08877523,Nahrungsergänzung AMD,1-0-0-0,AREDS2
+Cystinol,N-Acetylcystein,,01327865,Mukolytikum Auge,1-0-1-0,Bei zähem Schleim
+Ikervis,Ciclosporin,1mg/ml,11033645,Immunsuppression,0-0-0-1,Bei schw. Keratitis sicca
+Restasis,Ciclosporin,0.5mg/ml,,Immunsuppression,1-0-1-0,Bei Sicca
+Verkazia,Ciclosporin,1mg/ml,15745291,Immunsuppression,1-1-1-1,Vernal Keratokonjunktivitis
+Cequa,Ciclosporin,0.9mg/ml,,Immunsuppression,1-0-1-0,
+Xiidra,Lifitegrast,50mg/ml,,Immunmodulation,1-0-1-0,Bei Sicca
+Pilocarpin oral,Pilocarpin,5mg,,Sialagogum,1-1-1-0,Bei Sicca (Sjögren)
+Salagen,Pilocarpin,5mg,00234567,Sialagogum,1-1-1-0,
+Evoxac,Cevimelin,30mg,,Sialagogum,1-1-1-0,Bei Sjögren
+Ramipril,Ramipril,5mg,,ACE-Hemmer,1-0-0-0,Morgens
+Ramipril,Ramipril,5mg,06312246,ACE-Hemmer,1-0-0-0,
+Delix,Ramipril,5mg,00749533,ACE-Hemmer,1-0-0-0,
+Enalapril,Enalapril,10mg,,ACE-Hemmer,1-0-0-0,
+Xanef,Enalapril,10mg,00654321,ACE-Hemmer,1-0-0-0,
+Lisinopril,Lisinopril,10mg,,ACE-Hemmer,1-0-0-0,
+Acerbon,Lisinopril,10mg,04052815,ACE-Hemmer,1-0-0-0,
+Perindopril,Perindopril,4mg,,ACE-Hemmer,1-0-0-0,
+Coversum,Perindopril,4mg,02339883,ACE-Hemmer,1-0-0-0,
+Captopril,Captopril,25mg,,ACE-Hemmer,1-0-1-0,
+Lopirin,Captopril,25mg,03052891,ACE-Hemmer,1-0-1-0,
+Candesartan,Candesartan,8mg,,Sartan,1-0-0-0,
+Atacand,Candesartan,8mg,01235467,Sartan,1-0-0-0,
+Valsartan,Valsartan,80mg,,Sartan,1-0-0-0,
+Diovan,Valsartan,80mg,01987654,Sartan,1-0-0-0,
+Losartan,Losartan,50mg,,Sartan,1-0-0-0,
+Lorzaar,Losartan,50mg,01564789,Sartan,1-0-0-0,
+Olmesartan,Olmesartan,20mg,,Sartan,1-0-0-0,
+Votum,Olmesartan,20mg,02546879,Sartan,1-0-0-0,
+Telmisartan,Telmisartan,40mg,,Sartan,1-0-0-0,
+Micardis,Telmisartan,40mg,02184567,Sartan,1-0-0-0,
+Irbesartan,Irbesartan,150mg,,Sartan,1-0-0-0,
+Aprovel,Irbesartan,150mg,02658741,Sartan,1-0-0-0,
+Bisoprolol,Bisoprolol,5mg,,Betablocker,1-0-0-0,Nicht abrupt absetzen
+Concor,Bisoprolol,5mg,00854912,Betablocker,1-0-0-0,
+Metoprolol,Metoprolol,50mg,,Betablocker,1-0-1-0,
+Beloc-Zok,Metoprolol,95mg retard,01234598,Betablocker,1-0-0-0,Retardform
+Metohexal,Metoprolol,50mg,02184569,Betablocker,1-0-1-0,
+Nebivolol,Nebivolol,5mg,,Betablocker,1-0-0-0,
+Nebilet,Nebivolol,5mg,01784562,Betablocker,1-0-0-0,
+Carvedilol,Carvedilol,25mg,,Betablocker,1-0-1-0,
+Dilatrend,Carvedilol,25mg,01589742,Betablocker,1-0-1-0,
+Atenolol,Atenolol,50mg,,Betablocker,1-0-0-0,
+Tenormin,Atenolol,50mg,02658974,Betablocker,1-0-0-0,
+Propranolol,Propranolol,40mg,,Betablocker,1-0-1-0,
+Dociton,Propranolol,40mg,01478523,Betablocker,1-0-1-0,
+Amlodipin,Amlodipin,5mg,,Ca-Blocker,1-0-0-0,
+Norvasc,Amlodipin,5mg,03546812,Ca-Blocker,1-0-0-0,
+Lercanidipin,Lercanidipin,10mg,,Ca-Blocker,1-0-0-0,Morgens nüchtern
+Carmen,Lercanidipin,10mg,01478596,Ca-Blocker,1-0-0-0,
+Verapamil,Verapamil,120mg,,Ca-Blocker,1-0-1-0,
+Isoptin,Verapamil,120mg,01254896,Ca-Blocker,1-0-1-0,
+Diltiazem,Diltiazem,120mg,,Ca-Blocker,1-0-1-0,
+Dilzem,Diltiazem,120mg,02415678,Ca-Blocker,1-0-1-0,
+Nifedipin,Nifedipin,20mg retard,,Ca-Blocker,1-0-0-0,Retardform
+Adalat,Nifedipin,20mg retard,00654852,Ca-Blocker,1-0-0-0,
+Felodipin,Felodipin,5mg,,Ca-Blocker,1-0-0-0,
+Plendil,Felodipin,5mg,01578963,Ca-Blocker,1-0-0-0,
+Nisoldipin,Nisoldipin,10mg,,Ca-Blocker,1-0-0-0,
+Baymycard,Nisoldipin,10mg,01236985,Ca-Blocker,1-0-0-0,
+HCT,Hydrochlorothiazid,25mg,,Diuretikum,1-0-0-0,Morgens
+Esidrix,Hydrochlorothiazid,25mg,00152478,Diuretikum,1-0-0-0,
+Torasemid,Torasemid,10mg,,Diuretikum,1-0-0-0,Schleifendiuretikum
+Torem,Torasemid,10mg,01256987,Diuretikum,1-0-0-0,
+Furosemid,Furosemid,40mg,,Diuretikum,1-0-0-0,Kalium kontrollieren
+Lasix,Furosemid,40mg,00589632,Diuretikum,1-0-0-0,
+Xipamid,Xipamid,20mg,,Diuretikum,1-0-0-0,
+Aquaphor,Xipamid,20mg,01478520,Diuretikum,1-0-0-0,
+Indapamid,Indapamid,1.5mg,,Diuretikum,1-0-0-0,
+Natrilix,Indapamid,1.5mg,01478526,Diuretikum,1-0-0-0,
+Spironolacton,Spironolacton,25mg,,Kaliumsparend,1-0-0-0,Aldosteronantagonist
+Aldactone,Spironolacton,25mg,00658741,Kaliumsparend,1-0-0-0,
+Eplerenon,Eplerenon,25mg,,Kaliumsparend,1-0-0-0,
+Inspra,Eplerenon,25mg,02658963,Kaliumsparend,1-0-0-0,
+Triamteren,Triamteren/HCT,50mg/25mg,,Diuretikum-Kombi,1-0-0-0,
+Dytide H,Triamteren/HCT,50mg/25mg,00258741,Diuretikum-Kombi,1-0-0-0,
+Ramipril/HCT,Ramipril/Hydrochlorothiazid,5mg/25mg,,ACE-Hemmer-Kombi,1-0-0-0,
+Delix plus,Ramipril/Hydrochlorothiazid,5mg/25mg,00458963,ACE-Hemmer-Kombi,1-0-0-0,
+Ramipril/Amlodipin,Ramipril/Amlodipin,5mg/5mg,,ACE-Hemmer-Kombi,1-0-0-0,
+Tonotec,Ramipril/Amlodipin,5mg/5mg,06458712,ACE-Hemmer-Kombi,1-0-0-0,
+Candesartan/HCT,Candesartan/Hydrochlorothiazid,16mg/12.5mg,,Sartan-Kombi,1-0-0-0,
+Atacand Plus,Candesartan/Hydrochlorothiazid,16mg/12.5mg,01256478,Sartan-Kombi,1-0-0-0,
+Valsartan/HCT,Valsartan/Hydrochlorothiazid,160mg/12.5mg,,Sartan-Kombi,1-0-0-0,
+CoDiala,Valsartan/Hydrochlorothiazid,160mg/12.5mg,01589621,Sartan-Kombi,1-0-0-0,
+Valsartan/Amlodipin,Valsartan/Amlodipin,160mg/5mg,,Sartan-Kombi,1-0-0-0,
+Exforge,Valsartan/Amlodipin,160mg/5mg,02458963,Sartan-Kombi,1-0-0-0,
+Bisoprolol/HCT,Bisoprolol/Hydrochlorothiazid,5mg/12.5mg,,BB-Kombi,1-0-0-0,
+Amiodaron,Amiodaron,200mg,,Antiarrhythmikum,1-0-1-0,Schilddrüse/Auge kontrollieren!
+Cordarex,Amiodaron,200mg,00147852,Antiarrhythmikum,1-0-1-0,WICHTIG: Cornea-Einlagerungen
+Dronedaron,Dronedaron,400mg,,Antiarrhythmikum,1-0-1-0,
+Multaq,Dronedaron,400mg,01236540,Antiarrhythmikum,1-0-1-0,
+Flecainid,Flecainid,100mg,,Antiarrhythmikum,1-0-1-0,
+Tambocor,Flecainid,100mg,00854123,Antiarrhythmikum,1-0-1-0,
+Propafenon,Propafenon,150mg,,Antiarrhythmikum,1-0-1-0,
+Rytmonorm,Propafenon,150mg,01478569,Antiarrhythmikum,1-0-1-0,
+Digoxin,Digoxin,0.1mg,,Herzglykosid,1-0-0-0,Spiegel kontrollieren
+Lanicor,Digoxin,0.25mg,00125478,Herzglykosid,1-0-0-0,
+Digitoxin,Digitoxin,0.07mg,,Herzglykosid,1-0-0-0,
+Digimerck,Digitoxin,0.1mg,00025896,Herzglykosid,1-0-0-0,
+Marcumar,Phenprocoumon,3mg,00058741,VKA,Nach INR,INR-Kontrolle!
+Phenprocoumon,Phenprocoumon,3mg,,VKA,Nach INR,INR-Kontrolle!
+Falithrom,Phenprocoumon,3mg,02547896,VKA,Nach INR,
+Warfarin,Warfarin,5mg,,VKA,Nach INR,INR-Kontrolle!
+Coumadin,Warfarin,5mg,00125896,VKA,Nach INR,
+Xarelto,Rivaroxaban,20mg,05765475,DOAK,1-0-0-0,Zu einer Mahlzeit
+Rivaroxaban,Rivaroxaban,20mg,,DOAK,1-0-0-0,
+Eliquis,Apixaban,5mg,09954376,DOAK,1-0-1-0,
+Apixaban,Apixaban,5mg,,DOAK,1-0-1-0,
+Pradaxa,Dabigatran,150mg,08646893,DOAK,1-0-1-0,
+Dabigatran,Dabigatran,150mg,,DOAK,1-0-1-0,
+Lixiana,Edoxaban,60mg,10546212,DOAK,1-0-0-0,
+Edoxaban,Edoxaban,60mg,,DOAK,1-0-0-0,
+Clexane,Enoxaparin,40mg,,NMH,1x täglich s.c.,Subkutan
+Enoxaparin,Enoxaparin,40mg,,NMH,1x täglich s.c.,
+Fraxiparin,Nadroparin,0.3ml,,NMH,1x täglich s.c.,
+Fragmin,Dalteparin,5000IE,,NMH,1x täglich s.c.,
+Mono-Embolex,Certoparin,3000IE,,NMH,1x täglich s.c.,
+Arixtra,Fondaparinux,2.5mg,03495790,Faktor-Xa-Hemmer,1x täglich s.c.,
+Aspirin 100,Acetylsalicylsäure,100mg,10203595,TAH,1-0-0-0,Magenschutz bedenken
+ASS 100,Acetylsalicylsäure,100mg,,TAH,1-0-0-0,
+Godamed,Acetylsalicylsäure,100mg,07372288,TAH,1-0-0-0,
+Plavix,Clopidogrel,75mg,01256985,TAH,1-0-0-0,
+Clopidogrel,Clopidogrel,75mg,,TAH,1-0-0-0,
+Iscover,Clopidogrel,75mg,01478523,TAH,1-0-0-0,
+Efient,Prasugrel,10mg,04921539,TAH,1-0-0-0,
+Prasugrel,Prasugrel,10mg,,TAH,1-0-0-0,
+Brilique,Ticagrelor,90mg,07547686,TAH,1-0-1-0,
+Ticagrelor,Ticagrelor,90mg,,TAH,1-0-1-0,
+ASS+Clopidogrel,ASS/Clopidogrel,100mg/75mg,,TAH-Kombi,1-0-0-0,Duale Plättchenhemmung
+DuoPlavin,ASS/Clopidogrel,100mg/75mg,02547891,TAH-Kombi,1-0-0-0,
+Simvastatin,Simvastatin,40mg,,Statin,0-0-0-1,Abends (außer Atorvastatin)
+Zocor,Simvastatin,40mg,01234587,Statin,0-0-0-1,
+Atorvastatin,Atorvastatin,20mg,,Statin,1-0-0-0,Unabhängig von Tageszeit
+Sortis,Atorvastatin,20mg,01234588,Statin,1-0-0-0,
+Pravastatin,Pravastatin,40mg,,Statin,0-0-0-1,
+Pravasin,Pravastatin,40mg,01254896,Statin,0-0-0-1,
+Rosuvastatin,Rosuvastatin,10mg,,Statin,1-0-0-0,
+Crestor,Rosuvastatin,10mg,03654982,Statin,1-0-0-0,
+Fluvastatin,Fluvastatin,80mg,,Statin,0-0-0-1,
+Locol,Fluvastatin,80mg,02658746,Statin,0-0-0-1,
+Lovastatin,Lovastatin,20mg,,Statin,0-0-0-1,
+Mevinacor,Lovastatin,20mg,01478596,Statin,0-0-0-1,
+Pitavastatin,Pitavastatin,2mg,,Statin,1-0-0-0,
+Livazo,Pitavastatin,2mg,07264536,Statin,1-0-0-0,
+Ezetimib,Ezetimib,10mg,,Cholesterinresorptionshemmer,1-0-0-0,
+Ezetrol,Ezetimib,10mg,01234852,Cholesterinresorptionshemmer,1-0-0-0,
+Inegy,Ezetimib/Simvastatin,10mg/40mg,03286541,Statin-Kombi,0-0-0-1,
+Atozet,Ezetimib/Atorvastatin,10mg/20mg,10254789,Statin-Kombi,1-0-0-0,
+Repatha,Evolocumab,140mg/ml,,PCSK9-Hemmer,Alle 2 Wochen,s.c. Injektion
+Praluent,Alirocumab,75mg/ml,,PCSK9-Hemmer,Alle 2 Wochen,s.c. Injektion
+Bezafibrat,Bezafibrat,400mg retard,,Fibrat,1-0-0-0,
+Cedur,Bezafibrat,400mg retard,01236985,Fibrat,1-0-0-0,
+Fenofibrat,Fenofibrat,145mg,,Fibrat,1-0-0-0,
+Lipidil,Fenofibrat,145mg,02547892,Fibrat,1-0-0-0,
+Omacor,Omega-3-Fettsäuren,1000mg,02547896,Omega-3,1-0-0-0,Zur Mahlzeit
+Nilemdo,Bempedoinsäure,180mg,16547892,Cholesterinsenker,1-0-0-0,Bei Statin-Unverträglichkeit
+Nustendi,Bempedoinsäure/Ezetimib,180mg/10mg,17254698,Cholesterinsenker,1-0-0-0,
+Metformin,Metformin,1000mg,,Biguanid,1-0-1-0,Zur Mahlzeit - vor KM pausieren
+Glucophage,Metformin,1000mg,01234587,Biguanid,1-0-1-0,
+Siofor,Metformin,1000mg,01478520,Biguanid,1-0-1-0,
+Glimepirid,Glimepirid,2mg,,Sulfonylharnstoff,1-0-0-0,Hypoglykämierisiko!
+Amaryl,Glimepirid,2mg,01234598,Sulfonylharnstoff,1-0-0-0,
+Glibenclamid,Glibenclamid,3.5mg,,Sulfonylharnstoff,1-0-0-0,
+Euglucon,Glibenclamid,3.5mg,01234597,Sulfonylharnstoff,1-0-0-0,
+Gliclazid,Gliclazid,60mg,,Sulfonylharnstoff,1-0-0-0,
+Diamicron,Gliclazid,60mg,02547895,Sulfonylharnstoff,1-0-0-0,
+Repaglinid,Repaglinid,1mg,,Glinid,1-1-1-0,Zu den Mahlzeiten
+Novonorm,Repaglinid,1mg,01254893,Glinid,1-1-1-0,
+Nateglinid,Nateglinid,120mg,,Glinid,1-1-1-0,
+Starlix,Nateglinid,120mg,01478596,Glinid,1-1-1-0,
+Empagliflozin,Empagliflozin,10mg,,SGLT2-Hemmer,1-0-0-0,Kardiovaskulärer Schutz
+Jardiance,Empagliflozin,10mg,11027536,SGLT2-Hemmer,1-0-0-0,
+Dapagliflozin,Dapagliflozin,10mg,,SGLT2-Hemmer,1-0-0-0,
+Forxiga,Dapagliflozin,10mg,09773459,SGLT2-Hemmer,1-0-0-0,
+Canagliflozin,Canagliflozin,100mg,,SGLT2-Hemmer,1-0-0-0,
+Invokana,Canagliflozin,100mg,10765432,SGLT2-Hemmer,1-0-0-0,
+Ertugliflozin,Ertugliflozin,5mg,,SGLT2-Hemmer,1-0-0-0,
+Steglatro,Ertugliflozin,5mg,14285963,SGLT2-Hemmer,1-0-0-0,
+Sitagliptin,Sitagliptin,100mg,,DPP4-Hemmer,1-0-0-0,
+Januvia,Sitagliptin,100mg,01254789,DPP4-Hemmer,1-0-0-0,
+Xelevia,Sitagliptin,100mg,09854632,DPP4-Hemmer,1-0-0-0,
+Vildagliptin,Vildagliptin,50mg,,DPP4-Hemmer,1-0-1-0,
+Galvus,Vildagliptin,50mg,02547896,DPP4-Hemmer,1-0-1-0,
+Saxagliptin,Saxagliptin,5mg,,DPP4-Hemmer,1-0-0-0,
+Onglyza,Saxagliptin,5mg,08547961,DPP4-Hemmer,1-0-0-0,
+Linagliptin,Linagliptin,5mg,,DPP4-Hemmer,1-0-0-0,
+Trajenta,Linagliptin,5mg,09265847,DPP4-Hemmer,1-0-0-0,
+Alogliptin,Alogliptin,25mg,,DPP4-Hemmer,1-0-0-0,
+Vipidia,Alogliptin,25mg,10458796,DPP4-Hemmer,1-0-0-0,
+Semaglutid,Semaglutid,1mg,,GLP1-Agonist,1x wöchentl.,s.c. Injektion
+Ozempic,Semaglutid,1mg,13785462,GLP1-Agonist,1x wöchentl.,s.c. Gewichtsverlust
+Wegovy,Semaglutid,2.4mg,17325486,GLP1-Agonist,1x wöchentl.,s.c. zur Adipositas
+Rybelsus,Semaglutid oral,14mg,15324568,GLP1-Agonist,1-0-0-0,Nüchtern 30min vor Mahlzeit
+Dulaglutid,Dulaglutid,1.5mg,,GLP1-Agonist,1x wöchentl.,
+Trulicity,Dulaglutid,1.5mg,10459872,GLP1-Agonist,1x wöchentl.,
+Liraglutid,Liraglutid,1.8mg,,GLP1-Agonist,1x täglich,
+Victoza,Liraglutid,1.8mg,05358796,GLP1-Agonist,1x täglich,
+Saxenda,Liraglutid,3mg,10847593,GLP1-Agonist,1x täglich,Zur Adipositas
+Exenatid,Exenatid,2mg,,GLP1-Agonist,1x wöchentl.,
+Bydureon,Exenatid,2mg,06548732,GLP1-Agonist,1x wöchentl.,
+Tirzepatid,Tirzepatid,5mg,,GIP/GLP1-Agonist,1x wöchentl.,
+Mounjaro,Tirzepatid,5mg,17584236,GIP/GLP1-Agonist,1x wöchentl.,Auch bei Adipositas
+Acarbose,Acarbose,100mg,,Alpha-Gluc-Hemmer,1-1-1-0,Zum ersten Bissen
+Glucobay,Acarbose,100mg,01234596,Alpha-Gluc-Hemmer,1-1-1-0,
+Pioglitazon,Pioglitazon,30mg,,Glitazon,1-0-0-0,Cave: Makulaödem möglich
+Actos,Pioglitazon,30mg,03254896,Glitazon,1-0-0-0,WICHTIG: Makulaödem kontrollieren
+Janumet,Sitagliptin/Metformin,50mg/1000mg,01547892,Kombi,1-0-1-0,
+Eucreas,Vildagliptin/Metformin,50mg/1000mg,03265897,Kombi,1-0-1-0,
+Komboglyze,Saxagliptin/Metformin,2.5mg/1000mg,09584763,Kombi,1-0-1-0,
+Jentadueto,Linagliptin/Metformin,2.5mg/1000mg,10257893,Kombi,1-0-1-0,
+Jardiance Met,Empagliflozin/Metformin,12.5mg/1000mg,12045896,Kombi,1-0-1-0,
+Synjardy,Empagliflozin/Metformin,12.5mg/1000mg,11458792,Kombi,1-0-1-0,
+Xigduo,Dapagliflozin/Metformin,5mg/1000mg,10847593,Kombi,1-0-1-0,
+Insulin Glargin,Insulin glargin,100E/ml,,Basalinsulin,Nach BZ,1x täglich
+Lantus,Insulin glargin,100E/ml,02547896,Basalinsulin,Nach BZ,
+Toujeo,Insulin glargin,300E/ml,10985472,Basalinsulin,Nach BZ,
+Tresiba,Insulin degludec,100E/ml,11854763,Basalinsulin,Nach BZ,Ultralangwirksam
+Levemir,Insulin detemir,100E/ml,03698521,Basalinsulin,Nach BZ,1-2x täglich
+Insulatard,Insulin human NPH,100E/ml,00654123,Basalinsulin,Nach BZ,
+Novorapid,Insulin aspart,100E/ml,02547891,Mahlzeiteninsulin,Nach BZ,Schnellwirksam
+Humalog,Insulin lispro,100E/ml,01236985,Mahlzeiteninsulin,Nach BZ,
+Apidra,Insulin glulisin,100E/ml,04258963,Mahlzeiteninsulin,Nach BZ,
+Fiasp,Insulin aspart,100E/ml,13654872,Mahlzeiteninsulin,Nach BZ,Ultraschnell
+Actrapid,Insulin human,100E/ml,00654987,Normalinsulin,Nach BZ,
+Insuman Rapid,Insulin human,100E/ml,01234654,Normalinsulin,Nach BZ,
+L-Thyroxin 25,Levothyroxin,25µg,,Schilddrüsenhormon,1-0-0-0,Nüchtern 30min vor Frühstück
+L-Thyroxin 50,Levothyroxin,50µg,,Schilddrüsenhormon,1-0-0-0,Nüchtern 30min vor Frühstück
+L-Thyroxin 75,Levothyroxin,75µg,,Schilddrüsenhormon,1-0-0-0,Nüchtern 30min vor Frühstück
+L-Thyroxin 100,Levothyroxin,100µg,,Schilddrüsenhormon,1-0-0-0,Nüchtern 30min vor Frühstück
+L-Thyroxin 125,Levothyroxin,125µg,,Schilddrüsenhormon,1-0-0-0,Nüchtern 30min vor Frühstück
+L-Thyroxin 150,Levothyroxin,150µg,,Schilddrüsenhormon,1-0-0-0,Nüchtern 30min vor Frühstück
+L-Thyroxin 175,Levothyroxin,175µg,,Schilddrüsenhormon,1-0-0-0,Nüchtern 30min vor Frühstück
+L-Thyroxin 200,Levothyroxin,200µg,,Schilddrüsenhormon,1-0-0-0,Nüchtern 30min vor Frühstück
+Euthyrox,Levothyroxin,100µg,02754810,Schilddrüsenhormon,1-0-0-0,
+Thyronajod,Levothyroxin/Jodid,100µg/100µg,00365214,SD-Kombi,1-0-0-0,
+Jodthyrox,Levothyroxin/Jodid,100µg/130.8µg,03254698,SD-Kombi,1-0-0-0,
+Novothyral,Levothyroxin/Liothyronin,100µg/20µg,01254896,SD-Kombi,1-0-0-0,
+Prothyrid,Levothyroxin/Liothyronin,100µg/10µg,02458963,SD-Kombi,1-0-0-0,
+Thybon,Liothyronin,20µg,02658974,Schilddrüsenhormon,1-0-0-0,T3
+Carbimazol,Carbimazol,10mg,,Thyreostatikum,1-0-1-0,Bei Hyperthyreose
+Carbimazol Henning,Carbimazol,10mg,01254893,Thyreostatikum,1-0-1-0,
+Thiamazol,Thiamazol,10mg,,Thyreostatikum,1-0-1-0,
+Favistan,Thiamazol,20mg,01236985,Thyreostatikum,1-0-1-0,
+Propylthiouracil,Propylthiouracil,50mg,,Thyreostatikum,1-1-1-0,In Schwangerschaft
+Jodid 100,Kaliumjodid,100µg,,Jodid,1-0-0-0,Strumaprophylaxe
+Jodid 200,Kaliumjodid,200µg,,Jodid,1-0-0-0,
+Sertralin,Sertralin,50mg,,SSRI,1-0-0-0,
+Zoloft,Sertralin,50mg,01236547,SSRI,1-0-0-0,
+Citalopram,Citalopram,20mg,,SSRI,1-0-0-0,
+Cipramil,Citalopram,20mg,01234568,SSRI,1-0-0-0,
+Escitalopram,Escitalopram,10mg,,SSRI,1-0-0-0,
+Cipralex,Escitalopram,10mg,02658971,SSRI,1-0-0-0,
+Fluoxetin,Fluoxetin,20mg,,SSRI,1-0-0-0,
+Fluctin,Fluoxetin,20mg,01478523,SSRI,1-0-0-0,
+Paroxetin,Paroxetin,20mg,,SSRI,1-0-0-0,
+Seroxat,Paroxetin,20mg,01258963,SSRI,1-0-0-0,
+Fluvoxamin,Fluvoxamin,100mg,,SSRI,0-0-0-1,Abends
+Fevarin,Fluvoxamin,100mg,01254896,SSRI,0-0-0-1,
+Venlafaxin,Venlafaxin,75mg retard,,SNRI,1-0-0-0,
+Trevilor,Venlafaxin,75mg retard,01236987,SNRI,1-0-0-0,
+Duloxetin,Duloxetin,60mg,,SNRI,1-0-0-0,Auch bei Schmerz
+Cymbalta,Duloxetin,60mg,02547893,SNRI,1-0-0-0,
+Milnacipran,Milnacipran,50mg,,SNRI,1-0-1-0,
+Amitriptylin,Amitriptylin,25mg,,Trizyklisches AD,0-0-0-1,Abends - anticholinerg!
+Saroten,Amitriptylin,25mg,00125478,Trizyklisches AD,0-0-0-1,CAVE: Sicca, Glaukom
+Amineurin,Amitriptylin,25mg,01478520,Trizyklisches AD,0-0-0-1,
+Doxepin,Doxepin,25mg,,Trizyklisches AD,0-0-0-1,
+Aponal,Doxepin,25mg,01254896,Trizyklisches AD,0-0-0-1,
+Trimipramin,Trimipramin,25mg,,Trizyklisches AD,0-0-0-1,
+Stangyl,Trimipramin,25mg,01478596,Trizyklisches AD,0-0-0-1,
+Clomipramin,Clomipramin,25mg,,Trizyklisches AD,1-0-0-0,
+Anafranil,Clomipramin,25mg,01236985,Trizyklisches AD,1-0-0-0,
+Opipramol,Opipramol,50mg,,Trizyklisches AD,1-0-1-0,
+Insidon,Opipramol,50mg,01254893,Trizyklisches AD,1-0-1-0,
+Nortriptylin,Nortriptylin,25mg,,Trizyklisches AD,1-0-0-0,
+Nortrilen,Nortriptylin,25mg,02547891,Trizyklisches AD,1-0-0-0,
+Mirtazapin,Mirtazapin,30mg,,Tetrazyklisches AD,0-0-0-1,Abends - Gewichtszunahme
+Remergil,Mirtazapin,30mg,01254896,Tetrazyklisches AD,0-0-0-1,
+Bupropion,Bupropion,150mg,,NDRI,1-0-0-0,Auch Raucherentwöhnung
+Elontril,Bupropion,150mg,02547896,NDRI,1-0-0-0,
+Wellbutrin,Bupropion,150mg,03654982,NDRI,1-0-0-0,
+Trazodon,Trazodon,100mg,,SARI,0-0-0-1,Schlaffördernd
+Agomelatin,Agomelatin,25mg,,Melatonin-Agonist,0-0-0-1,Abends
+Valdoxan,Agomelatin,25mg,04587963,Melatonin-Agonist,0-0-0-1,
+Vortioxetin,Vortioxetin,10mg,,Multimodales AD,1-0-0-0,
+Brintellix,Vortioxetin,10mg,10547892,Multimodales AD,1-0-0-0,
+Johanniskraut,Hypericum,300mg,,Phytopharmakon,1-1-1-0,Photosensibilisierung!
+Laif,Johanniskraut,900mg,04236958,Phytopharmakon,1-0-0-0,
+Quetiapin,Quetiapin,100mg,,Atypisches NL,0-0-0-1,Sedierend
+Seroquel,Quetiapin,100mg,01254896,Atypisches NL,0-0-0-1,
+Risperidon,Risperidon,2mg,,Atypisches NL,0-0-0-1,
+Risperdal,Risperidon,2mg,01478596,Atypisches NL,0-0-0-1,
+Olanzapin,Olanzapin,10mg,,Atypisches NL,0-0-0-1,Gewichtszunahme
+Zyprexa,Olanzapin,10mg,02547896,Atypisches NL,0-0-0-1,
+Aripiprazol,Aripiprazol,10mg,,Atypisches NL,1-0-0-0,
+Abilify,Aripiprazol,10mg,03254896,Atypisches NL,1-0-0-0,
+Clozapin,Clozapin,100mg,,Atypisches NL,1-0-1-0,BB-Kontrollen!
+Leponex,Clozapin,100mg,01236985,Atypisches NL,1-0-1-0,
+Ziprasidon,Ziprasidon,40mg,,Atypisches NL,1-0-1-0,
+Zeldox,Ziprasidon,40mg,02658974,Atypisches NL,1-0-1-0,
+Haloperidol,Haloperidol,5mg,,Typisches NL,1-0-1-0,
+Haldol,Haloperidol,5mg,01234568,Typisches NL,1-0-1-0,
+Melperon,Melperon,25mg,,Typisches NL,0-0-0-1,Niedrigpotent
+Eunerpan,Melperon,25mg,01254896,Typisches NL,0-0-0-1,
+Pipamperon,Pipamperon,40mg,,Typisches NL,0-0-0-1,Schlaffördernd
+Dipiperon,Pipamperon,40mg,01478520,Typisches NL,0-0-0-1,
+Promethazin,Promethazin,25mg,,Typisches NL,0-0-0-1,Auch antihistaminisch
+Atosil,Promethazin,25mg,01236547,Typisches NL,0-0-0-1,
+Sulpirid,Sulpirid,200mg,,Typisches NL,1-0-1-0,
+Dogmatil,Sulpirid,200mg,01254893,Typisches NL,1-0-1-0,
+Lorazepam,Lorazepam,1mg,,Benzodiazepin,Bei Bedarf,Suchtpotential!
+Tavor,Lorazepam,1mg,01234589,Benzodiazepin,Bei Bedarf,Kurzzeitig
+Diazepam,Diazepam,5mg,,Benzodiazepin,Bei Bedarf,
+Valium,Diazepam,5mg,01478596,Benzodiazepin,Bei Bedarf,
+Oxazepam,Oxazepam,10mg,,Benzodiazepin,Bei Bedarf,Kürzere HWZ
+Adumbran,Oxazepam,10mg,01236985,Benzodiazepin,Bei Bedarf,
+Bromazepam,Bromazepam,6mg,,Benzodiazepin,Bei Bedarf,
+Lexotanil,Bromazepam,6mg,01254896,Benzodiazepin,Bei Bedarf,
+Alprazolam,Alprazolam,0.5mg,,Benzodiazepin,Bei Bedarf,
+Tafil,Alprazolam,0.5mg,01478523,Benzodiazepin,Bei Bedarf,
+Clonazepam,Clonazepam,0.5mg,,Benzodiazepin,Bei Bedarf,Auch antiepileptisch
+Rivotril,Clonazepam,0.5mg,01236547,Benzodiazepin,Bei Bedarf,
+Zopiclon,Zopiclon,7.5mg,,Z-Substanz,0-0-0-1,Kurzzeitig!
+Ximovan,Zopiclon,7.5mg,01254896,Z-Substanz,0-0-0-1,
+Zolpidem,Zolpidem,10mg,,Z-Substanz,0-0-0-1,
+Stilnox,Zolpidem,10mg,01478596,Z-Substanz,0-0-0-1,
+Bikalm,Zolpidem,10mg,02547891,Z-Substanz,0-0-0-1,
+Levetiracetam,Levetiracetam,500mg,,Antiepileptikum,1-0-1-0,
+Keppra,Levetiracetam,500mg,01254896,Antiepileptikum,1-0-1-0,
+Valproat,Valproinsäure,500mg,,Antiepileptikum,1-0-1-0,Teratogen!
+Orfiril,Valproinsäure,500mg,01236985,Antiepileptikum,1-0-1-0,
+Ergenyl,Valproinsäure,300mg,01478520,Antiepileptikum,1-0-1-0,
+Carbamazepin,Carbamazepin,200mg,,Antiepileptikum,1-0-1-0,Auch bei Neuralgie
+Tegretal,Carbamazepin,200mg,01234568,Antiepileptikum,1-0-1-0,
+Timonil,Carbamazepin,200mg,01254893,Antiepileptikum,1-0-1-0,
+Oxcarbazepin,Oxcarbazepin,300mg,,Antiepileptikum,1-0-1-0,
+Trileptal,Oxcarbazepin,300mg,02547896,Antiepileptikum,1-0-1-0,
+Lamotrigin,Lamotrigin,100mg,,Antiepileptikum,1-0-1-0,Langsam aufdosieren
+Lamictal,Lamotrigin,100mg,01478596,Antiepileptikum,1-0-1-0,
+Topiramat,Topiramat,50mg,,Antiepileptikum,1-0-1-0,Auch Migräneprophylaxe
+Topamax,Topiramat,50mg,02658974,Antiepileptikum,1-0-1-0,
+Gabapentin,Gabapentin,300mg,,Antiepileptikum,1-1-1-0,Auch neuropath. Schmerz
+Neurontin,Gabapentin,300mg,01236985,Antiepileptikum,1-1-1-0,
+Pregabalin,Pregabalin,75mg,,Antiepileptikum,1-0-1-0,Auch bei Schmerz/Angst
+Lyrica,Pregabalin,75mg,01254896,Antiepileptikum,1-0-1-0,
+Phenytoin,Phenytoin,100mg,,Antiepileptikum,1-0-1-0,Spiegel kontrollieren
+Phenhydan,Phenytoin,100mg,01478520,Antiepileptikum,1-0-1-0,
+Lacosamid,Lacosamid,100mg,,Antiepileptikum,1-0-1-0,
+Vimpat,Lacosamid,100mg,04587963,Antiepileptikum,1-0-1-0,
+Brivaracetam,Brivaracetam,50mg,,Antiepileptikum,1-0-1-0,
+Briviact,Brivaracetam,50mg,11547896,Antiepileptikum,1-0-1-0,
+Perampanel,Perampanel,4mg,,Antiepileptikum,0-0-0-1,
+Fycompa,Perampanel,4mg,10254893,Antiepileptikum,0-0-0-1,
+Levodopa/Carbidopa,Levodopa/Carbidopa,100mg/25mg,,Parkinson,1-1-1-0,
+Madopar,Levodopa/Benserazid,100mg/25mg,01234568,Parkinson,1-1-1-0,
+Nacom,Levodopa/Carbidopa,100mg/25mg,01254896,Parkinson,1-1-1-0,
+Stalevo,Levodopa/Carbidopa/Entacapon,100mg/25mg/200mg,02547896,Parkinson,1-1-1-0,
+Pramipexol,Pramipexol,0.7mg,,Dopaminagonist,1-0-1-0,Auch RLS
+Sifrol,Pramipexol,0.7mg,01478596,Dopaminagonist,1-0-1-0,
+Ropinirol,Ropinirol,4mg,,Dopaminagonist,1-0-1-0,
+Requip,Ropinirol,4mg,01236985,Dopaminagonist,1-0-1-0,
+Rotigotin,Rotigotin,4mg/24h,,Dopaminagonist,1x täglich,Pflaster
+Neupro,Rotigotin,4mg/24h,03254896,Dopaminagonist,1x täglich,
+Rasagilin,Rasagilin,1mg,,MAO-B-Hemmer,1-0-0-0,
+Azilect,Rasagilin,1mg,02658974,MAO-B-Hemmer,1-0-0-0,
+Safinamid,Safinamid,50mg,,MAO-B-Hemmer,1-0-0-0,
+Xadago,Safinamid,50mg,11458796,MAO-B-Hemmer,1-0-0-0,
+Amantadin,Amantadin,100mg,,NMDA-Antagonist,1-0-1-0,
+PK-Merz,Amantadin,100mg,01234589,NMDA-Antagonist,1-0-1-0,
+Entacapon,Entacapon,200mg,,COMT-Hemmer,Mit L-Dopa,
+Comtess,Entacapon,200mg,01254893,COMT-Hemmer,Mit L-Dopa,
+Donepezil,Donepezil,10mg,,Antidementivum,0-0-0-1,Bei Alzheimer
+Aricept,Donepezil,10mg,01478596,Antidementivum,0-0-0-1,
+Rivastigmin,Rivastigmin,4.6mg/24h,,Antidementivum,1x täglich,Pflaster
+Exelon,Rivastigmin,4.6mg/24h,02547891,Antidementivum,1x täglich,
+Galantamin,Galantamin,16mg retard,,Antidementivum,1-0-0-0,
+Reminyl,Galantamin,16mg retard,01236547,Antidementivum,1-0-0-0,
+Memantin,Memantin,20mg,,Antidementivum,1-0-0-0,Bei moderater Demenz
+Axura,Memantin,20mg,02658971,Antidementivum,1-0-0-0,
+Ebixa,Memantin,20mg,01254896,Antidementivum,1-0-0-0,
+Ginkgo biloba,Ginkgo-Extrakt,240mg,,Phytopharmakon,1-0-0-0,
+Tebonin,Ginkgo-Extrakt,240mg,06997448,Phytopharmakon,1-0-0-0,
+Methylphenidat,Methylphenidat,20mg retard,,Stimulans,1-0-0-0,
+Ritalin,Methylphenidat,10mg,01234568,Stimulans,1-0-0-0,
+Medikinet,Methylphenidat,20mg retard,01478520,Stimulans,1-0-0-0,
+Concerta,Methylphenidat,36mg retard,02547896,Stimulans,1-0-0-0,
+Lisdexamfetamin,Lisdexamfetamin,50mg,,Stimulans,1-0-0-0,
+Elvanse,Lisdexamfetamin,50mg,10254896,Stimulans,1-0-0-0,
+Atomoxetin,Atomoxetin,40mg,,Nicht-Stimulans,1-0-0-0,
+Strattera,Atomoxetin,40mg,03254893,Nicht-Stimulans,1-0-0-0,
+Sumatriptan,Sumatriptan,50mg,,Triptan,Bei Anfall,Max. 2x/Tag
+Imigran,Sumatriptan,50mg,01236985,Triptan,Bei Anfall,
+Rizatriptan,Rizatriptan,10mg,,Triptan,Bei Anfall,
+Maxalt,Rizatriptan,10mg,01254896,Triptan,Bei Anfall,Schmelztablette
+Zolmitriptan,Zolmitriptan,2.5mg,,Triptan,Bei Anfall,
+Ascotop,Zolmitriptan,2.5mg,01478596,Triptan,Bei Anfall,
+Eletriptan,Eletriptan,40mg,,Triptan,Bei Anfall,
+Relpax,Eletriptan,40mg,02547891,Triptan,Bei Anfall,
+Naratriptan,Naratriptan,2.5mg,,Triptan,Bei Anfall,Längere Wirkdauer
+Formigran,Naratriptan,2.5mg,07420744,Triptan,Bei Anfall,Rezeptfrei
+Almotriptan,Almotriptan,12.5mg,,Triptan,Bei Anfall,
+Frovatriptan,Frovatriptan,2.5mg,,Triptan,Bei Anfall,
+Allegro,Frovatriptan,2.5mg,01236547,Triptan,Bei Anfall,
+Flunarizin,Flunarizin,5mg,,Migräneprophylaxe,0-0-0-1,
+Sibelium,Flunarizin,5mg,01254893,Migräneprophylaxe,0-0-0-1,
+Erenumab,Erenumab,70mg,,CGRP-Antikörper,1x monatl.,s.c. Injektion
+Aimovig,Erenumab,70mg,13547896,CGRP-Antikörper,1x monatl.,
+Fremanezumab,Fremanezumab,225mg,,CGRP-Antikörper,1x monatl.,
+Ajovy,Fremanezumab,225mg,14258963,CGRP-Antikörper,1x monatl.,
+Galcanezumab,Galcanezumab,120mg,,CGRP-Antikörper,1x monatl.,
+Emgality,Galcanezumab,120mg,14587963,CGRP-Antikörper,1x monatl.,
+Ibuprofen 400,Ibuprofen,400mg,,NSAR,1-1-1-0,Magenschutz bedenken
+Ibuprofen 600,Ibuprofen,600mg,,NSAR,1-0-1-0,
+Ibuflam,Ibuprofen,600mg,01234568,NSAR,1-0-1-0,
+Nurofen,Ibuprofen,400mg,04711825,NSAR,1-1-1-0,
+Diclofenac 50,Diclofenac,50mg,,NSAR,1-0-1-0,
+Diclofenac 75 retard,Diclofenac,75mg retard,,NSAR,1-0-1-0,
+Voltaren,Diclofenac,50mg,03416422,NSAR,1-0-1-0,
+Voltaren Resinat,Diclofenac,75mg retard,01246766,NSAR,1-0-1-0,
+Naproxen,Naproxen,500mg,,NSAR,1-0-1-0,
+Dolormin,Naproxen,250mg,01094902,NSAR,1-1-1-0,
+Indometacin,Indometacin,50mg,,NSAR,1-0-1-0,
+Amuno,Indometacin,50mg,01234589,NSAR,1-0-1-0,
+Piroxicam,Piroxicam,20mg,,NSAR,1-0-0-0,
+Feldene,Piroxicam,20mg,01254896,NSAR,1-0-0-0,
+Meloxicam,Meloxicam,15mg,,NSAR,1-0-0-0,COX-2-selektiv
+Mobec,Meloxicam,15mg,01478596,NSAR,1-0-0-0,
+Etoricoxib,Etoricoxib,60mg,,COX-2-Hemmer,1-0-0-0,
+Arcoxia,Etoricoxib,60mg,01236985,COX-2-Hemmer,1-0-0-0,
+Celecoxib,Celecoxib,200mg,,COX-2-Hemmer,1-0-1-0,
+Celebrex,Celecoxib,200mg,01254893,COX-2-Hemmer,1-0-1-0,
+Paracetamol 500,Paracetamol,500mg,,Analgetikum,1-1-1-0,Max. 4g/Tag
+Paracetamol 1000,Paracetamol,1000mg,,Analgetikum,1-0-1-0,
+Ben-u-ron,Paracetamol,500mg,02423843,Analgetikum,1-1-1-0,
+Perfalgan,Paracetamol,1g i.v.,,Analgetikum,Bei Bedarf,
+Novaminsulfon,Metamizol,500mg,,Analgetikum,1-1-1-0,Agranulozytose-Risiko
+Novalgin,Metamizol,500mg,01235478,Analgetikum,1-1-1-0,
+Tramadol,Tramadol,50mg,,Opioid,1-1-1-0,
+Tramal,Tramadol,50mg,01234568,Opioid,1-1-1-0,
+Tramadol retard,Tramadol,100mg retard,,Opioid,1-0-1-0,
+Tramal long,Tramadol,100mg retard,01254896,Opioid,1-0-1-0,
+Tilidin/Naloxon,Tilidin/Naloxon,50mg/4mg,,Opioid,1-1-1-0,
+Valoron N,Tilidin/Naloxon,50mg/4mg,01478520,Opioid,1-1-1-0,
+Tilidin retard,Tilidin/Naloxon,100mg/8mg retard,,Opioid,1-0-1-0,
+Morphin,Morphin,10mg,,Opioid stark,Nach Schema,BtM-Rezept
+MST,Morphin,30mg retard,01234589,Opioid stark,1-0-1-0,
+Capros,Morphin,20mg retard,01254893,Opioid stark,1-0-1-0,
+Oxycodon,Oxycodon,10mg,,Opioid stark,1-0-1-0,BtM
+Oxygesic,Oxycodon,10mg retard,01236985,Opioid stark,1-0-1-0,
+Targin,Oxycodon/Naloxon,10mg/5mg,02547896,Opioid stark,1-0-1-0,Weniger Obstipation
+Hydromorphon,Hydromorphon,4mg,,Opioid stark,1-0-1-0,BtM
+Palladon,Hydromorphon,4mg retard,01478596,Opioid stark,1-0-1-0,
+Jurnista,Hydromorphon,8mg retard,02658974,Opioid stark,1-0-0-0,1x täglich
+Fentanyl TTS,Fentanyl,25µg/h,,Opioid stark,Alle 3 Tage,Pflaster
+Durogesic,Fentanyl,25µg/h,01234568,Opioid stark,Alle 3 Tage,
+Buprenorphin TTS,Buprenorphin,35µg/h,,Opioid stark,Alle 4 Tage,Pflaster
+Transtec,Buprenorphin,35µg/h,01254896,Opioid stark,Alle 4 Tage,
+Norspan,Buprenorphin,10µg/h,02547891,Opioid stark,Alle 7 Tage,
+Tapentadol,Tapentadol,50mg,,Opioid stark,1-0-1-0,
+Palexia,Tapentadol,50mg retard,06547893,Opioid stark,1-0-1-0,
+Capsaicin Pflaster,Capsaicin,8%,,Topisch,Alle 3 Monate,In Klinik anwenden
+Qutenza,Capsaicin,8%,09235871,Topisch,Alle 3 Monate,
+Omeprazol,Omeprazol,20mg,,PPI,1-0-0-0,30min vor Mahlzeit
+Antra,Omeprazol,20mg,01234568,PPI,1-0-0-0,
+Omep,Omeprazol,20mg,01478520,PPI,1-0-0-0,
+Pantoprazol,Pantoprazol,40mg,,PPI,1-0-0-0,
+Pantozol,Pantoprazol,40mg,01254896,PPI,1-0-0-0,
+Rifun,Pantoprazol,40mg,01236985,PPI,1-0-0-0,
+Esomeprazol,Esomeprazol,40mg,,PPI,1-0-0-0,
+Nexium,Esomeprazol,40mg,02547896,PPI,1-0-0-0,
+Lansoprazol,Lansoprazol,30mg,,PPI,1-0-0-0,
+Agopton,Lansoprazol,30mg,01478596,PPI,1-0-0-0,
+Rabeprazol,Rabeprazol,20mg,,PPI,1-0-0-0,
+Pariet,Rabeprazol,20mg,02658974,PPI,1-0-0-0,
+Ranitidin,Ranitidin,150mg,,H2-Blocker,1-0-1-0,Wenn PPI nicht vertragen
+Zantic,Ranitidin,150mg,01234589,H2-Blocker,1-0-1-0,
+Famotidin,Famotidin,40mg,,H2-Blocker,0-0-0-1,
+Pepdul,Famotidin,40mg,01254893,H2-Blocker,0-0-0-1,
+Metoclopramid,Metoclopramid,10mg,,Prokinetikum,1-1-1-0,Max. 5 Tage
+MCP,Metoclopramid,10mg,01236547,Prokinetikum,1-1-1-0,
+Paspertin,Metoclopramid,10mg,01478523,Prokinetikum,1-1-1-0,
+Domperidon,Domperidon,10mg,,Prokinetikum,1-1-1-0,
+Motilium,Domperidon,10mg,01254896,Prokinetikum,1-1-1-0,
+Ondansetron,Ondansetron,8mg,,Antiemetikum,Bei Bedarf,
+Zofran,Ondansetron,8mg,01478596,Antiemetikum,Bei Bedarf,
+Granisetron,Granisetron,2mg,,Antiemetikum,1-0-0-0,
+Kevatril,Granisetron,2mg,01236985,Antiemetikum,1-0-0-0,
+Dimenhydrinat,Dimenhydrinat,50mg,,Antiemetikum,Bei Bedarf,
+Vomex A,Dimenhydrinat,50mg,01116555,Antiemetikum,Bei Bedarf,
+Macrogol,Macrogol,13g,,Laxans,1-0-0-0,Mit viel Flüssigkeit
+Movicol,Macrogol,13g,01236547,Laxans,1-0-0-0,
+Laxoberal,Natriumpicosulfat,5mg,01254896,Laxans,0-0-0-1,
+Dulcolax,Bisacodyl,5mg,01478520,Laxans,0-0-0-1,
+Lactulose,Lactulose,10g,,Laxans,1-0-1-0,
+Bifiteral,Lactulose,10g,01234568,Laxans,1-0-1-0,
+Loperamid,Loperamid,2mg,,Antidiarrhoikum,Bei Bedarf,
+Imodium,Loperamid,2mg,07417173,Antidiarrhoikum,Bei Bedarf,
+Butylscopolamin,Butylscopolamin,10mg,,Spasmolytikum,1-1-1-0,
+Buscopan,Butylscopolamin,10mg,00749079,Spasmolytikum,1-1-1-0,
+Mebeverin,Mebeverin,135mg,,Spasmolytikum,1-1-1-0,
+Duspatal,Mebeverin,135mg,01254893,Spasmolytikum,1-1-1-0,
+Mesalazin,Mesalazin,500mg,,5-ASA,1-1-1-0,Bei CED
+Salofalk,Mesalazin,500mg,01234568,5-ASA,1-1-1-0,
+Claversal,Mesalazin,500mg,01478596,5-ASA,1-1-1-0,
+Pentasa,Mesalazin,1g,01236985,5-ASA,1-0-1-0,
+Sulfasalazin,Sulfasalazin,500mg,,5-ASA,1-1-1-0,Auch bei Rheuma
+Azulfidine,Sulfasalazin,500mg,01254896,5-ASA,1-1-1-0,
+Budesonid,Budesonid,9mg,,Kortikoid lokal,1-0-0-0,Morbus Crohn
+Budenofalk,Budesonid,9mg,02547896,Kortikoid lokal,1-0-0-0,
+Entocort,Budesonid,3mg,01478520,Kortikoid lokal,1-1-1-0,
+Salbutamol,Salbutamol,100µg/Hub,,SABA,Bei Bedarf,Bedarfsmedikation
+Sultanol,Salbutamol,100µg/Hub,01234568,SABA,Bei Bedarf,
+Ventolin,Salbutamol,100µg/Hub,01254896,SABA,Bei Bedarf,
+Fenoterol,Fenoterol,100µg/Hub,,SABA,Bei Bedarf,
+Berotec,Fenoterol,100µg/Hub,01478596,SABA,Bei Bedarf,
+Terbutalin,Terbutalin,0.5mg/Hub,,SABA,Bei Bedarf,
+Bricanyl,Terbutalin,0.5mg/Hub,01236985,SABA,Bei Bedarf,
+Formoterol,Formoterol,12µg/Hub,,LABA,1-0-1-0,Nur mit ICS
+Oxis,Formoterol,12µg/Hub,01254893,LABA,1-0-1-0,
+Foradil,Formoterol,12µg/Hub,01478523,LABA,1-0-1-0,
+Salmeterol,Salmeterol,50µg/Hub,,LABA,1-0-1-0,
+Serevent,Salmeterol,50µg/Hub,01234589,LABA,1-0-1-0,
+Indacaterol,Indacaterol,150µg,,LABA,1-0-0-0,
+Onbrez,Indacaterol,150µg,06547891,LABA,1-0-0-0,
+Olodaterol,Olodaterol,2.5µg/Hub,,LABA,1-0-0-0,
+Striverdi,Olodaterol,2.5µg/Hub,10254896,LABA,1-0-0-0,
+Ipratropium,Ipratropium,20µg/Hub,,SAMA,1-1-1-0,
+Atrovent,Ipratropium,20µg/Hub,01236547,SAMA,1-1-1-0,
+Tiotropium,Tiotropium,18µg,,LAMA,1-0-0-0,
+Spiriva,Tiotropium,18µg,02547896,LAMA,1-0-0-0,
+Glycopyrronium,Glycopyrronium,50µg,,LAMA,1-0-0-0,
+Seebri,Glycopyrronium,50µg,10587963,LAMA,1-0-0-0,
+Umeclidinium,Umeclidinium,62.5µg,,LAMA,1-0-0-0,
+Incruse,Umeclidinium,62.5µg,11258963,LAMA,1-0-0-0,
+Aclidinium,Aclidinium,400µg,,LAMA,1-0-1-0,
+Bretaris,Aclidinium,400µg,10158796,LAMA,1-0-1-0,
+Budesonid inh,Budesonid,200µg/Hub,,ICS,1-0-1-0,
+Pulmicort,Budesonid,200µg/Hub,01478596,ICS,1-0-1-0,
+Beclometason,Beclometason,250µg/Hub,,ICS,1-0-1-0,
+Beclomet,Beclometason,250µg/Hub,01236985,ICS,1-0-1-0,
+Fluticason,Fluticason,250µg/Hub,,ICS,1-0-1-0,
+Flutide,Fluticason,250µg/Hub,01254896,ICS,1-0-1-0,
+Ciclesonid,Ciclesonid,160µg/Hub,,ICS,1-0-0-0,1x täglich
+Alvesco,Ciclesonid,160µg/Hub,02547891,ICS,1-0-0-0,
+Mometason inh,Mometason,400µg,,ICS,1-0-0-0,1x täglich
+Asmanex,Mometason,400µg,03254896,ICS,1-0-0-0,
+Budesonid/Formoterol,Budesonid/Formoterol,160µg/4.5µg,,ICS/LABA,1-0-1-0,
+Symbicort,Budesonid/Formoterol,160µg/4.5µg,01254896,ICS/LABA,1-0-1-0,
+DuoResp,Budesonid/Formoterol,160µg/4.5µg,10548796,ICS/LABA,1-0-1-0,
+Fluticason/Salmeterol,Fluticason/Salmeterol,250µg/50µg,,ICS/LABA,1-0-1-0,
+Viani,Fluticason/Salmeterol,250µg/50µg,01478596,ICS/LABA,1-0-1-0,
+Seretide,Fluticason/Salmeterol,250µg/50µg,01236985,ICS/LABA,1-0-1-0,
+Beclometason/Formoterol,Beclometason/Formoterol,100µg/6µg,,ICS/LABA,1-0-1-0,
+Foster,Beclometason/Formoterol,100µg/6µg,04257896,ICS/LABA,1-0-1-0,
+Fluticasonfuroat/Vilanterol,Fluticasonfuroat/Vilanterol,92µg/22µg,,ICS/LABA,1-0-0-0,
+Relvar,Fluticasonfuroat/Vilanterol,92µg/22µg,10458796,ICS/LABA,1-0-0-0,
+Indacaterol/Glycopyrronium,Indacaterol/Glycopyrronium,85µg/43µg,,LABA/LAMA,1-0-0-0,
+Ultibro,Indacaterol/Glycopyrronium,85µg/43µg,10587963,LABA/LAMA,1-0-0-0,
+Tiotropium/Olodaterol,Tiotropium/Olodaterol,2.5µg/2.5µg,,LABA/LAMA,1-0-0-0,
+Spiolto,Tiotropium/Olodaterol,2.5µg/2.5µg,11254896,LABA/LAMA,1-0-0-0,
+Umeclidinium/Vilanterol,Umeclidinium/Vilanterol,62.5µg/25µg,,LABA/LAMA,1-0-0-0,
+Anoro,Umeclidinium/Vilanterol,62.5µg/25µg,11547893,LABA/LAMA,1-0-0-0,
+Beclometason/Formoterol/Glycopyrronium,Beclometason/Formoterol/Glycopyrronium,87µg/5µg/9µg,,ICS/LABA/LAMA,1-0-1-0,
+Trimbow,Beclometason/Formoterol/Glycopyrronium,87µg/5µg/9µg,13548796,ICS/LABA/LAMA,1-0-1-0,
+Fluticasonfuroat/Umeclidinium/Vilanterol,Fluticasonfuroat/Umeclidinium/Vilanterol,92µg/55µg/22µg,,ICS/LABA/LAMA,1-0-0-0,
+Trelegy,Fluticasonfuroat/Umeclidinium/Vilanterol,92µg/55µg/22µg,14258796,ICS/LABA/LAMA,1-0-0-0,
+Montelukast,Montelukast,10mg,,LTRA,0-0-0-1,Abends
+Singulair,Montelukast,10mg,01254896,LTRA,0-0-0-1,
+Theophyllin,Theophyllin,200mg retard,,Methylxanthin,1-0-1-0,Spiegel kontrollieren
+Euphylong,Theophyllin,200mg retard,01478596,Methylxanthin,1-0-1-0,
+Roflumilast,Roflumilast,500µg,,PDE4-Hemmer,1-0-0-0,Bei COPD
+Daxas,Roflumilast,500µg,06547896,PDE4-Hemmer,1-0-0-0,
+Acetylcystein,Acetylcystein,600mg,,Mukolytikum,1-0-0-0,
+ACC,Acetylcystein,600mg,00451126,Mukolytikum,1-0-0-0,
+NAC,Acetylcystein,600mg,01254893,Mukolytikum,1-0-0-0,
+Ambroxol,Ambroxol,30mg,,Mukolytikum,1-1-1-0,
+Mucosolvan,Ambroxol,30mg,00756237,Mukolytikum,1-1-1-0,
+Cetirizin,Cetirizin,10mg,,Antihistaminikum,1-0-0-0,Wenig sedierend
+Zyrtec,Cetirizin,10mg,01254896,Antihistaminikum,1-0-0-0,
+Loratadin,Loratadin,10mg,,Antihistaminikum,1-0-0-0,
+Lisino,Loratadin,10mg,01478596,Antihistaminikum,1-0-0-0,
+Desloratadin,Desloratadin,5mg,,Antihistaminikum,1-0-0-0,
+Aerius,Desloratadin,5mg,01236985,Antihistaminikum,1-0-0-0,
+Levocetirizin,Levocetirizin,5mg,,Antihistaminikum,1-0-0-0,
+Xusal,Levocetirizin,5mg,02547896,Antihistaminikum,1-0-0-0,
+Fexofenadin,Fexofenadin,180mg,,Antihistaminikum,1-0-0-0,
+Telfast,Fexofenadin,180mg,02658974,Antihistaminikum,1-0-0-0,
+Bilastin,Bilastin,20mg,,Antihistaminikum,1-0-0-0,Nüchtern
+Bitosen,Bilastin,20mg,10547896,Antihistaminikum,1-0-0-0,
+Rupatadin,Rupatadin,10mg,,Antihistaminikum,1-0-0-0,
+Rupafin,Rupatadin,10mg,06548792,Antihistaminikum,1-0-0-0,
+Mometason nasal,Mometason,50µg/Hub,,Nasales Kortikoid,1-0-0-0,
+Nasonex,Mometason,50µg/Hub,01254896,Nasales Kortikoid,1-0-0-0,
+Fluticason nasal,Fluticason,50µg/Hub,,Nasales Kortikoid,1-0-1-0,
+Flutide Nasal,Fluticason,50µg/Hub,01478520,Nasales Kortikoid,1-0-1-0,
+Avamys,Fluticasonfuroat,27.5µg/Hub,04258963,Nasales Kortikoid,1-0-0-0,
+Budesonid nasal,Budesonid,64µg/Hub,,Nasales Kortikoid,1-0-1-0,
+Rhinocort,Budesonid,64µg/Hub,01236547,Nasales Kortikoid,1-0-1-0,
+L-Thyroxin,Levothyroxin,75µg,,Schilddrüsenhormon,1-0-0-0,Nüchtern 30min vor Frühstück
+L-Thyroxin Henning,Levothyroxin,75µg,00125874,Schilddrüsenhormon,1-0-0-0,
+Berlthyrox,Levothyroxin,75µg,01478596,Schilddrüsenhormon,1-0-0-0,
+L-Thyrox,Levothyroxin,75µg,03254896,Schilddrüsenhormon,1-0-0-0,
+Eferox,Levothyroxin,75µg,01236985,Schilddrüsenhormon,1-0-0-0,
+Tirosint,Levothyroxin,75µg,10547892,Schilddrüsenhormon,1-0-0-0,Weichkapsel
+Methizol,Thiamazol,10mg,01478596,Thyreostatikum,Nach Schema,
+Neo-Thyreostat,Carbimazol,10mg,00658745,Thyreostatikum,Nach Schema,
+Propycil,Propylthiouracil,50mg,01254896,Thyreostatikum,1-1-1-0,
+Jodid,Kaliumjodid,200µg,,Jodsubstitution,1-0-0-0,
+Jodetten,Kaliumjodid,200µg,01234587,Jodsubstitution,1-0-0-0,
+Jodid,Kaliumjodid,200µg,02547893,Jodsubstitution,1-0-0-0,
+Imipramin,Imipramin,25mg,,Trizyklika,1-0-1-0,
+Tofranil,Imipramin,25mg,00658742,Trizyklika,1-0-1-0,
+Zyban,Bupropion,150mg,01234596,NDRI,1-0-0-0,
+Trittico,Trazodon,100mg retard,01478596,SARI,0-0-0-1,
+Lithium,Lithiumcarbonat,450mg,,Phasenprophylaxe,Nach Spiegel,Spiegel kontrollieren!
+Quilonum,Lithiumcarbonat,450mg retard,00125896,Phasenprophylaxe,Nach Spiegel,
+Hypnorex,Lithiumcarbonat,400mg,01234587,Phasenprophylaxe,Nach Spiegel,
+Paliperidon,Paliperidon,6mg,,Atypisches Antipsychotikum,1-0-0-0,
+Invega,Paliperidon,6mg,07854123,Atypisches Antipsychotikum,1-0-0-0,
+Nitrazepam,Nitrazepam,5mg,,Benzodiazepin,0-0-0-1,Schlafmittel
+Mogadan,Nitrazepam,5mg,00458796,Benzodiazepin,0-0-0-1,
+Flurazepam,Flurazepam,30mg,,Benzodiazepin,0-0-0-1,
+Dalmadorm,Flurazepam,30mg,01236985,Benzodiazepin,0-0-0-1,
+Temazepam,Temazepam,20mg,,Benzodiazepin,0-0-0-1,
+Planum,Temazepam,20mg,00125896,Benzodiazepin,0-0-0-1,
+Valproinsäure,Valproat,500mg,,Antiepileptikum,Nach Spiegel,Teratogen!
+Zonisamid,Zonisamid,100mg,,Antiepileptikum,1-0-0-0,
+Zonegran,Zonisamid,100mg,05547896,Antiepileptikum,1-0-0-0,
+Selegilin,Selegilin,5mg,,MAO-B-Hemmer,1-1-0-0,Nicht abends
+Antiparkin,Selegilin,5mg,01254893,MAO-B-Hemmer,1-1-0-0,
+Opicapon,Opicapon,50mg,,COMT-Hemmer,0-0-0-1,1x täglich
+Ongentys,Opicapon,50mg,13254896,COMT-Hemmer,0-0-0-1,
+Dimethylfumarat,Dimethylfumarat,240mg,,MS-Basistherapie,1-0-1-0,Flush/GI-Beschwerden
+Tecfidera,Dimethylfumarat,240mg,10254896,MS-Basistherapie,1-0-1-0,
+Glatirameracetat,Glatirameracetat,40mg,,MS-Basistherapie,3x/Woche,s.c.
+Copaxone,Glatirameracetat,40mg,01234598,MS-Basistherapie,3x/Woche,
+Teriflunomid,Teriflunomid,14mg,,MS-Basistherapie,1-0-0-0,
+Aubagio,Teriflunomid,14mg,10547892,MS-Basistherapie,1-0-0-0,
+Fingolimod,Fingolimod,0.5mg,,MS-Eskalation,1-0-0-0,Makulaödem möglich!
+Gilenya,Fingolimod,0.5mg,08547896,MS-Eskalation,1-0-0-0,WICHTIG: Augen kontrollieren
+Siponimod,Siponimod,2mg,,MS-Eskalation,1-0-0-0,
+Mayzent,Siponimod,2mg,15254896,MS-Eskalation,1-0-0-0,
+Ozanimod,Ozanimod,0.92mg,,MS-Eskalation,1-0-0-0,
+Zeposia,Ozanimod,0.92mg,16547892,MS-Eskalation,1-0-0-0,
+Ocrelizumab,Ocrelizumab,300mg,,MS-Eskalation,Alle 6 Monate,Infusion
+Ocrevus,Ocrelizumab,300mg,13254896,MS-Eskalation,Alle 6 Monate,
+Natalizumab,Natalizumab,300mg,,MS-Eskalation,Alle 4 Wochen,Infusion
+Tysabri,Natalizumab,300mg,07854123,MS-Eskalation,Alle 4 Wochen,
+Interferon beta-1a,Interferon beta-1a,44µg,,MS-Basistherapie,3x/Woche,s.c.
+Rebif,Interferon beta-1a,44µg,02547891,MS-Basistherapie,3x/Woche,
+Avonex,Interferon beta-1a,30µg,01254893,MS-Basistherapie,1x/Woche,i.m.
+Paracetamol,Paracetamol,500mg,,Analgetikum,1-1-1-1,Max 4g/Tag
+Ibuprofen,Ibuprofen,400mg,,NSAR,1-1-1-0,Magenschutz bei Dauertherapie
+Ibu,Ibuprofen,400mg,01234587,NSAR,1-1-1-0,
+Diclofenac,Diclofenac,50mg,,NSAR,1-0-1-0,
+Aleve,Naproxen,220mg,04258963,NSAR,1-1-1-0,
+Metamizol,Metamizol,500mg,,Analgetikum,1-1-1-1,Agranulozytose-Risiko
+Valoron N retard,Tilidin/Naloxon,100mg/8mg retard,01478520,Opioid,1-0-1-0,
+Codein,Codein,30mg,,Opioid,1-1-1-0,Auch Antitussivum
+Codein,Codein,30mg,01234587,Opioid,1-1-1-0,
+Dihydrocodein,Dihydrocodein,60mg retard,,Opioid,1-0-1-0,
+DHC,Dihydrocodein,60mg retard,00125874,Opioid,1-0-1-0,
+Palexia retard,Tapentadol,50mg retard,09254896,Opioid,1-0-1-0,
+Sevredol,Morphin,10mg,01234896,Starkes Opioid,Bei Bedarf,Schnellwirksam
+Fentanyl Actiq,Fentanyl,200µg,,Starkes Opioid,Bei Bedarf,Lollipop Durchbruchschmerz
+Effentora,Fentanyl,100µg,,Starkes Opioid,Bei Bedarf,Buccaltablette
+Buprenorphin,Buprenorphin,35µg/h,,Starkes Opioid,Alle 4 Tage,Pflaster
+Temgesic,Buprenorphin,0.2mg,00658741,Starkes Opioid,Bei Bedarf,Sublingual
+L-Polamidon,Levomethadon,5mg,,Starkes Opioid,Nach Schema,Substitution/Schmerz
+Methadon,Methadon,10mg,,Starkes Opioid,Nach Schema,
+Piritramid,Piritramid,15mg,,Starkes Opioid,Bei Bedarf,i.v./s.c.
+Dipidolor,Piritramid,15mg,00125874,Starkes Opioid,Bei Bedarf,
+Almogran,Almotriptan,12.5mg,04258963,Triptan,Bei Migräne,
+Naramig,Naratriptan,2.5mg,02547891,Triptan,Bei Migräne,
+Maaloxan,Algeldrat/Magnesiumhydroxid,,,Antazidum,Bei Bedarf,
+Rennie,Calciumcarbonat/Magnesiumcarbonat,,,Antazidum,Bei Bedarf,
+Talcid,Hydrotalcit,500mg,01234587,Antazidum,Bei Bedarf,
+Gaviscon,Alginat/Natriumhydrogencarbonat,,,Reflux,Bei Bedarf,
+Laxofalk,Macrogol,13.8g,02547893,Laxans,1-0-0-0,
+Bisacodyl,Bisacodyl,5mg,,Laxans,0-0-0-1,Nicht dauerhaft
+Natriumpicosulfat,Natriumpicosulfat,5mg,,Laxans,0-0-0-1,
+Prucaloprid,Prucaloprid,2mg,,Prokinetikum,1-0-0-0,Chron. Obstipation
+Resolor,Prucaloprid,2mg,09254896,Prokinetikum,1-0-0-0,
+Linaclotid,Linaclotid,290µg,,Sekretagogum,1-0-0-0,Bei RDS-O
+Constella,Linaclotid,290µg,10254896,Sekretagogum,1-0-0-0,
+Racecadotril,Racecadotril,100mg,,Antidiarrhoikum,1-1-1-0,
+Tiorfan,Racecadotril,100mg,04258963,Antidiarrhoikum,1-1-1-0,
+Budesonid oral,Budesonid,9mg,,Kortikosteroid,1-0-0-0,M. Crohn
+Azathioprin,Azathioprin,50mg,,Immunsuppressivum,Nach Schema,BB-Kontrolle!
+Imurek,Azathioprin,50mg,00125874,Immunsuppressivum,Nach Schema,
+Adalimumab,Adalimumab,40mg,,TNF-alpha-Blocker,Alle 2 Wochen,s.c.
+Humira,Adalimumab,40mg,05547896,TNF-alpha-Blocker,Alle 2 Wochen,
+Infliximab,Infliximab,100mg,,TNF-alpha-Blocker,Alle 8 Wochen,Infusion
+Remicade,Infliximab,100mg,03547893,TNF-alpha-Blocker,Alle 8 Wochen,
+Vedolizumab,Vedolizumab,300mg,,Integrin-Hemmer,Alle 8 Wochen,Infusion
+Entyvio,Vedolizumab,300mg,10254896,Integrin-Hemmer,Alle 8 Wochen,
+Ustekinumab,Ustekinumab,45mg,,IL-12/23-Hemmer,Alle 12 Wochen,s.c.
+Stelara,Ustekinumab,45mg,08547963,IL-12/23-Hemmer,Alle 12 Wochen,
+Prednisolon,Prednisolon,5mg,,Kortikosteroid,Nach Schema,Ausschleichen!
+Decortin,Prednisolon,5mg,01234587,Kortikosteroid,Nach Schema,
+Methylprednisolon,Methylprednisolon,4mg,,Kortikosteroid,Nach Schema,
+Urbason,Methylprednisolon,4mg,00658741,Kortikosteroid,Nach Schema,
+Dexamethason oral,Dexamethason,4mg,,Kortikosteroid,Nach Schema,
+Fortecortin,Dexamethason,4mg,01478596,Kortikosteroid,Nach Schema,
+Triamcinolon,Triamcinolon,4mg,,Kortikosteroid,Nach Schema,
+Volon,Triamcinolon,4mg,02547896,Kortikosteroid,Nach Schema,
+Methotrexat,Methotrexat,15mg,,csDMARD,1x/Woche,Folsäure supplementieren!
+MTX,Methotrexat,15mg,01234896,csDMARD,1x/Woche,
+Lantarel,Methotrexat,7.5mg,00125874,csDMARD,1x/Woche,
+Leflunomid,Leflunomid,20mg,,csDMARD,1-0-0-0,Leberwerte!
+Arava,Leflunomid,20mg,02254896,csDMARD,1-0-0-0,
+Hydroxychloroquin,Hydroxychloroquin,200mg,,csDMARD,1-0-0-0,WICHTIG: Netzhaut-Kontrolle!
+Quensyl,Hydroxychloroquin,200mg,01234598,csDMARD,1-0-0-0,Augenärztl. Kontrolle alle 12 Mon!
+Chloroquin,Chloroquin,250mg,,csDMARD,1-0-0-0,WICHTIG: Makulopathie-Risiko!
+Resochin,Chloroquin,250mg,00658742,csDMARD,1-0-0-0,Regelmäßige Augenkontrollen!
+Etanercept,Etanercept,50mg,,TNF-alpha-Blocker,1x/Woche,s.c.
+Enbrel,Etanercept,50mg,03547893,TNF-alpha-Blocker,1x/Woche,
+Certolizumab,Certolizumab,200mg,,TNF-alpha-Blocker,Alle 2 Wochen,s.c.
+Cimzia,Certolizumab,200mg,08254896,TNF-alpha-Blocker,Alle 2 Wochen,
+Golimumab,Golimumab,50mg,,TNF-alpha-Blocker,1x/Monat,s.c.
+Simponi,Golimumab,50mg,07547896,TNF-alpha-Blocker,1x/Monat,
+Tocilizumab,Tocilizumab,162mg,,IL-6-Hemmer,1x/Woche,s.c.
+RoActemra,Tocilizumab,162mg,09254896,IL-6-Hemmer,1x/Woche,
+Sarilumab,Sarilumab,200mg,,IL-6-Hemmer,Alle 2 Wochen,s.c.
+Kevzara,Sarilumab,200mg,14254896,IL-6-Hemmer,Alle 2 Wochen,
+Abatacept,Abatacept,125mg,,T-Zell-Kostimulationshemmer,1x/Woche,s.c.
+Orencia,Abatacept,125mg,06547896,T-Zell-Kostimulationshemmer,1x/Woche,
+Rituximab,Rituximab,1000mg,,CD20-Antikörper,Alle 6 Monate,Infusion
+MabThera,Rituximab,1000mg,04258963,CD20-Antikörper,Alle 6 Monate,
+Secukinumab,Secukinumab,150mg,,IL-17A-Hemmer,1x/Monat,s.c.
+Cosentyx,Secukinumab,150mg,12254896,IL-17A-Hemmer,1x/Monat,
+Ixekizumab,Ixekizumab,80mg,,IL-17A-Hemmer,Alle 4 Wochen,s.c.
+Taltz,Ixekizumab,80mg,13254896,IL-17A-Hemmer,Alle 4 Wochen,
+Guselkumab,Guselkumab,100mg,,IL-23-Hemmer,Alle 8 Wochen,s.c.
+Tremfya,Guselkumab,100mg,14547896,IL-23-Hemmer,Alle 8 Wochen,
+Risankizumab,Risankizumab,150mg,,IL-23-Hemmer,Alle 12 Wochen,s.c.
+Skyrizi,Risankizumab,150mg,16254896,IL-23-Hemmer,Alle 12 Wochen,
+Tofacitinib,Tofacitinib,5mg,,JAK-Hemmer,1-0-1-0,
+Xeljanz,Tofacitinib,5mg,11254896,JAK-Hemmer,1-0-1-0,
+Baricitinib,Baricitinib,4mg,,JAK-Hemmer,1-0-0-0,
+Olumiant,Baricitinib,4mg,13547896,JAK-Hemmer,1-0-0-0,
+Upadacitinib,Upadacitinib,15mg,,JAK-Hemmer,1-0-0-0,
+Rinvoq,Upadacitinib,15mg,15254896,JAK-Hemmer,1-0-0-0,
+Filgotinib,Filgotinib,200mg,,JAK-Hemmer,1-0-0-0,
+Jyseleca,Filgotinib,200mg,16547896,JAK-Hemmer,1-0-0-0,
+Allopurinol,Allopurinol,300mg,,Urikostatikum,1-0-0-0,
+Zyloric,Allopurinol,300mg,01234587,Urikostatikum,1-0-0-0,
+Febuxostat,Febuxostat,80mg,,Urikostatikum,1-0-0-0,
+Adenuric,Febuxostat,80mg,07254896,Urikostatikum,1-0-0-0,
+Colchicin,Colchicin,0.5mg,,Gichtanfall,Nach Schema,Bei akutem Anfall
+Colchicum-Dispert,Colchicin,0.5mg,00658741,Gichtanfall,Nach Schema,
+Benzbromaron,Benzbromaron,100mg,,Urikosurikum,1-0-0-0,
+Alendronsäure,Alendronat,70mg,,Bisphosphonat,1x/Woche,Nüchtern + aufrecht 30min
+Fosamax,Alendronat,70mg,01234896,Bisphosphonat,1x/Woche,
+Risedronat,Risedronat,35mg,,Bisphosphonat,1x/Woche,
+Actonel,Risedronat,35mg,02547893,Bisphosphonat,1x/Woche,
+Ibandronat,Ibandronat,150mg,,Bisphosphonat,1x/Monat,
+Bonviva,Ibandronat,150mg,04254896,Bisphosphonat,1x/Monat,
+Zoledronat,Zoledronat,5mg,,Bisphosphonat,1x/Jahr,Infusion
+Aclasta,Zoledronat,5mg,06547893,Bisphosphonat,1x/Jahr,
+Denosumab,Denosumab,60mg,,RANKL-Antikörper,Alle 6 Monate,s.c.
+Prolia,Denosumab,60mg,08254896,RANKL-Antikörper,Alle 6 Monate,
+Teriparatid,Teriparatid,20µg,,PTH-Analogon,1x/Tag,s.c. max 24 Monate
+Forsteo,Teriparatid,20µg,05547896,PTH-Analogon,1x/Tag,
+Romosozumab,Romosozumab,210mg,,Sclerostin-Hemmer,1x/Monat,s.c. max 12 Monate
+Evenity,Romosozumab,210mg,17254896,Sclerostin-Hemmer,1x/Monat,
+Raloxifen,Raloxifen,60mg,,SERM,1-0-0-0,Postmenopausale Frauen
+Evista,Raloxifen,60mg,02254896,SERM,1-0-0-0,
+Calcium/Vitamin D3,Calcium/Colecalciferol,500mg/800IE,,Supplement,1-0-1-0,
+Calcimagon D3,Calcium/Colecalciferol,500mg/800IE,01234587,Supplement,1-0-1-0,
+Ideos,Calcium/Colecalciferol,500mg/400IE,00658741,Supplement,1-0-1-0,
+Vitamin D3,Colecalciferol,1000IE,,Vitamin D,1-0-0-0,
+Dekristol,Colecalciferol,20000IE,01478596,Vitamin D,1x/Woche,
+Vigantol,Colecalciferol,1000IE,02547896,Vitamin D,1-0-0-0,
+Budesonid inhalativ,Budesonid,200µg,,ICS,1-0-1-0,Nach Inhalation Mund spülen
+Ventolair,Beclometason,100µg,00658741,ICS,1-0-1-0,
+Atectura,Fluticason/Salmeterol,250µg/50µg,05547893,ICS/LABA,1-0-1-0,
+Glycopyrronium/Indacaterol,Glycopyrronium/Indacaterol,43µg/85µg,,LAMA/LABA,1-0-0-0,
+Fenoterol/Ipratropium,Fenoterol/Ipratropium,50µg/20µg,,SABA/SAMA,Bei Bedarf,
+Berodual,Fenoterol/Ipratropium,50µg/20µg,01234596,SABA/SAMA,Bei Bedarf,
+Uniphyllin,Theophyllin,400mg retard,01254893,Methylxanthin,0-0-0-1,
+Omalizumab,Omalizumab,150mg,,Anti-IgE,Alle 2-4 Wochen,s.c.
+Xolair,Omalizumab,150mg,06547893,Anti-IgE,Alle 2-4 Wochen,
+Mepolizumab,Mepolizumab,100mg,,Anti-IL-5,Alle 4 Wochen,s.c.
+Nucala,Mepolizumab,100mg,11547896,Anti-IL-5,Alle 4 Wochen,
+Benralizumab,Benralizumab,30mg,,Anti-IL-5R,Alle 8 Wochen,s.c.
+Fasenra,Benralizumab,30mg,13547893,Anti-IL-5R,Alle 8 Wochen,
+Dupilumab,Dupilumab,300mg,,Anti-IL-4/13,Alle 2 Wochen,s.c.
+Dupixent,Dupilumab,300mg,14547893,Anti-IL-4/13,Alle 2 Wochen,
+Tezepelumab,Tezepelumab,210mg,,Anti-TSLP,Alle 4 Wochen,s.c.
+Tezspire,Tezepelumab,210mg,17547896,Anti-TSLP,Alle 4 Wochen,
+Tamsulosin,Tamsulosin,0.4mg,,Alpha-Blocker,0-0-0-1,
+Alna,Tamsulosin,0.4mg,01234587,Alpha-Blocker,0-0-0-1,
+Omnic,Tamsulosin,0.4mg,00658741,Alpha-Blocker,0-0-0-1,
+Alfuzosin,Alfuzosin,10mg retard,,Alpha-Blocker,0-0-0-1,
+Uroxatral,Alfuzosin,10mg retard,01478596,Alpha-Blocker,0-0-0-1,
+Doxazosin,Doxazosin,4mg,,Alpha-Blocker,0-0-0-1,
+Cardular,Doxazosin,4mg,02547896,Alpha-Blocker,0-0-0-1,
+Silodosin,Silodosin,8mg,,Alpha-Blocker,1-0-0-0,
+Urorec,Silodosin,8mg,07254896,Alpha-Blocker,1-0-0-0,
+Finasterid,Finasterid,5mg,,5-ARI,1-0-0-0,
+Proscar,Finasterid,5mg,01234896,5-ARI,1-0-0-0,
+Dutasterid,Dutasterid,0.5mg,,5-ARI,1-0-0-0,
+Avodart,Dutasterid,0.5mg,04254896,5-ARI,1-0-0-0,
+Dutasterid/Tamsulosin,Dutasterid/Tamsulosin,0.5mg/0.4mg,,Kombi,1-0-0-0,
+Duodart,Dutasterid/Tamsulosin,0.5mg/0.4mg,08254896,Kombi,1-0-0-0,
+Trospiumchlorid,Trospium,30mg,,Anticholinergikum,1-0-1-0,Mundtrockenheit!
+Spasmex,Trospium,30mg,01234587,Anticholinergikum,1-0-1-0,
+Solifenacin,Solifenacin,5mg,,Anticholinergikum,1-0-0-0,
+Vesikur,Solifenacin,5mg,05547896,Anticholinergikum,1-0-0-0,
+Darifenacin,Darifenacin,7.5mg,,Anticholinergikum,1-0-0-0,
+Emselex,Darifenacin,7.5mg,06547896,Anticholinergikum,1-0-0-0,
+Fesoterodin,Fesoterodin,4mg,,Anticholinergikum,1-0-0-0,
+Toviaz,Fesoterodin,4mg,07547896,Anticholinergikum,1-0-0-0,
+Oxybutynin,Oxybutynin,5mg,,Anticholinergikum,1-0-1-0,
+Dridase,Oxybutynin,5mg,00658742,Anticholinergikum,1-0-1-0,
+Tolterodin,Tolterodin,2mg,,Anticholinergikum,1-0-1-0,
+Detrusitol,Tolterodin,2mg,02254896,Anticholinergikum,1-0-1-0,
+Mirabegron,Mirabegron,50mg,,Beta-3-Agonist,1-0-0-0,
+Betmiga,Mirabegron,50mg,10254896,Beta-3-Agonist,1-0-0-0,
+Vibegron,Vibegron,75mg,,Beta-3-Agonist,1-0-0-0,
+Veoza,Vibegron,75mg,18254896,Beta-3-Agonist,1-0-0-0,
+Sildenafil,Sildenafil,50mg,,PDE5-Hemmer,Bei Bedarf,30-60min vorher
+Viagra,Sildenafil,50mg,01234598,PDE5-Hemmer,Bei Bedarf,
+Tadalafil,Tadalafil,20mg,,PDE5-Hemmer,Bei Bedarf,Auch täglich 5mg
+Cialis,Tadalafil,20mg,03547893,PDE5-Hemmer,Bei Bedarf,
+Vardenafil,Vardenafil,10mg,,PDE5-Hemmer,Bei Bedarf,
+Levitra,Vardenafil,10mg,04258963,PDE5-Hemmer,Bei Bedarf,
+Avanafil,Avanafil,100mg,,PDE5-Hemmer,Bei Bedarf,15-30min vorher
+Spedra,Avanafil,100mg,11254896,PDE5-Hemmer,Bei Bedarf,
+Hydrocortison topisch,Hydrocortison,1%,,Klasse I,1-2x/Tag,
+Hydrogalen,Hydrocortison,1%,01234587,Klasse I,1-2x/Tag,
+Prednicarbat,Prednicarbat,0.25%,,Klasse II,1-2x/Tag,
+Dermatop,Prednicarbat,0.25%,00658741,Klasse II,1-2x/Tag,
+Betamethason topisch,Betamethason,0.1%,,Klasse III,1-2x/Tag,
+Betagalen,Betamethason,0.1%,01478596,Klasse III,1-2x/Tag,
+Diprosone,Betamethason,0.05%,02547896,Klasse III,1-2x/Tag,
+Mometason topisch,Mometason,0.1%,,Klasse III,1x/Tag,
+Ecural,Mometason,0.1%,03254896,Klasse III,1x/Tag,
+Clobetasol,Clobetasol,0.05%,,Klasse IV,1x/Tag,Max 2 Wochen
+Dermoxin,Clobetasol,0.05%,01234896,Klasse IV,1x/Tag,
+Calcipotriol,Calcipotriol,50µg/g,,Vitamin D-Analogon,1-2x/Tag,
+Psorcutan,Calcipotriol,50µg/g,02254896,Vitamin D-Analogon,1-2x/Tag,
+Calcipotriol/Betamethason,Calcipotriol/Betamethason,50µg/0.5mg,,Kombi,1x/Tag,
+Daivobet,Calcipotriol/Betamethason,50µg/0.5mg,04547896,Kombi,1x/Tag,
+Enstilar,Calcipotriol/Betamethason,50µg/0.5mg,09254896,Kombi,1x/Tag,Schaum
+Tacalcitol,Tacalcitol,4µg/g,,Vitamin D-Analogon,1x/Tag,
+Curatoderm,Tacalcitol,4µg/g,01254893,Vitamin D-Analogon,1x/Tag,
+Dithranol,Dithranol,0.5%,,Antipsoriatikum,Nach Schema,Minutentherapie
+Micanol,Dithranol,1%,00125874,Antipsoriatikum,Nach Schema,
+Adapalen,Adapalen,0.1%,,Retinoid,0-0-0-1,Abends
+Differin,Adapalen,0.1%,01234587,Retinoid,0-0-0-1,
+Adapalen/Benzoylperoxid,Adapalen/BPO,0.1%/2.5%,,Kombi,0-0-0-1,
+Epiduo,Adapalen/BPO,0.1%/2.5%,06547896,Kombi,0-0-0-1,
+Isotretinoin topisch,Isotretinoin,0.05%,,Retinoid,0-0-0-1,
+Isotrex,Isotretinoin,0.05%,02547893,Retinoid,0-0-0-1,
+Isotretinoin oral,Isotretinoin,20mg,,Retinoid,1-0-0-0,Strenge Kontrollen! Teratogen!
+Aknenormin,Isotretinoin,20mg,03547896,Retinoid,1-0-0-0,Trockenheit - auch Augen!
+Benzoylperoxid,Benzoylperoxid,5%,,Aknemittel,1-2x/Tag,
+Aknefug,Benzoylperoxid,5%,00658742,Aknemittel,1-2x/Tag,
+Azelainsäure,Azelainsäure,20%,,Aknemittel,1-0-1-0,
+Skinoren,Azelainsäure,20%,01478520,Aknemittel,1-0-1-0,
+Clindamycin topisch,Clindamycin,1%,,Antibiotikum topisch,1-0-1-0,
+Basocin,Clindamycin,1%,02254896,Antibiotikum topisch,1-0-1-0,
+Erythromycin topisch,Erythromycin,2%,,Antibiotikum topisch,1-0-1-0,
+Aknemycin,Erythromycin,2%,01234896,Antibiotikum topisch,1-0-1-0,
+Tacrolimus topisch,Tacrolimus,0.1%,,Calcineurinhemmer,1-0-1-0,
+Protopic,Tacrolimus,0.1%,04254896,Calcineurinhemmer,1-0-1-0,
+Pimecrolimus,Pimecrolimus,1%,,Calcineurinhemmer,1-0-1-0,
+Elidel,Pimecrolimus,1%,03254893,Calcineurinhemmer,1-0-1-0,
+Ruxolitinib topisch,Ruxolitinib,1.5%,,JAK-Hemmer topisch,1-0-1-0,
+Opzelura,Ruxolitinib,1.5%,18547896,JAK-Hemmer topisch,1-0-1-0,
+Metronidazol topisch,Metronidazol,0.75%,,Antibiotikum,1-0-1-0,
+Metrogel,Metronidazol,0.75%,01234587,Antibiotikum,1-0-1-0,
+Rosiced,Metronidazol,0.75%,00658741,Antibiotikum,1-0-1-0,
+Ivermectin topisch,Ivermectin,1%,,Antiparasitikum,1x/Tag,
+Soolantra,Ivermectin,1%,10547896,Antiparasitikum,1x/Tag,
+Brimondin topisch,Brimonidin,0.5%,,Alpha-Agonist,1x/Tag,Erythemreduktion
+Mirvaso,Brimonidin,0.5%,09547893,Alpha-Agonist,1x/Tag,
+Clotrimazol,Clotrimazol,1%,,Antimykotikum,1-2x/Tag,
+Canesten,Clotrimazol,1%,01478596,Antimykotikum,1-2x/Tag,
+Miconazol,Miconazol,2%,,Antimykotikum,1-0-1-0,
+Daktar,Miconazol,2%,02547896,Antimykotikum,1-0-1-0,
+Ketoconazol topisch,Ketoconazol,2%,,Antimykotikum,1-2x/Tag,
+Nizoral,Ketoconazol,2%,01234896,Antimykotikum,1-2x/Tag,
+Ciclopirox,Ciclopirox,1%,,Antimykotikum,1-0-1-0,
+Batrafen,Ciclopirox,1%,03547893,Antimykotikum,1-0-1-0,
+Terbinafin topisch,Terbinafin,1%,,Antimykotikum,1x/Tag,
+Lamisil,Terbinafin,1%,04258963,Antimykotikum,1x/Tag,
+Terbinafin oral,Terbinafin,250mg,,Antimykotikum,1-0-0-0,
+Lamisil Tabletten,Terbinafin,250mg,05547896,Antimykotikum,1-0-0-0,
+Itraconazol,Itraconazol,100mg,,Antimykotikum,1-0-0-0,Mit Mahlzeit
+Sempera,Itraconazol,100mg,06547893,Antimykotikum,1-0-0-0,
+Fluconazol,Fluconazol,50mg,,Antimykotikum,1-0-0-0,
+Diflucan,Fluconazol,50mg,07547896,Antimykotikum,1-0-0-0,
+Amorolfin,Amorolfin,5%,,Antimykotikum,1x/Woche,Nagellack
+Loceryl,Amorolfin,5%,02254896,Antimykotikum,1x/Woche,
+Amoxicillin,Amoxicillin,1000mg,,Penicillin,1-1-1-0,
+Amoxypen,Amoxicillin,1000mg,01234587,Penicillin,1-1-1-0,
+Amoxicillin/Clavulansäure,Amoxicillin/Clavulansäure,875mg/125mg,,Penicillin + BLI,1-0-1-0,
+Augmentan,Amoxicillin/Clavulansäure,875mg/125mg,00658741,Penicillin + BLI,1-0-1-0,
+Ampicillin,Ampicillin,500mg,,Penicillin,1-1-1-0,
+Ampicillin,Ampicillin,500mg,01478596,Penicillin,1-1-1-0,
+Ampicillin/Sulbactam,Ampicillin/Sulbactam,750mg,,Penicillin + BLI,1-1-1-0,
+Unacid,Ampicillin/Sulbactam,750mg,02547896,Penicillin + BLI,1-1-1-0,
+Penicillin V,Phenoxymethylpenicillin,1Mio IE,,Penicillin,1-1-1-0,
+Isocillin,Phenoxymethylpenicillin,1.2Mio IE,01234896,Penicillin,1-1-1-0,
+Flucloxacillin,Flucloxacillin,500mg,,Penicillin,1-1-1-1,Staphylokokken
+Staphylex,Flucloxacillin,500mg,02254896,Penicillin,1-1-1-1,
+Piperacillin/Tazobactam,Piperacillin/Tazobactam,4g/0.5g,,Penicillin + BLI,i.v.,i.v.
+Tazobac,Piperacillin/Tazobactam,4g/0.5g,03547893,Penicillin + BLI,i.v.,
+Cefuroxim,Cefuroxim,500mg,,Cephalosporin 2.Gen,1-0-1-0,
+Elobact,Cefuroxim,500mg,01234587,Cephalosporin 2.Gen,1-0-1-0,
+Cefixim,Cefixim,400mg,,Cephalosporin 3.Gen,1-0-0-0,
+Cephoral,Cefixim,400mg,00658741,Cephalosporin 3.Gen,1-0-0-0,
+Cefpodoxim,Cefpodoxim,200mg,,Cephalosporin 3.Gen,1-0-1-0,
+Orelox,Cefpodoxim,200mg,01478596,Cephalosporin 3.Gen,1-0-1-0,
+Ceftriaxon,Ceftriaxon,2g,,Cephalosporin 3.Gen,1x/Tag,i.v./i.m.
+Rocephin,Ceftriaxon,2g,02547896,Cephalosporin 3.Gen,1x/Tag,
+Ceftazidim,Ceftazidim,2g,,Cephalosporin 3.Gen,1-1-1-0,i.v.
+Fortum,Ceftazidim,2g,03254896,Cephalosporin 3.Gen,1-1-1-0,
+Cefepim,Cefepim,2g,,Cephalosporin 4.Gen,1-0-1-0,i.v.
+Maxipime,Cefepim,2g,04254896,Cephalosporin 4.Gen,1-0-1-0,
+Cefalexin,Cefalexin,500mg,,Cephalosporin 1.Gen,1-1-1-0,
+Cephalexin,Cefalexin,500mg,00125874,Cephalosporin 1.Gen,1-1-1-0,
+Ciprofloxacin,Ciprofloxacin,500mg,,Fluorchinolon,1-0-1-0,Sehnenruptur-Risiko!
+Ciprobay,Ciprofloxacin,500mg,01234587,Fluorchinolon,1-0-1-0,
+Levofloxacin,Levofloxacin,500mg,,Fluorchinolon,1-0-0-0,
+Tavanic,Levofloxacin,500mg,02547893,Fluorchinolon,1-0-0-0,
+Moxifloxacin,Moxifloxacin,400mg,,Fluorchinolon,1-0-0-0,
+Avalox,Moxifloxacin,400mg,03547896,Fluorchinolon,1-0-0-0,
+Ofloxacin,Ofloxacin,200mg,,Fluorchinolon,1-0-1-0,
+Tarivid,Ofloxacin,200mg,00658742,Fluorchinolon,1-0-1-0,
+Norfloxacin,Norfloxacin,400mg,,Fluorchinolon,1-0-1-0,
+Barazan,Norfloxacin,400mg,01478520,Fluorchinolon,1-0-1-0,
+Azithromycin,Azithromycin,500mg,,Makrolid,1-0-0-0,3 Tage
+Zithromax,Azithromycin,500mg,01234596,Makrolid,1-0-0-0,
+Clarithromycin,Clarithromycin,500mg,,Makrolid,1-0-1-0,
+Klacid,Clarithromycin,500mg,02254896,Makrolid,1-0-1-0,
+Erythromycin,Erythromycin,500mg,,Makrolid,1-1-1-0,
+Erythrocin,Erythromycin,500mg,01234896,Makrolid,1-1-1-0,
+Roxithromycin,Roxithromycin,300mg,,Makrolid,1-0-0-0,
+Rulid,Roxithromycin,300mg,03254893,Makrolid,1-0-0-0,
+Doxycyclin,Doxycyclin,100mg,,Tetracyclin,1-0-0-0,
+Doxycyclin,Doxycyclin,100mg,01234587,Tetracyclin,1-0-0-0,
+Minocyclin,Minocyclin,100mg,,Tetracyclin,1-0-1-0,
+Skid,Minocyclin,100mg,00658741,Tetracyclin,1-0-1-0,
+Clindamycin,Clindamycin,600mg,,Lincosamid,1-1-1-0,
+Sobelin,Clindamycin,600mg,01478596,Lincosamid,1-1-1-0,
+Metronidazol,Metronidazol,400mg,,Nitroimidazol,1-1-1-0,Kein Alkohol!
+Clont,Metronidazol,400mg,02547896,Nitroimidazol,1-1-1-0,
+Fosfomycin,Fosfomycin,3g,,Fosfomycin,Einmaldosis,HWI
+Monuril,Fosfomycin,3g,03254896,Fosfomycin,Einmaldosis,
+Nitrofurantoin,Nitrofurantoin,100mg retard,,Nitrofurantoin,1-0-1-0,HWI
+Furadantin,Nitrofurantoin,100mg retard,01234896,Nitrofurantoin,1-0-1-0,
+Nifuratel,Nifuratel,200mg,,Nitrofurantoin,1-0-1-0,
+Trimethoprim,Trimethoprim,200mg,,Trimethoprim,1-0-1-0,HWI
+Infectotrimet,Trimethoprim,200mg,02254896,Trimethoprim,1-0-1-0,
+Cotrimoxazol,Trimethoprim/Sulfamethoxazol,160mg/800mg,,Sulfonamid,1-0-1-0,
+Cotrim,Trimethoprim/Sulfamethoxazol,160mg/800mg,00125874,Sulfonamid,1-0-1-0,
+Rifampicin,Rifampicin,600mg,,Rifamycin,1-0-0-0,Nüchtern
+Eremfat,Rifampicin,600mg,04254896,Rifamycin,1-0-0-0,
+Linezolid,Linezolid,600mg,,Oxazolidinon,1-0-1-0,MRSA
+Zyvoxid,Linezolid,600mg,05547893,Oxazolidinon,1-0-1-0,
+Vancomycin,Vancomycin,1g,,Glykopeptid,i.v.,i.v. oder oral
+Vancomycin Enterocaps,Vancomycin,250mg,06547896,Glykopeptid,1-1-1-1,Oral bei CDI
+Daptomycin,Daptomycin,350mg,,Lipopeptid,1x/Tag,i.v.
+Cubicin,Daptomycin,350mg,07254896,Lipopeptid,1x/Tag,
+Fidaxomicin,Fidaxomicin,200mg,,Makrolid,1-0-1-0,CDI
+Dificlir,Fidaxomicin,200mg,09254896,Makrolid,1-0-1-0,
+Aciclovir oral,Aciclovir,400mg,,Virostatikum,5x/Tag,Herpes simplex
+Zovirax oral,Aciclovir,400mg,01234587,Virostatikum,5x/Tag,
+Aciclovir,Aciclovir,800mg,,Virostatikum,5x/Tag,Herpes zoster
+Valaciclovir,Valaciclovir,500mg,,Virostatikum,1-0-1-0,Bessere Bioverfügbarkeit
+Valtrex,Valaciclovir,500mg,02547893,Virostatikum,1-0-1-0,
+Famciclovir,Famciclovir,250mg,,Virostatikum,1-1-1-0,
+Famvir,Famciclovir,250mg,03547896,Virostatikum,1-1-1-0,
+Brivudin,Brivudin,125mg,,Virostatikum,1-0-0-0,7 Tage - nicht mit 5-FU!
+Zostex,Brivudin,125mg,04254893,Virostatikum,1-0-0-0,
+Oseltamivir,Oseltamivir,75mg,,Neuraminidase-Hemmer,1-0-1-0,Influenza
+Tamiflu,Oseltamivir,75mg,05547896,Neuraminidase-Hemmer,1-0-1-0,
+Eisen(II)sulfat,Eisensulfat,100mg,,Eisenpräparat,1-0-0-0,Nüchtern
+Ferro sanol,Eisensulfat,100mg,01234587,Eisenpräparat,1-0-0-0,
+Tardyferon,Eisensulfat,80mg,00658741,Eisenpräparat,1-0-0-0,Retard
+Ferrlecit,Eisen(III)hydroxid,40mg/5ml,,Eisenpräparat,Nach Schema,i.v.
+Ferinject,Eisencarboxymaltose,500mg,07254896,Eisenpräparat,Nach Schema,i.v.
+Folsäure,Folsäure,5mg,,Vitamin,1-0-0-0,
+Folsan,Folsäure,5mg,01478596,Vitamin,1-0-0-0,
+Fol-5mg,Folsäure,5mg,02547896,Vitamin,1-0-0-0,
+Vitamin B12,Cyanocobalamin,1000µg,,Vitamin,1-0-0-0,oder i.m.
+B12-Ankermann,Cyanocobalamin,1000µg,01234896,Vitamin,1-0-0-0,
+Hydroxocobalamin,Hydroxocobalamin,1mg,,Vitamin,1x/Monat,i.m.
+Kalium,Kaliumchlorid,600mg,,Elektrolyt,1-1-1-0,Mit Essen
+Kalinor,Kaliumchlorid,1g,02254896,Elektrolyt,1-0-1-0,Brausetabletten
+Rekawan,Kaliumchlorid,600mg,01234587,Elektrolyt,1-1-1-0,
+Magnesium,Magnesiumoxid,365mg,,Elektrolyt,1-0-0-0,
+Magnetrans,Magnesiumoxid,375mg,00658741,Elektrolyt,1-0-0-0,
+Magnesiocard,Magnesiumaspartat,5mmol,01478596,Elektrolyt,1-0-1-0,
+Lorano,Loratadin,10mg,02547893,Antihistaminikum,1-0-0-0,
+Ebastin,Ebastin,20mg,,Antihistaminikum,1-0-0-0,
+Ebastel,Ebastin,20mg,10254896,Antihistaminikum,1-0-0-0,
+Betahistin,Betahistin,24mg,,Antivertiginosum,1-1-1-0,M. Menière
+Vasomotal,Betahistin,24mg,01234587,Antivertiginosum,1-1-1-0,
+Aequamen,Betahistin,24mg,00658741,Antivertiginosum,1-1-1-0,
+Cinnarizin,Cinnarizin,25mg,,Antivertiginosum,1-1-1-0,
+Stutgeron,Cinnarizin,25mg,01478596,Antivertiginosum,1-1-1-0,
+Levonorgestrel/Ethinylestradiol,Levonorgestrel/EE,0.1mg/0.02mg,,Kontrazeptivum,1-0-0-0,
+Microgynon,Levonorgestrel/EE,0.15mg/0.03mg,01234896,Kontrazeptivum,1-0-0-0,
+Dienogest/Ethinylestradiol,Dienogest/EE,2mg/0.03mg,,Kontrazeptivum,1-0-0-0,
+Maxim,Dienogest/EE,2mg/0.03mg,02254896,Kontrazeptivum,1-0-0-0,
+Drospirenon/Ethinylestradiol,Drospirenon/EE,3mg/0.02mg,,Kontrazeptivum,1-0-0-0,
+Yasmin,Drospirenon/EE,3mg/0.03mg,03254893,Kontrazeptivum,1-0-0-0,
+Chlormadinonacetat/Ethinylestradiol,CMA/EE,2mg/0.03mg,,Kontrazeptivum,1-0-0-0,
+Belara,CMA/EE,2mg/0.03mg,04254896,Kontrazeptivum,1-0-0-0,
+Desogestrel,Desogestrel,75µg,,Minipille,1-0-0-0,Durchgehend
+Cerazette,Desogestrel,75µg,05547893,Minipille,1-0-0-0,
+Estradiol,Estradiol,2mg,,HRT,1-0-0-0,
+Estrifam,Estradiol,2mg,01234587,HRT,1-0-0-0,
+Estradiol transdermal,Estradiol,50µg/24h,,HRT,2x/Woche,Pflaster
+Estradot,Estradiol,50µg/24h,02547893,HRT,2x/Woche,
+Estradiol/Dydrogesteron,Estradiol/Dydrogesteron,1mg/10mg,,HRT,1-0-0-0,
+Femoston,Estradiol/Dydrogesteron,1mg/10mg,03547896,HRT,1-0-0-0,
+Estradiol/Norethisteron,Estradiol/NETA,2mg/1mg,,HRT,1-0-0-0,
+Kliogest,Estradiol/NETA,2mg/1mg,04254893,HRT,1-0-0-0,
+Tibolon,Tibolon,2.5mg,,HRT,1-0-0-0,
+Liviella,Tibolon,2.5mg,05547896,HRT,1-0-0-0,
+ACEMIT,Acetazolamid,,6609280,Carboanhydrasehemmer,,
+ACIC 400,Aciclovir,,4887721,Antivirale,,
+ACIC 800,Aciclovir,,4887744,Antivirale,,
+ACICLO 400MG,Aciclovir,,2758327,Antivirale,,
+ACICLOSTAD 400,Aciclovir,,6873172,Antivirale,,
+ACICLOSTAD 50MG/1G,Aciclovir,,14307707,Antivirale,,
+ACICLOVIR 400MG,Aciclovir,,19397632,Antivirale,,
+ACICLOVIR 400MG,Aciclovir,,6434254,Antivirale,,
+ACICLOVIR CREME,Aciclovir,,6977977,Antivirale,,
+ACICLOVIR 800MG TABL,Aciclovir,,6553131,Antivirale,,
+ACIVISION 30MG/G AUGENSALB,Aciclovir,30mg/g,6732856,Antivirale,,
+ACULAR 5MG/ML AUGENTROPFEN,Ketorolac,5mg/ml,18803946,NSAR,,
+ACULAR AUGENTROPFEN,Ketorolac,,447847,NSAR,,
+ALLERGO VISION S0.25 MG/ML,Ketotifen,0.25 mg/ml,10037719,Antiallergika,,
+ATROPIN POS 0.5%,Atropin,0.5%,828242,Mydriatika,,
+AZARGA 10 MG/ML + 5 MG/ML,Timolol + Brinzolamid,10 mg/ml,16939759,Kombi Beta+CAH,,
+AZARGA 10MG/ML+5MG/ML,Timolol + Brinzolamid,10mg/ml,11079246,Kombi Beta+CAH,,
+AZELA VISION SINE 0.5MG/ML,Azelastin,0.5mg/ml,2498263,Antiallergika,,
+AZELASTIN ML 0.5MG/ML ATR,Azelastin,0.5mg/ml,15561394,Antiallergika,,
+AZOPT 10MG/ML,Brinzolamid,10mg/ml,12500297,Carboanhydrasehemmer,,
+AZOPT 10MG/ML AUGENTR SUSP,Brinzolamid,10mg/ml,11613970,Carboanhydrasehemmer,,
+AZOPT 10MG/ML AUGENTRO SUS,Brinzolamid,10mg/ml,17558491,Carboanhydrasehemmer,,
+AZOPT AUGENTROPFEN,Brinzolamid,,6455569,Carboanhydrasehemmer,,
+AZYTER 15MG/G AUGENTROPFEN,Azithromycin,15mg/g,4043696,Antibiotika,,
+BEPANTHEN AUGEN+NASENSALBE,Dexpanthenol,,1578681,Wundheilung,,
+BERBERIL N AUGENTROPFEN,Tetryzolin,,4939642,Dekongestiva,,
+BIMA/TIMO 0.3+5MG/ML,Timolol + Bimatoprost,5mg/ml,17617911,Kombi Beta+PG,,
+BIMA/TIMO 0.3MG+5MG/ML,Timolol + Bimatoprost,5mg/ml,17617874,Kombi Beta+PG,,
+BIMATO VISION SINE0.3MG/ML,Bimatoprost,0.3mg/ml,14232694,Prostaglandine,,
+BIMATOPROST 0.3MG/ML,Bimatoprost,0.3mg/ml,19173660,Prostaglandine,,
+BIMATOPROST/TIMOL 0.3+5,Timolol + Bimatoprost,,19394065,Kombi Beta+PG,,
+BORO SCOPOL N 3MG/G LSG,Scopolamin,3mg/g,16352310,Mydriatika,,
+BRIMO VISION SINE 2MG/ML,Brimonidin,2mg/ml,11377423,Alpha-Agonisten,,
+BRIMONIDIN 2MG/ML ATR,Brimonidin,2mg/ml,18821766,Alpha-Agonisten,,
+BRIMONIDIN STU SINE 2MG/ML,Brimonidin,2mg/ml,14301047,Alpha-Agonisten,,
+BRIMOZEPT 2MG/ML AUGENTROP,Brimonidin,2mg/ml,164345,Alpha-Agonisten,,
+BRINZO/BRIMO 10+2MG/ML,Brinzolamid + Brimonidin,2mg/ml,19237087,Kombi CAH+Alpha,,
+BRINZO/BRIMO 10+2MG/ML,Brinzolamid + Brimonidin,2mg/ml,18744907,Kombi CAH+Alpha,,
+BRINZOL/BRIMO 10+2MG/ML,Brinzolamid + Brimonidin,2mg/ml,19132862,Kombi CAH+Alpha,,
+BRINZOL/TIMO 10+5MG/ML,Timolol + Brinzolamid,5mg/ml,19898943,Kombi Beta+CAH,,
+BRINZOLA/TIM 10+5MG/ML,Timolol + Brinzolamid,5mg/ml,19270015,Kombi Beta+CAH,,
+BRINZOLA/TIMO 10+5MG/ML,Timolol + Brinzolamid,5mg/ml,15258589,Kombi Beta+CAH,,
+BRINZOLAMID 10MG/ML,Brinzolamid,10mg/ml,10738126,Carboanhydrasehemmer,,
+BRINZOLAMID 10MG/ML,Brinzolamid,10mg/ml,17982935,Carboanhydrasehemmer,,
+BRINZOLAMID 10MG/ML,Brinzolamid,10mg/ml,10353685,Carboanhydrasehemmer,,
+CATIOLANZE 50UG/ML ATR EMU,Latanoprost,50ug/ml,19797828,Prostaglandine,,
+CLONID OPHTAL 1/16%,,16%,6319033,,,
+CLONID OPHTAL 1/8 SINE,,,7591926,,,
+CLONID OPHTAL 1/8%,,8%,6319062,,,
+COMBIGAN 2MG/ML+5MG/ML,Timolol + Brimonidin,2mg/ml,19093725,Kombi Beta+Alpha,,
+COSOPT 20MG/ML+5MG/ML ATR,Timolol + Dorzolamid,20mg/ml,11340897,Kombi Beta+CAH,,
+COSOPT S 20MG/ML+5MG/ML,Timolol + Dorzolamid,20mg/ml,12490937,Kombi Beta+CAH,,
+COSOPT S20MG/ML+5MG/ML ATR,Timolol + Dorzolamid,20mg/ml,10535995,Kombi Beta+CAH,,
+CROMO 20MG/ML,Cromoglicinsäure,20mg/ml,16821940,Antiallergika,,
+DEXA EDO,Dexamethason,,258885,Corticosteroide,,
+DEXA GENTAMICIN,Dexamethason + Antiinfektiva,,3083251,Kombi Steroid+AB,,
+DEXA OPHTAL,Dexamethason,,2935410,Corticosteroide,,
+DEXA OPHTAL SINE,Dexamethason,,2935427,Corticosteroide,,
+DEXAFLUID 1MG/ML,Dexamethason,1mg/ml,9280225,Corticosteroide,,
+DEXAFLUID SINE 1.315MG/ML,Dexamethason,1.315mg/ml,10420252,Corticosteroide,,
+DEXAGEL,Dexamethason,,16388986,Corticosteroide,,
+DEXAGENT OPHTAL AUGENSALBE,Dexamethason + Gentamicin,,2192162,Kombi Steroid+AB,,
+DEXAGENT OPHTAL AUGENTROPF,Dexamethason + Gentamicin,,2192222,Kombi Steroid+AB,,
+DEXAMYTREX AUGENSALBE,Dexamethason + Gentamicin,,2747789,Kombi Steroid+AB,,
+DEXAMYTREX AUGENTROPFEN,Dexamethason + Gentamicin,,2747772,Kombi Steroid+AB,,
+DEXAMYTREX KOMBI PACKUNG,Dexamethason + Gentamicin,,2747795,Kombi Steroid+AB,,
+DIFEN UD,Diclofenac,,9099916,NSAR,,
+DIMAZ 20MG/ML ATR,Dorzolamid,20mg/ml,18654423,Carboanhydrasehemmer,,
+DISPATIM 0.25% SINE,Timolol,0.25%,7113925,Betablocker,,
+DISPATIM 0.5% SINE,Timolol,0.5%,7113948,Betablocker,,
+DORZO VISION 20MG/ML,Dorzolamid,20mg/ml,5730447,Carboanhydrasehemmer,,
+DORZO VISION SINE 20MG/ML,Dorzolamid,20mg/ml,11377469,Carboanhydrasehemmer,,
+DORZOCOMP STU SI 20+5MG/ML,Timolol + Dorzolamid,5mg/ml,16384020,Kombi Beta+CAH,,
+DORZOCOMP VISI S 20+5MG/ML,Timolol + Dorzolamid,5mg/ml,10064969,Kombi Beta+CAH,,
+DORZOLA SINE COMP EDP,Timolol + Dorzolamid,,18010944,Kombi Beta+CAH,,
+DORZOLAMID 20MG/ML,Dorzolamid,20mg/ml,16536369,Carboanhydrasehemmer,,
+DORZOLAMID COMP ATR,Timolol + Dorzolamid,,18083593,Kombi Beta+CAH,,
+DORZOLAMID COMP 20/5MG,Timolol + Dorzolamid,,17295465,Kombi Beta+CAH,,
+DORZOLAMID 20MG/ML,Dorzolamid,20mg/ml,17263867,Carboanhydrasehemmer,,
+DORZOLAMID STULLN 20MG/ML,Dorzolamid,20mg/ml,17943964,Carboanhydrasehemmer,,
+DORZOLAMID/TIMOL 20+5,Timolol + Dorzolamid,,14308285,Kombi Beta+CAH,,
+DORZOLAMID/TIMOLOL 20+5MG,Timolol + Dorzolamid,,17871118,Kombi Beta+CAH,,
+DUOKOPT 20MG/ML + 5MG/ML,Timolol + Dorzolamid,20mg/ml,16317070,Kombi Beta+CAH,,
+DUOKOPT 20MG/ML+5MG/ML,Timolol + Dorzolamid,20mg/ml,19985234,Kombi Beta+CAH,,
+DUOKOPT 20MG/ML+5MG/ML ATR,Timolol + Dorzolamid,20mg/ml,16002656,Kombi Beta+CAH,,
+ELYMBUS 0.1MG/G AUGENGEL,Bimatoprost,0.1mg/g,18818250,Prostaglandine,,
+EMADINE,Emedastin,,3828981,Antiallergika,,
+FIXAPROST 50UG+5MG/ML,Timolol + Latanoprost,5mg/ml,18495338,Kombi Beta+PG,,
+FIXAPROST 50UG/ML+5MG/ML,Timolol + Latanoprost,5mg/ml,17977667,Kombi Beta+PG,,
+FLOXAL 3MG/ML,Ofloxacin,3mg/ml,10999393,Fluorchinolone,,
+FLUOROPOS,Fluorometholon,,7590714,Corticosteroide,,
+FOTIL SINE 5MG/ML+20MG/ML,Timolol + Pilocarpin,5mg/ml,14440808,Kombi Beta+Miotik,,
+GANFORT 0.3+5MG/ML ATR,Timolol + Bimatoprost,5mg/ml,19263009,Kombi Beta+PG,,
+GANFORT 0.3MG/ML +5MG/ML,Timolol + Bimatoprost,0.3mg/ml,18863428,Kombi Beta+PG,,
+GANFORT 0.3MG/ML+5MG/ML,Timolol + Bimatoprost,0.3mg/ml,11219003,Kombi Beta+PG,,
+GANFORT 0.3MG/ML+5MG/ML B,Timolol + Bimatoprost,0.3mg/ml,11288027,Kombi Beta+PG,,
+GANFORT 0.3MG/ML+5MG/ML ED,Timolol + Bimatoprost,0.3mg/ml,13164743,Kombi Beta+PG,,
+GANFORT AUGENTROPFEN,Timolol + Bimatoprost,,793911,Kombi Beta+PG,,
+GENT OPHTAL,Gentamicin,,2517173,Antibiotika,,
+GENT OPHTAL AUGENSALBE,Gentamicin,,1405638,Antibiotika,,
+GENTAMICIN POS,Gentamicin,,2498613,Antibiotika,,
+GLAUPAX 250MG TABLETTEN,Acetazolamid,,1995930,Carboanhydrasehemmer,,
+HYDROCORTISON POS N 1%,Hydrocortison,1%,4806958,Corticosteroide,,
+HYLAN 0.65ML,Hyaluronsäure,,2742645,Tränenersatz,,
+HYLO GEL,Hyaluronsäure,,6079422,Tränenersatz,,
+HYLO GEL AUGENTROPFEN,Hyaluronsäure,,10389677,Tränenersatz,,
+IKERVIS 1MG/ML ATR EMU,Ciclosporin,1mg/ml,19152327,Immunmodulatoren,,
+IKERVIS 1MG/ML ATR EMULS,Ciclosporin,1mg/ml,19923693,Immunmodulatoren,,
+ISOPTO MAX,Dexamethason + Neomycin + Polymyxin B,,531111,Kombi Steroid+AB,,
+KETOROLAC 5MG/ML,Ketorolac,5mg/ml,14175246,NSAR,,
+KETOTIFEN PENTA 0.25MG/ML,Ketotifen,0.25mg/ml,18491932,Antiallergika,,
+LATANELB 50 UG/ML,Latanoprost,50 ug/ml,12341373,Prostaglandine,,
+LATANELB COMP 50MIKROGR/ML,Timolol + Latanoprost,50mikrogr,19068779,Kombi Beta+PG,,
+LATANO VISION SINE 50UG/ML,Latanoprost,50ug/ml,18831150,Prostaglandine,,
+LATANO-Q 50 MIKROGRAMM/ML,Latanoprost,50 mikrogr,9435136,Prostaglandine,,
+LATANOPROST 50UG/ML,Latanoprost,50ug/ml,8469038,Prostaglandine,,
+LATANOPROST 50UG/ML,Latanoprost,50ug/ml,8460623,Prostaglandine,,
+LUMIGAN 0.1MG/ML,Bimatoprost,0.1mg/ml,5900524,Prostaglandine,,
+LUMIGAN 0.3 MG/ML,Bimatoprost,0.3 mg/ml,7111493,Prostaglandine,,
+LUMIGAN 0.3MG/ML,Bimatoprost,0.3mg/ml,12342935,Prostaglandine,,
+LUMIGAN 0.3MG/ML EINZELDOS,Bimatoprost,0.3mg/ml,14241144,Prostaglandine,,
+MAXITROL,Dexamethason + Neomycin + Polymyxin B,,2725345,Kombi Steroid+AB,,
+MAXITROL AUGENTROPFENSUS,Dexamethason + Neomycin + Polymyxin B,,15437010,Kombi Steroid+AB,,
+MONODEX 1MG/ML AUGENTROPF,Dexamethason,1mg/ml,10101587,Corticosteroide,,
+MONOPOST 50UG/ML,Latanoprost,50ug/ml,10987289,Prostaglandine,,
+MONOPROST 50 MIKROGRAMM/ML,Latanoprost,50 mikrogr,18364599,Prostaglandine,,
+MONOPROST 50UG,Latanoprost,,11886018,Prostaglandine,,
+MONOPROST 50UG/ML ATR EDP,Latanoprost,50ug/ml,16665150,Prostaglandine,,
+MONOPROST 50UG/ML AUGENTRO,Latanoprost,50ug/ml,14852675,Prostaglandine,,
+MONOPROST 50UG/ML ED,Latanoprost,50ug/ml,13600026,Prostaglandine,,
+MOXIFLOXACIN 5MG/ML,Moxifloxacin,5mg/ml,16385657,Fluorchinolone,,
+MOXIFLOXACIN STU SINE5MG/M,Moxifloxacin,,17943993,Fluorchinolone,,
+NEVANAC 1MG/ML ATR,Nepafenac,1mg/ml,10274247,NSAR,,
+NEVANAC 3MG/ML,Nepafenac,3mg/ml,13505434,NSAR,,
+OFLOXA VISION 3MG/G,Ofloxacin,3mg/g,12436079,Fluorchinolone,,
+OFLOXA VISION KOMBI PACK,Ofloxacin,,16895938,Fluorchinolone,,
+OFLOXA VISION SINE 3MG/ML,Ofloxacin,3mg/ml,10033213,Fluorchinolone,,
+OFLOXA-VISION SINE 3MG/ML,Ofloxacin,3mg/ml,10033236,Fluorchinolone,,
+OFLOXACIN DEVATIS 3MG/ML,Ofloxacin,3mg/ml,14251349,Fluorchinolone,,
+OFLOXACIN OPHTAL,Ofloxacin,,1959242,Fluorchinolone,,
+OFLOXACIN OPHTAL 3MG/G,Ofloxacin,3mg/g,11240931,Fluorchinolone,,
+OFLOXACIN 3MG/MLATR,Ofloxacin,3mg/ml,1646299,Fluorchinolone,,
+OFLOXACIN STULLN,Ofloxacin,,3095828,Fluorchinolone,,
+OFLOXAVISION 3MG/ML AT LSG,Ofloxacin,3mg/ml,12900200,Fluorchinolone,,
+OFTAQUIX SINE 5MG/ML AUGEN,Levofloxacin,5mg/ml,11547569,Fluorchinolone,,
+OXYTETRACYCLIN AUGENS JENA,Oxytetracyclin,,3524519,Antibiotika,,
+OXYTETRACYCLIN PREDNI JENA,Prednisolon + Oxytetracyclin,,3524525,Kombi Steroid+AB,,
+PILOMANN 2%,Pilocarpin,2%,2082692,Miotika,,
+POLLIVAL 0.5MG/ML AUGENTRO,Azelastin,0.5mg/ml,13748591,Antiallergika,,
+POLYSPECTRAN,Polymyxin B + Neomycin + Gramicidin,,1305374,Antibiotika,,
+PRED FORTE,Prednisolon,,5030678,Corticosteroide,,
+PREDNI POS 0.5%,Prednisolon,0.5%,8774669,Corticosteroide,,
+PREDNI POS 1%,Prednisolon,1%,165209,Corticosteroide,,
+PREDNIFLUID 10MG/ML ATRSUS,Prednisolon,10mg/ml,10775794,Corticosteroide,,
+PREDNISOLON AUGENSAL JENA,Prednisolon,,3524548,Corticosteroide,,
+RYJUNEA 0.1MG/ML ATR,Atropin,0.1mg/ml,19731166,Mydriatika,,
+SIC OPHTAL N,Hypromellose,,497176,Tränenersatz,,
+SIC OPHTAL SINE,Hypromellose,,28814,Tränenersatz,,
+SICCA-STULLN,Hypromellose,,4765432,Tränenersatz,,
+SICCAPROTECT,Polyvinylalkohol + Dexpanthenol,,3005587,Tränenersatz,,
+SIMBRINZA 10MG/ML+2MG/ML,Brinzolamid + Brimonidin,10mg/ml,12386329,Kombi CAH+Alpha,,
+SOFTACORT 3.35MG/ML,Hydrocortison,3.35mg/ml,13897500,Corticosteroide,,
+SPERSACARPIN 0.5%,Pilocarpin,0.5%,1907989,Miotika,,
+TAFLOTAN 15UG/ML,Tafluprost,15ug/ml,6707060,Prostaglandine,,
+TAFLOTAN SINE 15UG/ML,Tafluprost,15ug/ml,13703068,Prostaglandine,,
+TAFLUPROST SANTEN 15UG/ML,Tafluprost,15ug/ml,18130068,Prostaglandine,,
+TAPTIQOM 15UG/ML+5MG/ML,Timolol + Tafluprost,5mg/ml,19192189,Kombi Beta+PG,,
+TIDIMAZ 20MG/ML+5MG/ML,Timolol + Dorzolamid,20mg/ml,18654452,Kombi Beta+CAH,,
+TIM OPHTAL 0.1%,Timolol,0.1%,4828606,Betablocker,,
+TIM OPHTAL 0.25%,Timolol,0.25%,4828629,Betablocker,,
+TIM OPHTAL 0.25% SINE,Timolol,0.25%,715561,Betablocker,,
+TIM OPHTAL 0.5%,Timolol,0.5%,4828641,Betablocker,,
+TIM OPHTAL 0.5% SINE,Timolol,0.5%,715578,Betablocker,,
+TIMO COMOD 0.1%,Timolol,0.1%,5460172,Betablocker,,
+TIMO COMOD 0.25%,Timolol,0.25%,835242,Betablocker,,
+TIMO COMOD 0.5%,Timolol,0.5%,835259,Betablocker,,
+TIMO EDO 0.5%,Timolol,0.5%,7315221,Betablocker,,
+TIMO-STULLN 0.25% UD,Timolol,0.25%,8653084,Betablocker,,
+TIMO-STULLN 0.5% UD,Timolol,0.5%,8653109,Betablocker,,
+TIMOLOL 0.25% AT,Timolol,0.25%,6324235,Betablocker,,
+TIMOLOL 0.5% AT,Timolol,0.5%,6324258,Betablocker,,
+TIMOLOL 5 MG/ML,Timolol,5 mg/ml,15228275,Betablocker,,
+TIMOLOL 2.5MG/ML,Timolol,2.5mg/ml,15228329,Betablocker,,
+TOBRADEX 3MG/ML/1MG/ML,Dexamethason + Tobramycin,3mg/ml,9508941,Kombi Steroid+AB,,
+TOBRAMAXIN,Tobramycin,,2513531,Antibiotika,,
+TRAVATAN 40UG,Travoprost,,1466189,Prostaglandine,,
+TRAVO/TIMOL 40UG/ML+5MG,Timolol + Travoprost,40ug/ml,12545354,Kombi Beta+PG,,
+TRAVOPROST 40UG/ML,Travoprost,40ug/ml,10402840,Prostaglandine,,
+TRUSOPT 20MG/ML AUGENTROPF,Dorzolamid,20mg/ml,11103513,Carboanhydrasehemmer,,
+TRUSOPT AUGENTROPFEN,Dorzolamid,,3781558,Carboanhydrasehemmer,,
+TRUSOPT-S 20MG/ML,Dorzolamid,20mg/ml,1087150,Carboanhydrasehemmer,,
+ULTRACORTENOL AUGENCREME,Prednisolon,,1493269,Corticosteroide,,
+VIGAMOX 5MG/ML AUGENTROPF,Moxifloxacin,5mg/ml,4336056,Fluorchinolone,,
+VISCO VISION GEL,Carbomer,,1557420,Tränenersatz,,
+VISMED MULTI,Hyaluronsäure,,4844315,Tränenersatz,,
+VIT A VISION,Vitamin A,,2463460,Tränenersatz,,
+VIVIDRIN AZELASTIN EDO 0.5,Azelastin,,17538554,Antiallergika,,
+VOLTAREN OPHTHA SI 1MG/ML,Diclofenac,1mg/ml,15258767,NSAR,,
+XALACOM 50UG LATAN+5MG TIM,Timolol + Latanoprost,,19272043,Kombi Beta+PG,,
+XALACOM AUGENTROPFEN,Timolol + Latanoprost,,13743955,Kombi Beta+PG,,
+ZADITEN OPHTHA SINE,Ketotifen,,1061601,Antiallergika,,
+ZADITEN OPHTHA SINE AUGENT,Ketotifen,,1478293,Antiallergika,,
+ZYKLOLAT EDO,Cyclopentolat,,7617732,Mydriatika,,

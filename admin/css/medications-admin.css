@@ -1,0 +1,198 @@
+/**
+ * Praxis-Portal v4 – Medikamenten-Datenbank CSS
+ * Basierend auf v3.8.2 Design
+ *
+ * @package PraxisPortal
+ * @since   4.0.0
+ * @updated 4.2.5 – v3-Stil wiederhergestellt
+ */
+
+:root {
+    --pp-med-primary: #2271b1;
+    --pp-med-primary-dark: #135e96;
+    --pp-med-border: #c3c4c7;
+    --pp-med-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* General Layout */
+.pp-medication-admin { max-width: 1400px; }
+
+.pp-medication-admin h1.wp-heading-inline {
+    display: flex; align-items: center;
+    font-size: 23px; font-weight: 400;
+}
+
+.pp-medication-admin .wp-heading-inline .dashicons {
+    font-size: 28px; width: 28px; height: 28px;
+    color: var(--pp-med-primary); margin-right: 12px;
+}
+
+/* Tab Navigation */
+.pp-medication-admin .nav-tab-wrapper {
+    border-bottom: 1px solid var(--pp-med-border);
+    margin-bottom: 0; padding: 0;
+}
+
+.pp-medication-admin .nav-tab {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 16px; border: 1px solid transparent; border-bottom: none;
+    background: transparent; margin: 0 4px 0 0;
+    font-weight: 500; color: #50575e;
+    transition: all 0.2s; text-decoration: none;
+}
+
+.pp-medication-admin .nav-tab:hover {
+    background: rgba(0,0,0,0.02); color: var(--pp-med-primary);
+}
+
+.pp-medication-admin .nav-tab-active {
+    background: #fff; border-color: var(--pp-med-border);
+    border-bottom-color: #fff; color: var(--pp-med-primary);
+    margin-bottom: -1px;
+}
+
+.pp-medication-admin .nav-tab .dashicons {
+    font-size: 16px; width: 16px; height: 16px;
+}
+
+.pp-tab-content {
+    background: #fff; border: 1px solid var(--pp-med-border); border-top: none;
+    padding: 24px; border-radius: 0 0 4px 4px;
+}
+
+/* Filter Bar */
+.pp-filter-bar {
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    padding: 20px; margin-bottom: 20px; border-radius: 8px;
+    border: 1px solid #e2e4e7; box-shadow: var(--pp-med-shadow);
+}
+
+.pp-filter-row {
+    display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end;
+}
+
+.pp-filter-item { display: flex; flex-direction: column; gap: 6px; }
+
+.pp-filter-item label {
+    font-weight: 600; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.5px; color: #646970;
+}
+
+.pp-filter-item input[type="search"] {
+    min-width: 160px; padding: 8px 12px;
+    border: 1px solid #ddd; border-radius: 6px; font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pp-filter-item input[type="search"]:focus {
+    border-color: var(--pp-med-primary);
+    box-shadow: 0 0 0 2px rgba(34, 113, 177, 0.1); outline: none;
+}
+
+.pp-search-box input[type="search"] { min-width: 280px; }
+
+/* Stats Bar */
+.pp-stats-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px; padding: 12px 16px;
+    background: #f0f6fc; border-radius: 6px;
+    border-left: 4px solid var(--pp-med-primary);
+}
+
+.pp-stat { font-size: 14px; color: #1d2327; }
+.pp-stat strong { font-size: 18px; color: var(--pp-med-primary); }
+
+/* Medications Table */
+.pp-medications-table { margin-top: 0; }
+
+.pp-medications-table th {
+    text-align: left; padding: 10px 12px; font-size: 12px;
+    font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.5px; color: #646970;
+}
+
+.pp-medications-table td {
+    padding: 10px 12px; font-size: 13px; vertical-align: middle;
+}
+
+.pp-medications-table td code {
+    background: #f0f0f1; padding: 2px 6px;
+    border-radius: 3px; font-size: 12px; color: #50575e;
+}
+
+.pp-medications-table .column-name strong { font-weight: 600; }
+
+/* Row Actions – v3-Stil: bei Hover sichtbar */
+.pp-medications-table .row-actions { padding-top: 4px; }
+.pp-medications-table .row-actions a { text-decoration: none; font-size: 13px; }
+.pp-medications-table .row-actions .delete a { color: #d63638; }
+.pp-medications-table .row-actions .delete a:hover { color: #a00; }
+
+/* Inline Edit */
+.pp-med-edit input {
+    padding: 4px 8px; border: 1px solid #8c8f94;
+    border-radius: 3px; font-size: 13px;
+}
+
+/* Import */
+.pp-import-info {
+    background: #f0f6fc; border-left: 4px solid #72aee6;
+    padding: 15px; margin: 20px 0; border-radius: 0 4px 4px 0;
+}
+.pp-import-info h4 { margin: 0 0 10px 0; }
+.pp-import-info ul { margin: 0; padding-left: 20px; }
+.pp-import-info li { margin-bottom: 5px; }
+
+.pp-import-zone {
+    border: 2px dashed var(--pp-med-border); border-radius: 8px;
+    padding: 30px; text-align: center; background: #f9fafb;
+    transition: all 0.2s; cursor: pointer; margin: 16px 0;
+}
+.pp-import-zone:hover, .pp-import-zone.pp-drag-over {
+    border-color: var(--pp-med-primary); background: #e6f7ff;
+}
+
+.pp-import-progress.active { display: block !important; }
+
+/* Form Styles */
+.pp-medication-form .pp-form-row {
+    display: flex; gap: 20px; margin-bottom: 15px;
+}
+.pp-medication-form .pp-form-group { flex: 1; }
+.pp-medication-form .pp-form-group-wide { flex: 3; }
+
+.pp-medication-form .pp-form-group label {
+    display: block; margin-bottom: 5px; font-weight: 500; color: #1d2327;
+}
+
+.pp-medication-form .pp-form-group input[type="text"] {
+    width: 100%; padding: 8px 12px;
+    border: 1px solid #8c8f94; border-radius: 4px; font-size: 14px;
+}
+.pp-medication-form .pp-form-group input[type="text"]:focus {
+    border-color: var(--pp-med-primary);
+    box-shadow: 0 0 0 1px var(--pp-med-primary); outline: none;
+}
+
+.pp-medication-form .pp-form-actions {
+    margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd;
+}
+
+/* No Items */
+.pp-no-items { text-align: center; padding: 40px 20px; }
+.pp-no-items p { margin: 10px 0; color: #666; }
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .pp-medication-admin h1.wp-heading-inline { font-size: 18px; flex-wrap: wrap; gap: 8px; }
+    .pp-medication-admin .nav-tab { padding: 8px 12px; font-size: 13px; }
+    .pp-medication-admin .nav-tab .dashicons { display: none; }
+    .pp-tab-content { padding: 16px; }
+    .pp-filter-bar { padding: 16px; }
+    .pp-filter-row { flex-direction: column; gap: 12px; }
+    .pp-filter-item, .pp-search-box input[type="search"] { width: 100%; min-width: unset; }
+    .pp-stats-bar { flex-direction: column; gap: 10px; align-items: flex-start; }
+    .pp-medications-table .column-form, .pp-medications-table .column-pzn { display: none; }
+    .pp-medication-form .pp-form-row { flex-direction: column; gap: 12px; }
+    .pp-medication-form .pp-form-group { flex: none; width: 100%; }
+}

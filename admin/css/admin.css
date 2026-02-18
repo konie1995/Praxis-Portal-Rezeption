@@ -1,0 +1,850 @@
+/**
+ * Praxis-Portal v4 – Admin CSS
+ *
+ * Konsistentes Design für alle Admin-Seiten.
+ * Nutzt WordPress-Admin-Variablen wo möglich.
+ *
+ * @package PraxisPortal
+ * @since   4.0.0
+ */
+
+/* ==========================================================================
+   CSS VARIABLEN
+   ========================================================================== */
+
+:root {
+    --pp-primary: #0073aa;
+    --pp-primary-hover: #005f8d;
+    --pp-success: #00a32a;
+    --pp-warning: #dba617;
+    --pp-danger: #d63638;
+    --pp-info: #72aee6;
+    --pp-gray-50: #f9fafb;
+    --pp-gray-100: #f0f0f1;
+    --pp-gray-200: #e0e0e0;
+    --pp-gray-300: #c3c4c7;
+    --pp-gray-500: #787c82;
+    --pp-gray-700: #3c434a;
+    --pp-gray-900: #1d2327;
+    --pp-radius: 4px;
+    --pp-shadow: 0 1px 3px rgba(0,0,0,.1);
+    --pp-transition: .2s ease;
+}
+
+/* ==========================================================================
+   LAYOUT – SEITEN-WRAPPER
+   ========================================================================== */
+
+.pp-admin-wrap {
+    max-width: 1400px;
+    margin: 20px 20px 0 0;
+}
+
+.pp-admin-wrap h1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.pp-admin-wrap h1 .pp-version-badge {
+    font-size: 11px;
+    background: var(--pp-gray-100);
+    color: var(--pp-gray-500);
+    padding: 2px 8px;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   CARDS
+   ========================================================================== */
+
+.pp-card {
+    background: #fff;
+    border: 1px solid var(--pp-gray-200);
+    border-radius: var(--pp-radius);
+    box-shadow: var(--pp-shadow);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.pp-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -20px -20px 16px -20px;
+    padding: 12px 20px;
+    background: var(--pp-gray-50);
+    border-bottom: 1px solid var(--pp-gray-200);
+    border-radius: var(--pp-radius) var(--pp-radius) 0 0;
+}
+
+.pp-card-header h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   TAB-NAVIGATION
+   ========================================================================== */
+
+.pp-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--pp-gray-200);
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 0 16px;
+    border-radius: var(--pp-radius) var(--pp-radius) 0 0;
+}
+
+.pp-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: none;
+    color: var(--pp-gray-500);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--pp-transition);
+    white-space: nowrap;
+}
+
+.pp-tab:hover {
+    color: var(--pp-gray-900);
+    border-bottom-color: var(--pp-gray-300);
+}
+
+.pp-tab.active,
+.pp-tab.pp-tab-active {
+    color: var(--pp-primary);
+    border-bottom-color: var(--pp-primary);
+    font-weight: 600;
+}
+
+.pp-tab-content {
+    display: none;
+}
+
+.pp-tab-content.active,
+.pp-tab-content.pp-tab-active {
+    display: block;
+}
+
+/* ==========================================================================
+   TABELLEN
+   ========================================================================== */
+
+.pp-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid var(--pp-gray-200);
+    border-radius: var(--pp-radius);
+    overflow: hidden;
+}
+
+.pp-table th {
+    background: var(--pp-gray-50);
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--pp-gray-200);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--pp-gray-500);
+}
+
+.pp-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--pp-gray-100);
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.pp-table tbody tr:hover {
+    background: var(--pp-gray-50);
+}
+
+.pp-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Zeilen-Aktionen */
+.pp-row-actions {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    visibility: hidden;
+    margin-top: 4px;
+}
+
+.pp-table tbody tr:hover .pp-row-actions {
+    visibility: visible;
+}
+
+.pp-row-actions a {
+    text-decoration: none;
+}
+
+.pp-row-actions .pp-action-delete {
+    color: var(--pp-danger);
+}
+
+/* ==========================================================================
+   STATUS-BADGES
+   ========================================================================== */
+
+.pp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 18px;
+    white-space: nowrap;
+}
+
+.pp-badge-new {
+    background: #e6f7ff;
+    color: #0073aa;
+}
+
+.pp-badge-processing {
+    background: #fff8e1;
+    color: #8c6d1f;
+}
+
+.pp-badge-completed {
+    background: #e6f4ea;
+    color: #0d652d;
+}
+
+.pp-badge-archived {
+    background: var(--pp-gray-100);
+    color: var(--pp-gray-500);
+}
+
+.pp-badge-error {
+    background: #fce8e6;
+    color: #c5221f;
+}
+
+.pp-badge-active {
+    background: #e6f4ea;
+    color: #0d652d;
+}
+
+.pp-badge-inactive {
+    background: var(--pp-gray-100);
+    color: var(--pp-gray-500);
+}
+
+/* ==========================================================================
+   FORMULARE
+   ========================================================================== */
+
+.pp-form-row {
+    margin-bottom: 16px;
+}
+
+.pp-form-row label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--pp-gray-700);
+}
+
+.pp-form-row label .pp-required {
+    color: var(--pp-danger);
+    margin-left: 2px;
+}
+
+.pp-form-row .pp-help-text {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--pp-gray-500);
+    font-style: italic;
+}
+
+.pp-form-row input[type="text"],
+.pp-form-row input[type="email"],
+.pp-form-row input[type="url"],
+.pp-form-row input[type="number"],
+.pp-form-row input[type="password"],
+.pp-form-row textarea,
+.pp-form-row select {
+    width: 100%;
+    max-width: 500px;
+    padding: 6px 10px;
+    border: 1px solid var(--pp-gray-300);
+    border-radius: var(--pp-radius);
+    font-size: 13px;
+    transition: border-color var(--pp-transition);
+}
+
+.pp-form-row input:focus,
+.pp-form-row textarea:focus,
+.pp-form-row select:focus {
+    border-color: var(--pp-primary);
+    box-shadow: 0 0 0 1px var(--pp-primary);
+    outline: none;
+}
+
+.pp-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 782px) {
+    .pp-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.pp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid transparent;
+    border-radius: var(--pp-radius);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--pp-transition);
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.pp-btn-primary {
+    background: var(--pp-primary);
+    color: #fff;
+    border-color: var(--pp-primary);
+}
+
+.pp-btn-primary:hover {
+    background: var(--pp-primary-hover);
+    color: #fff;
+}
+
+.pp-btn-secondary {
+    background: #fff;
+    color: var(--pp-gray-700);
+    border-color: var(--pp-gray-300);
+}
+
+.pp-btn-secondary:hover {
+    background: var(--pp-gray-50);
+    border-color: var(--pp-gray-500);
+    color: var(--pp-gray-900);
+}
+
+.pp-btn-danger {
+    background: #fff;
+    color: var(--pp-danger);
+    border-color: var(--pp-danger);
+}
+
+.pp-btn-danger:hover {
+    background: var(--pp-danger);
+    color: #fff;
+}
+
+.pp-btn-sm {
+    padding: 3px 10px;
+    font-size: 12px;
+}
+
+.pp-btn:disabled,
+.pp-btn.pp-loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.pp-btn.pp-loading::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: pp-spin 0.6s linear infinite;
+}
+
+@keyframes pp-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   MODAL
+   ========================================================================== */
+
+.pp-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100000;
+    justify-content: center;
+    align-items: center;
+}
+
+.pp-modal-overlay.active {
+    display: flex;
+}
+
+.pp-modal {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 640px;
+    width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.pp-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--pp-gray-200);
+}
+
+.pp-modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.pp-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--pp-gray-500);
+    padding: 0 4px;
+    line-height: 1;
+}
+
+.pp-modal-close:hover {
+    color: var(--pp-gray-900);
+}
+
+.pp-modal-body {
+    padding: 20px;
+}
+
+.pp-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--pp-gray-200);
+    background: var(--pp-gray-50);
+    border-radius: 0 0 8px 8px;
+}
+
+/* ==========================================================================
+   NOTICES / ALERTS
+   ========================================================================== */
+
+.pp-notice {
+    padding: 12px 16px;
+    border-left: 4px solid var(--pp-info);
+    background: #fff;
+    margin-bottom: 16px;
+    border-radius: 0 var(--pp-radius) var(--pp-radius) 0;
+    box-shadow: var(--pp-shadow);
+    font-size: 13px;
+}
+
+.pp-notice-success {
+    border-left-color: var(--pp-success);
+}
+
+.pp-notice-warning {
+    border-left-color: var(--pp-warning);
+}
+
+.pp-notice-error {
+    border-left-color: var(--pp-danger);
+}
+
+/* ==========================================================================
+   STAT-CARDS (Dashboard-Übersicht)
+   ========================================================================== */
+
+.pp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.pp-stat-card {
+    background: #fff;
+    border: 1px solid var(--pp-gray-200);
+    border-radius: var(--pp-radius);
+    padding: 16px;
+    text-align: center;
+}
+
+.pp-stat-card .pp-stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--pp-primary);
+    line-height: 1.2;
+}
+
+.pp-stat-card .pp-stat-label {
+    font-size: 12px;
+    color: var(--pp-gray-500);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   LOCATION-SPEZIFISCH
+   ========================================================================== */
+
+.pp-location-card {
+    background: #fff;
+    border: 1px solid var(--pp-gray-200);
+    border-radius: var(--pp-radius);
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    transition: box-shadow var(--pp-transition);
+}
+
+.pp-location-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pp-location-info h3 {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+}
+
+.pp-location-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--pp-gray-500);
+}
+
+/* ==========================================================================
+   SUBMISSION-DETAIL
+   ========================================================================== */
+
+.pp-submission-detail {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
+}
+
+.pp-submission-detail dt {
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 13px;
+    background: var(--pp-gray-50);
+    border-bottom: 1px solid var(--pp-gray-200);
+}
+
+.pp-submission-detail dd {
+    padding: 8px 12px;
+    margin: 0;
+    font-size: 13px;
+    border-bottom: 1px solid var(--pp-gray-200);
+}
+
+/* ==========================================================================
+   PAGINATION
+   ========================================================================== */
+
+.pp-pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.pp-pagination a,
+.pp-pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid var(--pp-gray-200);
+    border-radius: var(--pp-radius);
+    text-decoration: none;
+    font-size: 13px;
+    transition: all var(--pp-transition);
+}
+
+.pp-pagination a:hover {
+    background: var(--pp-gray-50);
+    border-color: var(--pp-gray-300);
+}
+
+.pp-pagination .pp-page-current {
+    background: var(--pp-primary);
+    color: #fff;
+    border-color: var(--pp-primary);
+}
+
+/* ==========================================================================
+   FILTER-BAR
+   ========================================================================== */
+
+.pp-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.pp-filter-bar select,
+.pp-filter-bar input[type="text"],
+.pp-filter-bar input[type="date"] {
+    padding: 4px 8px;
+    border: 1px solid var(--pp-gray-300);
+    border-radius: var(--pp-radius);
+    font-size: 13px;
+}
+
+/* ==========================================================================
+   HEALTH-CHECK / SYSTEM
+   ========================================================================== */
+
+.pp-health-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--pp-gray-100);
+    font-size: 13px;
+}
+
+.pp-health-item:last-child {
+    border-bottom: none;
+}
+
+.pp-health-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.pp-health-ok {
+    background: #e6f4ea;
+    color: var(--pp-success);
+}
+
+.pp-health-warn {
+    background: #fff8e1;
+    color: var(--pp-warning);
+}
+
+.pp-health-error {
+    background: #fce8e6;
+    color: var(--pp-danger);
+}
+
+/* ==========================================================================
+   AUDIT-LOG
+   ========================================================================== */
+
+.pp-audit-action {
+    font-family: monospace;
+    font-size: 12px;
+    background: var(--pp-gray-100);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.pp-audit-details {
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   CODE-EDITOR
+   ========================================================================== */
+
+.pp-code-editor-wrap {
+    border: 1px solid var(--pp-gray-200);
+    border-radius: var(--pp-radius);
+    overflow: hidden;
+}
+
+.pp-code-editor-wrap .CodeMirror {
+    height: 500px;
+    font-size: 13px;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 782px) {
+    .pp-admin-wrap {
+        margin: 10px 10px 0 0;
+    }
+
+    .pp-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .pp-submission-detail {
+        grid-template-columns: 1fr;
+    }
+
+    .pp-submission-detail dt {
+        border-bottom: none;
+    }
+
+    .pp-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pp-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pp-table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* ==========================================================================
+   TOGGLE SWITCHES (iOS-Style)
+   ========================================================================== */
+
+.pp-toggle,
+.pp-toggle-large {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.pp-toggle input,
+.pp-toggle-large input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.pp-toggle-slider,
+.pp-toggle-slider-large {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: #ccc;
+    transition: .3s;
+    border-radius: 24px;
+}
+
+.pp-toggle-slider:before,
+.pp-toggle-slider-large:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+.pp-toggle input:checked + .pp-toggle-slider,
+.pp-toggle-large input:checked + .pp-toggle-slider-large {
+    background: #28a745;
+}
+
+.pp-toggle input:checked + .pp-toggle-slider:before,
+.pp-toggle-large input:checked + .pp-toggle-slider-large:before {
+    transform: translateX(20px);
+}
+
+/* ==========================================================================
+   BRILLENVERORDNUNG BEARBEITEN
+   ========================================================================== */
+
+.pp-brille-edit-form table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.pp-brille-edit-form th,
+.pp-brille-edit-form td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.pp-brille-edit-form th {
+    background: var(--pp-gray-50);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--pp-gray-700);
+}
+
+.pp-brille-edit-form input[type="number"],
+.pp-brille-edit-form select {
+    width: 100%;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.pp-brille-edit-form h4 {
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--pp-gray-700);
+}

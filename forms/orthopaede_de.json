@@ -1,0 +1,3157 @@
+{
+  "form_key": "orthopaede",
+  "version": "4.2.908",
+  "sections": [
+    {
+      "id": "stammdaten",
+      "label": "1. Persönliche Daten",
+      "order": 1
+    },
+    {
+      "id": "versicherung",
+      "label": "2. Versicherung",
+      "order": 2
+    },
+    {
+      "id": "hauptversicherter",
+      "label": "Hauptversicherter",
+      "order": 3,
+      "condition": {
+        "field": "privat_art",
+        "contains": "familienversichert"
+      }
+    },
+    {
+      "id": "orthoanamnese",
+      "label": "3. Orthopädische Anamnese"
+    },
+    {
+      "id": "wirbelsaeule",
+      "label": "4. Wirbelsäule"
+    },
+    {
+      "id": "gelenke",
+      "label": "5. Gelenke & Extremitäten"
+    },
+    {
+      "id": "familienanamnese",
+      "label": "6. Familienanamnese"
+    },
+    {
+      "id": "allgemein",
+      "label": "7. Allgemeine Anamnese",
+      "order": 7
+    },
+    {
+      "id": "allergien",
+      "label": "8. Allergien & Unverträglichkeiten",
+      "order": 8
+    },
+    {
+      "id": "medikamente",
+      "label": "9. Medikamente"
+    },
+    {
+      "id": "schwangerschaft",
+      "label": "9.1 Schwangerschaft / Stillen",
+      "order": 9.5,
+      "condition": {
+        "operator": "OR",
+        "conditions": [
+          {
+            "field": "geschlecht",
+            "value": "weiblich"
+          },
+          {
+            "field": "geschlecht",
+            "value": "divers"
+          }
+        ]
+      }
+    },
+    {
+      "id": "unterschrift",
+      "label": "10. Datenschutz & Unterschrift",
+      "order": 10
+    }
+  ],
+  "fields": [
+    {
+      "id": "anrede",
+      "section": "stammdaten",
+      "type": "select",
+      "order": 1,
+      "required": false,
+      "enabled": true,
+      "label": "Anrede",
+      "options": [
+        {
+          "value": "herr",
+          "label": "Herr"
+        },
+        {
+          "value": "frau",
+          "label": "Frau"
+        },
+        {
+          "value": "divers",
+          "label": "Divers"
+        }
+      ]
+    },
+    {
+      "id": "titel",
+      "section": "stammdaten",
+      "type": "text",
+      "order": 2,
+      "required": false,
+      "enabled": true,
+      "label": "Titel",
+      "placeholder": "z.B. Dr."
+    },
+    {
+      "id": "vorname",
+      "section": "stammdaten",
+      "type": "text",
+      "order": 3,
+      "required": true,
+      "enabled": true,
+      "label": "Vorname"
+    },
+    {
+      "id": "nachname",
+      "section": "stammdaten",
+      "type": "text",
+      "order": 4,
+      "required": true,
+      "enabled": true,
+      "label": "Nachname"
+    },
+    {
+      "id": "geburtsdatum",
+      "section": "stammdaten",
+      "type": "date",
+      "order": 5,
+      "required": true,
+      "enabled": true,
+      "label": "Geburtsdatum"
+    },
+    {
+      "id": "geschlecht",
+      "section": "stammdaten",
+      "type": "radio",
+      "order": 6,
+      "required": true,
+      "enabled": true,
+      "label": "Geschlecht",
+      "options": [
+        {
+          "value": "maennlich",
+          "label": "Männlich"
+        },
+        {
+          "value": "weiblich",
+          "label": "Weiblich"
+        },
+        {
+          "value": "divers",
+          "label": "Divers"
+        }
+      ]
+    },
+    {
+      "id": "strasse",
+      "section": "stammdaten",
+      "type": "text",
+      "order": 7,
+      "required": true,
+      "enabled": true,
+      "label": "Straße + Hausnummer"
+    },
+    {
+      "id": "plz",
+      "section": "stammdaten",
+      "type": "text",
+      "order": 8,
+      "required": true,
+      "enabled": true,
+      "label": "PLZ"
+    },
+    {
+      "id": "ort",
+      "section": "stammdaten",
+      "type": "text",
+      "order": 9,
+      "required": true,
+      "enabled": true,
+      "label": "Ort"
+    },
+    {
+      "id": "email",
+      "section": "stammdaten",
+      "type": "email",
+      "order": 10,
+      "required": true,
+      "enabled": true,
+      "label": "E-Mail"
+    },
+    {
+      "id": "telefon",
+      "section": "stammdaten",
+      "type": "tel",
+      "order": 11,
+      "required": true,
+      "enabled": true,
+      "label": "Telefonnummer"
+    },
+    {
+      "id": "kasse",
+      "section": "versicherung",
+      "type": "radio",
+      "order": 1,
+      "required": true,
+      "enabled": true,
+      "label": "Versicherung",
+      "options": [
+        {
+          "value": "gesetzlich",
+          "label": "Gesetzlich versichert"
+        },
+        {
+          "value": "privat",
+          "label": "Privat versichert"
+        }
+      ]
+    },
+    {
+      "id": "privat_art",
+      "section": "versicherung",
+      "type": "checkbox_group",
+      "order": 2,
+      "required": false,
+      "enabled": true,
+      "label": "Versicherungsart",
+      "condition": {
+        "field": "kasse",
+        "value": "privat"
+      },
+      "options": [
+        {
+          "value": "familienversichert",
+          "label": "Familienversichert"
+        },
+        {
+          "value": "beihilfe",
+          "label": "Beihilfe"
+        },
+        {
+          "value": "post_b",
+          "label": "Post B"
+        },
+        {
+          "value": "selbststaendig",
+          "label": "Selbstständig"
+        },
+        {
+          "value": "standardtarif",
+          "label": "Standardtarif"
+        }
+      ]
+    },
+    {
+      "id": "hv_vorname",
+      "section": "hauptversicherter",
+      "type": "text",
+      "order": 1,
+      "required": true,
+      "enabled": true,
+      "label": "Vorname (Hauptversicherter)",
+      "condition": {
+        "field": "privat_art",
+        "contains": "familienversichert"
+      }
+    },
+    {
+      "id": "hv_nachname",
+      "section": "hauptversicherter",
+      "type": "text",
+      "order": 2,
+      "required": true,
+      "enabled": true,
+      "label": "Nachname (Hauptversicherter)",
+      "condition": {
+        "field": "privat_art",
+        "contains": "familienversichert"
+      }
+    },
+    {
+      "id": "hv_strasse",
+      "section": "hauptversicherter",
+      "type": "text",
+      "order": 3,
+      "required": false,
+      "enabled": true,
+      "label": "Straße / Hausnummer",
+      "condition": {
+        "field": "privat_art",
+        "contains": "familienversichert"
+      }
+    },
+    {
+      "id": "hv_plz",
+      "section": "hauptversicherter",
+      "type": "text",
+      "order": 4,
+      "required": false,
+      "enabled": true,
+      "label": "PLZ",
+      "condition": {
+        "field": "privat_art",
+        "contains": "familienversichert"
+      }
+    },
+    {
+      "id": "hv_ort",
+      "section": "hauptversicherter",
+      "type": "text",
+      "order": 5,
+      "required": false,
+      "enabled": true,
+      "label": "Ort",
+      "condition": {
+        "field": "privat_art",
+        "contains": "familienversichert"
+      }
+    },
+    {
+      "id": "hv_copy_address",
+      "section": "hauptversicherter",
+      "type": "button",
+      "order": 6,
+      "required": false,
+      "enabled": true,
+      "label": "o.g. Adresse übernehmen",
+      "action": "copy_patient_address",
+      "condition": {
+        "field": "privat_art",
+        "contains": "familienversichert"
+      }
+    },
+    {
+      "id": "beschwerde",
+      "section": "orthoanamnese",
+      "type": "text",
+      "order": 1,
+      "required": true,
+      "enabled": true,
+      "label": "Was ist der Grund Ihres heutigen Besuchs?"
+    },
+    {
+      "id": "beschwerde_dauer",
+      "section": "orthoanamnese",
+      "type": "text",
+      "order": 2,
+      "required": false,
+      "enabled": true,
+      "label": "Seit wann bestehen die Beschwerden?"
+    },
+    {
+      "id": "beschwerde_lokalisation",
+      "section": "orthoanamnese",
+      "type": "checkbox_group",
+      "order": 3,
+      "required": false,
+      "enabled": true,
+      "label": "Wo sind die Beschwerden?",
+      "options": [
+        {
+          "value": "hws",
+          "label": "HWS (Halswirbelsäule)"
+        },
+        {
+          "value": "bws",
+          "label": "BWS (Brustwirbelsäule)"
+        },
+        {
+          "value": "lws",
+          "label": "LWS (Lendenwirbelsäule)"
+        },
+        {
+          "value": "schulter_r",
+          "label": "Schulter rechts"
+        },
+        {
+          "value": "schulter_l",
+          "label": "Schulter links"
+        },
+        {
+          "value": "ellbogen_r",
+          "label": "Ellbogen rechts"
+        },
+        {
+          "value": "ellbogen_l",
+          "label": "Ellbogen links"
+        },
+        {
+          "value": "hand_r",
+          "label": "Hand/Handgelenk rechts"
+        },
+        {
+          "value": "hand_l",
+          "label": "Hand/Handgelenk links"
+        },
+        {
+          "value": "huefte_r",
+          "label": "Hüfte rechts"
+        },
+        {
+          "value": "huefte_l",
+          "label": "Hüfte links"
+        },
+        {
+          "value": "knie_r",
+          "label": "Knie rechts"
+        },
+        {
+          "value": "knie_l",
+          "label": "Knie links"
+        },
+        {
+          "value": "sprunggelenk_r",
+          "label": "Sprunggelenk rechts"
+        },
+        {
+          "value": "sprunggelenk_l",
+          "label": "Sprunggelenk links"
+        },
+        {
+          "value": "fuss_r",
+          "label": "Fuß rechts"
+        },
+        {
+          "value": "fuss_l",
+          "label": "Fuß links"
+        }
+      ]
+    },
+    {
+      "id": "schmerzintensitaet",
+      "section": "orthoanamnese",
+      "type": "radio",
+      "order": 4,
+      "required": false,
+      "enabled": true,
+      "label": "Schmerzstärke?",
+      "options": [
+        {
+          "value": "0-3",
+          "label": "0–3 (leicht)"
+        },
+        {
+          "value": "4-6",
+          "label": "4–6 (mittel)"
+        },
+        {
+          "value": "7-10",
+          "label": "7–10 (stark)"
+        }
+      ]
+    },
+    {
+      "id": "schmerz_charakter",
+      "section": "orthoanamnese",
+      "type": "checkbox_group",
+      "order": 5,
+      "required": false,
+      "enabled": true,
+      "label": "Schmerzcharakter?",
+      "options": [
+        {
+          "value": "stechend",
+          "label": "Stechend"
+        },
+        {
+          "value": "ziehend",
+          "label": "Ziehend"
+        },
+        {
+          "value": "brennend",
+          "label": "Brennend"
+        },
+        {
+          "value": "dumpf",
+          "label": "Dumpf"
+        },
+        {
+          "value": "ausstrahlend",
+          "label": "Ausstrahlend"
+        },
+        {
+          "value": "nachts",
+          "label": "Nachts verstärkt"
+        }
+      ]
+    },
+    {
+      "id": "beschwerde_ausloeser",
+      "section": "orthoanamnese",
+      "type": "text",
+      "order": 6,
+      "required": false,
+      "enabled": true,
+      "label": "Was löst die Beschwerden aus / verstärkt sie?"
+    },
+    {
+      "id": "unfall",
+      "section": "orthoanamnese",
+      "type": "radio",
+      "order": 7,
+      "required": false,
+      "enabled": true,
+      "label": "Hatten Sie einen Unfall?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "unfall_datum",
+      "section": "orthoanamnese",
+      "type": "text",
+      "order": 8,
+      "required": false,
+      "enabled": true,
+      "label": "Wann?",
+      "condition": {
+        "field": "unfall",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "unfall_art",
+      "section": "orthoanamnese",
+      "type": "text",
+      "order": 9,
+      "required": false,
+      "enabled": true,
+      "label": "Art des Unfalls?",
+      "condition": {
+        "field": "unfall",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "arbeitsunfall",
+      "section": "orthoanamnese",
+      "type": "radio",
+      "order": 10,
+      "required": false,
+      "enabled": true,
+      "label": "War es ein Arbeits-/Wegeunfall?",
+      "condition": {
+        "field": "unfall",
+        "value": "ja"
+      },
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "beruf",
+      "section": "orthoanamnese",
+      "type": "text",
+      "order": 11,
+      "required": false,
+      "enabled": true,
+      "label": "Welchen Beruf üben Sie aus?"
+    },
+    {
+      "id": "beruf_belastung",
+      "section": "orthoanamnese",
+      "type": "radio",
+      "order": 12,
+      "required": false,
+      "enabled": true,
+      "label": "Körperliche Belastung im Beruf?",
+      "options": [
+        {
+          "value": "leicht",
+          "label": "Leicht (Büro)"
+        },
+        {
+          "value": "mittel",
+          "label": "Mittel"
+        },
+        {
+          "value": "schwer",
+          "label": "Schwer (körperlich)"
+        }
+      ]
+    },
+    {
+      "id": "sport",
+      "section": "orthoanamnese",
+      "type": "radio",
+      "order": 13,
+      "required": false,
+      "enabled": true,
+      "label": "Treiben Sie Sport?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "sport_art",
+      "section": "orthoanamnese",
+      "type": "text",
+      "order": 14,
+      "required": false,
+      "enabled": true,
+      "label": "Welche Sportart und wie oft?",
+      "condition": {
+        "field": "sport",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "rueckenschmerzen",
+      "section": "wirbelsaeule",
+      "type": "radio",
+      "order": 1,
+      "required": false,
+      "enabled": true,
+      "label": "Rückenschmerzen?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "rueckenschmerzen_bereich",
+      "section": "wirbelsaeule",
+      "type": "checkbox_group",
+      "order": 2,
+      "required": false,
+      "enabled": true,
+      "label": "Bereich",
+      "options": [
+        {
+          "value": "hws",
+          "label": "HWS (Nacken)"
+        },
+        {
+          "value": "bws",
+          "label": "BWS (Brustwirbelsäule)"
+        },
+        {
+          "value": "lws",
+          "label": "LWS (Lendenwirbelsäule)"
+        },
+        {
+          "value": "steissbein",
+          "label": "Steißbein"
+        }
+      ],
+      "condition": {
+        "field": "rueckenschmerzen",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "bandscheibe",
+      "section": "wirbelsaeule",
+      "type": "radio",
+      "order": 3,
+      "required": false,
+      "enabled": true,
+      "label": "Bandscheibenvorfall?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "bandscheibe_wann",
+      "section": "wirbelsaeule",
+      "type": "text",
+      "order": 4,
+      "required": false,
+      "enabled": true,
+      "label": "Wann und welche Höhe?",
+      "condition": {
+        "field": "bandscheibe",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "bandscheibe_op",
+      "section": "wirbelsaeule",
+      "type": "radio",
+      "order": 5,
+      "required": false,
+      "enabled": true,
+      "label": "Bandscheiben-Operation?",
+      "condition": {
+        "field": "bandscheibe",
+        "value": "ja"
+      },
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "spinalkanalstenose",
+      "section": "wirbelsaeule",
+      "type": "radio",
+      "order": 6,
+      "required": false,
+      "enabled": true,
+      "label": "Spinalkanalstenose?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "skoliose",
+      "section": "wirbelsaeule",
+      "type": "radio",
+      "order": 7,
+      "required": false,
+      "enabled": true,
+      "label": "Skoliose?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "osteoporose",
+      "section": "wirbelsaeule",
+      "type": "radio",
+      "order": 8,
+      "required": false,
+      "enabled": true,
+      "label": "Osteoporose?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "wirbelbruch",
+      "section": "wirbelsaeule",
+      "type": "radio",
+      "order": 9,
+      "required": false,
+      "enabled": true,
+      "label": "Wirbelbruch?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "wirbelbruch_details",
+      "section": "wirbelsaeule",
+      "type": "text",
+      "order": 10,
+      "required": false,
+      "enabled": true,
+      "label": "Welcher und wann?",
+      "condition": {
+        "field": "wirbelbruch",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "ischias",
+      "section": "wirbelsaeule",
+      "type": "radio",
+      "order": 11,
+      "required": false,
+      "enabled": true,
+      "label": "Ischiasschmerzen / Ausstrahlung ins Bein?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "ischias_seite",
+      "section": "wirbelsaeule",
+      "type": "select",
+      "order": 12,
+      "required": false,
+      "enabled": true,
+      "label": "Seite",
+      "options": [
+        {
+          "value": "rechts",
+          "label": "Rechts"
+        },
+        {
+          "value": "links",
+          "label": "Links"
+        },
+        {
+          "value": "beidseitig",
+          "label": "Beidseitig"
+        }
+      ],
+      "condition": {
+        "field": "ischias",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "taubheit_extremitaeten",
+      "section": "wirbelsaeule",
+      "type": "radio",
+      "order": 13,
+      "required": false,
+      "enabled": true,
+      "label": "Taubheitsgefühl oder Kribbeln in Armen/Beinen?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "gelenkersatz",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 1,
+      "required": false,
+      "enabled": true,
+      "label": "Künstliches Gelenk (Prothese)?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "gelenkersatz_details",
+      "section": "gelenke",
+      "type": "text",
+      "order": 2,
+      "required": false,
+      "enabled": true,
+      "label": "Welches Gelenk und wann?",
+      "condition": {
+        "field": "gelenkersatz",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "arthroskopie",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 3,
+      "required": false,
+      "enabled": true,
+      "label": "Gelenkspiegelung (Arthroskopie)?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "arthroskopie_details",
+      "section": "gelenke",
+      "type": "text",
+      "order": 4,
+      "required": false,
+      "enabled": true,
+      "label": "Welches Gelenk und wann?",
+      "condition": {
+        "field": "arthroskopie",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "kreuzband",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 5,
+      "required": false,
+      "enabled": true,
+      "label": "Kreuzbandriss?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "kreuzband_seite",
+      "section": "gelenke",
+      "type": "select",
+      "order": 6,
+      "required": false,
+      "enabled": true,
+      "label": "Seite",
+      "options": [
+        {
+          "value": "rechts",
+          "label": "Rechts"
+        },
+        {
+          "value": "links",
+          "label": "Links"
+        },
+        {
+          "value": "beidseitig",
+          "label": "Beidseitig"
+        }
+      ],
+      "condition": {
+        "field": "kreuzband",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "meniskus",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 7,
+      "required": false,
+      "enabled": true,
+      "label": "Meniskusschaden?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "meniskus_seite",
+      "section": "gelenke",
+      "type": "select",
+      "order": 8,
+      "required": false,
+      "enabled": true,
+      "label": "Seite",
+      "options": [
+        {
+          "value": "rechts",
+          "label": "Rechts"
+        },
+        {
+          "value": "links",
+          "label": "Links"
+        },
+        {
+          "value": "beidseitig",
+          "label": "Beidseitig"
+        }
+      ],
+      "condition": {
+        "field": "meniskus",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "achillessehne",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 9,
+      "required": false,
+      "enabled": true,
+      "label": "Achillessehnenprobleme?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "karpaltunnel",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 10,
+      "required": false,
+      "enabled": true,
+      "label": "Karpaltunnelsyndrom?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "karpaltunnel_seite",
+      "section": "gelenke",
+      "type": "select",
+      "order": 11,
+      "required": false,
+      "enabled": true,
+      "label": "Seite",
+      "options": [
+        {
+          "value": "rechts",
+          "label": "Rechts"
+        },
+        {
+          "value": "links",
+          "label": "Links"
+        },
+        {
+          "value": "beidseitig",
+          "label": "Beidseitig"
+        }
+      ],
+      "condition": {
+        "field": "karpaltunnel",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "gicht",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 12,
+      "required": false,
+      "enabled": true,
+      "label": "Gicht?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "rheuma",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 13,
+      "required": false,
+      "enabled": true,
+      "label": "Rheumatische Erkrankung?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "rheuma_art",
+      "section": "gelenke",
+      "type": "text",
+      "order": 14,
+      "required": false,
+      "enabled": true,
+      "label": "Welche?",
+      "condition": {
+        "field": "rheuma",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "arthrose",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 15,
+      "required": false,
+      "enabled": true,
+      "label": "Arthrose?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "arthrose_gelenke",
+      "section": "gelenke",
+      "type": "text",
+      "order": 16,
+      "required": false,
+      "enabled": true,
+      "label": "Welche Gelenke?",
+      "condition": {
+        "field": "arthrose",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "einlagen",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 17,
+      "required": false,
+      "enabled": true,
+      "label": "Tragen Sie orthopädische Einlagen?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "orthesen",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 18,
+      "required": false,
+      "enabled": true,
+      "label": "Tragen Sie Bandagen/Orthesen?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "gehhilfe",
+      "section": "gelenke",
+      "type": "radio",
+      "order": 19,
+      "required": false,
+      "enabled": true,
+      "label": "Verwenden Sie Gehhilfen?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "familie_rheuma",
+      "section": "familienanamnese",
+      "type": "radio",
+      "order": 1,
+      "required": false,
+      "enabled": true,
+      "label": "Rheuma in der Familie?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "familie_osteoporose",
+      "section": "familienanamnese",
+      "type": "radio",
+      "order": 2,
+      "required": false,
+      "enabled": true,
+      "label": "Osteoporose in der Familie?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "familie_ruecken",
+      "section": "familienanamnese",
+      "type": "radio",
+      "order": 3,
+      "required": false,
+      "enabled": true,
+      "label": "Rückenerkrankungen in der Familie?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "familie_gicht",
+      "section": "familienanamnese",
+      "type": "radio",
+      "order": 4,
+      "required": false,
+      "enabled": true,
+      "label": "Gicht in der Familie?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "kat_herz_kreislauf",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 1,
+      "required": false,
+      "enabled": true,
+      "label": "🫀 Herz-Kreislauf-Erkrankungen?",
+      "info": "Bluthochdruck, Herzerkrankungen, Schlaganfall, Thrombose, Durchblutungsstörungen",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "bluthochdruck",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 2,
+      "required": false,
+      "enabled": true,
+      "label": "Bluthochdruck (Hypertonie)?",
+      "info": "Kann die feinen Blutgefäße im Auge schädigen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_herz_kreislauf",
+        "value": "ja"
+      },
+      "icd": "I10"
+    },
+    {
+      "id": "herzinsuffizienz",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 3,
+      "required": false,
+      "enabled": true,
+      "label": "Herzinsuffizienz (Herzschwäche)?",
+      "info": "Das Herz pumpt nicht mehr ausreichend Blut durch den Körper.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_herz_kreislauf",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "khk",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 4,
+      "required": false,
+      "enabled": true,
+      "label": "Koronare Herzkrankheit (KHK)?",
+      "info": "Verengung der Herzkranzgefäße durch Ablagerungen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_herz_kreislauf",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "herzinfarkt",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 5,
+      "required": false,
+      "enabled": true,
+      "label": "Herzinfarkt?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_herz_kreislauf",
+        "value": "ja"
+      },
+      "icd": "I21.9"
+    },
+    {
+      "id": "herzinfarkt_wann",
+      "section": "allgemein",
+      "type": "text",
+      "order": 6,
+      "required": false,
+      "enabled": true,
+      "label": "Wann?",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "herzinfarkt",
+            "value": "ja"
+          },
+          {
+            "field": "kat_herz_kreislauf",
+            "value": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "herzrhythmus",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 7,
+      "required": false,
+      "enabled": true,
+      "label": "Herzrhythmusstörungen?",
+      "info": "Z.B. Vorhofflimmern â€“ kann zu Blutgerinnseln führen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_herz_kreislauf",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "schrittmacher",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 8,
+      "required": false,
+      "enabled": true,
+      "label": "Herzschrittmacher?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_herz_kreislauf",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "thrombose",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 9,
+      "required": false,
+      "enabled": true,
+      "label": "Tiefe Beinvenenthrombose?",
+      "info": "Blutgerinnsel in den tiefen Beinvenen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_herz_kreislauf",
+        "value": "ja"
+      },
+      "icd": "I82.9"
+    },
+    {
+      "id": "thrombose_wann",
+      "section": "allgemein",
+      "type": "text",
+      "order": 10,
+      "required": false,
+      "enabled": true,
+      "label": "Wann?",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "thrombose",
+            "value": "ja"
+          },
+          {
+            "field": "kat_herz_kreislauf",
+            "value": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "lungenembolie",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 11,
+      "required": false,
+      "enabled": true,
+      "label": "Lungenembolie?",
+      "info": "Blutgerinnsel in der Lunge.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_herz_kreislauf",
+        "value": "ja"
+      },
+      "icd": "I26.9"
+    },
+    {
+      "id": "lungenembolie_wann",
+      "section": "allgemein",
+      "type": "text",
+      "order": 12,
+      "required": false,
+      "enabled": true,
+      "label": "Wann?",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "lungenembolie",
+            "value": "ja"
+          },
+          {
+            "field": "kat_herz_kreislauf",
+            "value": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "schlaganfall",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 13,
+      "required": false,
+      "enabled": true,
+      "label": "Schlaganfall?",
+      "info": "Kann auch das Sehen beeinträchtigen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_herz_kreislauf",
+        "value": "ja"
+      },
+      "icd": "I64"
+    },
+    {
+      "id": "schlaganfall_wann",
+      "section": "allgemein",
+      "type": "text",
+      "order": 14,
+      "required": false,
+      "enabled": true,
+      "label": "Wann?",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "schlaganfall",
+            "value": "ja"
+          },
+          {
+            "field": "kat_herz_kreislauf",
+            "value": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kat_stoffwechsel",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 10,
+      "required": false,
+      "enabled": true,
+      "label": "🔬 Stoffwechsel-Erkrankungen?",
+      "info": "Diabetes, Schilddrüsenerkrankungen, Fettstoffwechselstörungen",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "diabetes",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 11,
+      "required": false,
+      "enabled": true,
+      "label": "Diabetes (Zuckerkrankheit)?",
+      "info": "Kann zu diabetischer Retinopathie führen â€“ Schäden an der Netzhaut.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_stoffwechsel",
+        "value": "ja"
+      },
+      "icd": "E14.9"
+    },
+    {
+      "id": "diabetes_typ",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 12,
+      "required": false,
+      "enabled": true,
+      "label": "Diabetes Typ",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "diabetes",
+            "value": "ja"
+          },
+          {
+            "field": "kat_stoffwechsel",
+            "value": "ja"
+          }
+        ]
+      },
+      "options": [
+        {
+          "value": "1",
+          "label": "Typ 1 (Insulinpflichtig)"
+        },
+        {
+          "value": "2",
+          "label": "Typ 2 (Alterszucker)"
+        }
+      ]
+    },
+    {
+      "id": "diabetes_hba1c",
+      "section": "allgemein",
+      "type": "text",
+      "order": 13,
+      "required": false,
+      "enabled": true,
+      "label": "Wie hoch war der letzte Langzeitzucker (HbA1c)?",
+      "info": "Wert in % oder mmol/mol, z.B. 6,5% oder 48 mmol/mol.",
+      "placeholder": "z.B. 6,5% oder 48 mmol/mol",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "diabetes",
+            "value": "ja"
+          },
+          {
+            "field": "kat_stoffwechsel",
+            "value": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "diabetes_dmp",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 14,
+      "required": false,
+      "enabled": true,
+      "label": "Nehmen Sie am DMP-Programm teil?",
+      "info": "Disease-Management-Programm für strukturierte Behandlung.",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "diabetes",
+            "value": "ja"
+          },
+          {
+            "field": "kat_stoffwechsel",
+            "value": "ja"
+          }
+        ]
+      },
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "schilddruese",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 15,
+      "required": false,
+      "enabled": true,
+      "label": "Schilddrüsenerkrankung?",
+      "info": "Kann zu endokriner Orbitopathie führen (hervortretende Augen).",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_stoffwechsel",
+        "value": "ja"
+      },
+      "icd": "E07.9"
+    },
+    {
+      "id": "schilddruese_art",
+      "section": "allgemein",
+      "type": "checkbox_group",
+      "order": 16,
+      "required": false,
+      "enabled": true,
+      "label": "Art",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "schilddruese",
+            "value": "ja"
+          },
+          {
+            "field": "kat_stoffwechsel",
+            "value": "ja"
+          }
+        ]
+      },
+      "options": [
+        {
+          "value": "unterfunktion",
+          "label": "Unterfunktion"
+        },
+        {
+          "value": "ueberfunktion",
+          "label": "Überfunktion"
+        },
+        {
+          "value": "basedow",
+          "label": "Morbus Basedow"
+        },
+        {
+          "value": "hashimoto",
+          "label": "Hashimoto"
+        },
+        {
+          "value": "thyreoidektomie",
+          "label": "Thyreoidektomie (Entfernung)"
+        }
+      ],
+      "info": "Schilddrüsenerkrankungen können Augensymptome verursachen (z.B. hervortretende Augen bei Basedow)."
+    },
+    {
+      "id": "kat_atemwege",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 20,
+      "required": false,
+      "enabled": true,
+      "label": "🫁 Atemwegserkrankungen?",
+      "info": "Asthma, COPD, chronische Bronchitis",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "rauchen",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 21,
+      "required": false,
+      "enabled": true,
+      "label": "Rauchen Sie?",
+      "info": "Erhöht das Risiko für Makuladegeneration und Durchblutungsstörungen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_atemwege",
+        "value": "ja"
+      },
+      "icd": "Z72.0"
+    },
+    {
+      "id": "bronchitis",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 22,
+      "required": false,
+      "enabled": true,
+      "label": "Chronische Bronchitis?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_atemwege",
+        "value": "ja"
+      },
+      "info": "Chronische Atemwegserkrankung.",
+      "icd": "J42"
+    },
+    {
+      "id": "copd",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 23,
+      "required": false,
+      "enabled": true,
+      "label": "COPD?",
+      "info": "Chronisch obstruktive Lungenerkrankung â€“ dauerhafte Verengung der Atemwege.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_atemwege",
+        "value": "ja"
+      },
+      "icd": "J44.9"
+    },
+    {
+      "id": "asthma",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 24,
+      "required": false,
+      "enabled": true,
+      "label": "Asthma bronchiale?",
+      "info": "Anfallsartige Atemnot durch verengte Bronchien.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_atemwege",
+        "value": "ja"
+      },
+      "icd": "J45.9"
+    },
+    {
+      "id": "kat_organe",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 30,
+      "required": false,
+      "enabled": true,
+      "label": "🫘 Organerkrankungen?",
+      "info": "Nierenerkrankungen, Lebererkrankungen",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "nieren",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 31,
+      "required": false,
+      "enabled": true,
+      "label": "Nierenerkrankung?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_organe",
+        "value": "ja"
+      },
+      "info": "Nierenerkrankungen können die Dosierung von Medikamenten beeinflussen.",
+      "icd": "N28.9"
+    },
+    {
+      "id": "nieren_art",
+      "section": "allgemein",
+      "type": "checkbox_group",
+      "order": 32,
+      "required": false,
+      "enabled": true,
+      "label": "Art",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "nieren",
+            "value": "ja"
+          },
+          {
+            "field": "kat_organe",
+            "value": "ja"
+          }
+        ]
+      },
+      "options": [
+        {
+          "value": "insuffizienz",
+          "label": "Chronische Niereninsuffizienz"
+        },
+        {
+          "value": "dialyse",
+          "label": "Dialyse (Blutwäsche)"
+        }
+      ],
+      "info": "Wichtig für Medikamentendosierung und OP-Planung."
+    },
+    {
+      "id": "leber",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 33,
+      "required": false,
+      "enabled": true,
+      "label": "Lebererkrankung?",
+      "info": "Wichtig für Medikamentenstoffwechsel.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_organe",
+        "value": "ja"
+      },
+      "icd": "K76.9"
+    },
+    {
+      "id": "leber_art",
+      "section": "allgemein",
+      "type": "checkbox_group",
+      "order": 34,
+      "required": false,
+      "enabled": true,
+      "label": "Art der Lebererkrankung",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "leber",
+            "value": "ja"
+          },
+          {
+            "field": "kat_organe",
+            "value": "ja"
+          }
+        ]
+      },
+      "options": [
+        {
+          "value": "zirrhose",
+          "label": "Leberzirrhose"
+        },
+        {
+          "value": "fettleber",
+          "label": "Fettleber (NASH/NAFLD)"
+        },
+        {
+          "value": "alkoholisch",
+          "label": "Alkoholische Lebererkrankung"
+        },
+        {
+          "value": "autoimmun_hepatitis",
+          "label": "Autoimmune Hepatitis"
+        },
+        {
+          "value": "andere",
+          "label": "Andere"
+        }
+      ],
+      "info": "Verschiedene Lebererkrankungen haben unterschiedliche Auswirkungen auf Medikamentenstoffwechsel und OP-Risiko."
+    },
+    {
+      "id": "leber_andere",
+      "section": "allgemein",
+      "type": "text",
+      "order": 35,
+      "required": false,
+      "enabled": true,
+      "label": "Welche andere Lebererkrankung?",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "leber_art",
+            "contains": "andere"
+          },
+          {
+            "field": "kat_organe",
+            "value": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kat_blutgerinnung",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 35,
+      "required": false,
+      "enabled": true,
+      "label": "🩸 Blutgerinnungsstörungen?",
+      "info": "Blutgerinnungsstörungen, Blutungsneigung (wichtig für Operationen)",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "blutgerinnung_art",
+      "section": "allgemein",
+      "type": "checkbox_group",
+      "order": 36,
+      "required": false,
+      "enabled": true,
+      "label": "Art der Blutgerinnungsstörung",
+      "condition": {
+        "field": "kat_blutgerinnung",
+        "value": "ja"
+      },
+      "options": [
+        {
+          "value": "von_willebrand",
+          "label": "Von-Willebrand-Syndrom"
+        },
+        {
+          "value": "faktor_v_leiden",
+          "label": "Faktor V Leiden"
+        },
+        {
+          "value": "haemophilie",
+          "label": "Hämophilie"
+        },
+        {
+          "value": "nasenbluten",
+          "label": "Häufiges Nasenbluten"
+        },
+        {
+          "value": "zahnfleischbluten",
+          "label": "Zahnfleischbluten"
+        },
+        {
+          "value": "andere",
+          "label": "Andere"
+        }
+      ],
+      "info": "Wichtig für OP-Planung und Medikamentenwahl (z.B. Blutverdünner)."
+    },
+    {
+      "id": "blutgerinnung_andere",
+      "section": "allgemein",
+      "type": "text",
+      "order": 37,
+      "required": false,
+      "enabled": true,
+      "label": "Welche andere Blutgerinnungsstörung?",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "blutgerinnung_art",
+            "contains": "andere"
+          },
+          {
+            "field": "kat_blutgerinnung",
+            "value": "ja"
+          }
+        ]
+      },
+      "info": "Bitte genau angeben für korrekte Risikoabschätzung."
+    },
+    {
+      "id": "kat_neurologie",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 40,
+      "required": false,
+      "enabled": true,
+      "label": "🧠 Neurologische Erkrankungen?",
+      "info": "Epilepsie, Multiple Sklerose, Parkinson, Migräne, Demenz",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "autoimmun_neurodermitis",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 41,
+      "required": false,
+      "enabled": true,
+      "label": "Neurodermitis?",
+      "info": "Chronische Hautentzündung, kann die Augenlider betreffen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_neurologie",
+        "value": "ja"
+      },
+      "icd": "L20.9"
+    },
+    {
+      "id": "ms",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 42,
+      "required": false,
+      "enabled": true,
+      "label": "Multiple Sklerose (MS)?",
+      "info": "Kann den Sehnerv angreifen (Optikusneuritis).",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_neurologie",
+        "value": "ja"
+      },
+      "icd": "G35"
+    },
+    {
+      "id": "migraene",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 43,
+      "required": false,
+      "enabled": true,
+      "label": "Migräne?",
+      "info": "Oft mit Sehstörungen (Aura) verbunden.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_neurologie",
+        "value": "ja"
+      },
+      "icd": "G43.9"
+    },
+    {
+      "id": "myasthenia",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 44,
+      "required": false,
+      "enabled": true,
+      "label": "Myasthenia gravis?",
+      "info": "Muskelschwäche, kann zu hängenden Augenlidern (Ptosis) führen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_neurologie",
+        "value": "ja"
+      },
+      "icd": "G70.0"
+    },
+    {
+      "id": "kat_magen_darm",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 50,
+      "required": false,
+      "enabled": true,
+      "label": "🔄 Magen-Darm-Erkrankungen?",
+      "info": "Morbus Crohn, Colitis ulcerosa, Reizdarm",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "autoimmun_crohn",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 51,
+      "required": false,
+      "enabled": true,
+      "label": "Morbus Crohn?",
+      "info": "Chronische Darmentzündung, kann Uveitis verursachen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_magen_darm",
+        "value": "ja"
+      },
+      "icd": "K50.9"
+    },
+    {
+      "id": "autoimmun_colitis",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 52,
+      "required": false,
+      "enabled": true,
+      "label": "Colitis ulcerosa?",
+      "info": "Dickdarmentzündung, kann Augenentzündungen verursachen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_magen_darm",
+        "value": "ja"
+      },
+      "icd": "K51.9"
+    },
+    {
+      "id": "kat_infektionen",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 60,
+      "required": false,
+      "enabled": true,
+      "label": "🦠 Infektionskrankheiten?",
+      "info": "Hepatitis, HIV, Tuberkulose, chronische Infektionen",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "hepatitis_b",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 61,
+      "required": false,
+      "enabled": true,
+      "label": "Hepatitis B?",
+      "info": "Leberentzündung durch Viren.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_infektionen",
+        "value": "ja"
+      },
+      "icd": "B18.1"
+    },
+    {
+      "id": "hepatitis_c",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 62,
+      "required": false,
+      "enabled": true,
+      "label": "Hepatitis C?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_infektionen",
+        "value": "ja"
+      },
+      "info": "Virale Leberentzündung. Oft chronischer Verlauf.",
+      "icd": "B18.2"
+    },
+    {
+      "id": "hiv",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 63,
+      "required": false,
+      "enabled": true,
+      "label": "HIV / AIDS?",
+      "info": "Kann zu opportunistischen Augeninfektionen führen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_infektionen",
+        "value": "ja"
+      },
+      "icd": "B24"
+    },
+    {
+      "id": "tuberkulose",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 64,
+      "required": false,
+      "enabled": true,
+      "label": "Tuberkulose?",
+      "info": "Kann auch die Augen betreffen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_infektionen",
+        "value": "ja"
+      },
+      "icd": "A16.9"
+    },
+    {
+      "id": "infektionen_andere",
+      "section": "allgemein",
+      "type": "text",
+      "order": 65,
+      "required": false,
+      "enabled": true,
+      "label": "Andere Infektionserkrankungen",
+      "condition": {
+        "field": "kat_infektionen",
+        "value": "ja"
+      },
+      "info": "Andere chronische oder aktuelle Infektionen."
+    },
+    {
+      "id": "kat_autoimmun",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 70,
+      "required": false,
+      "enabled": true,
+      "label": "🔬 Autoimmunerkrankungen?",
+      "info": "Rheuma, Lupus, Psoriasis, Neurodermitis",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "autoimmun_rheuma",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 71,
+      "required": false,
+      "enabled": true,
+      "label": "Rheuma?",
+      "info": "Kann Augenentzündungen (Uveitis) verursachen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_autoimmun",
+        "value": "ja"
+      },
+      "icd": "M06.9"
+    },
+    {
+      "id": "autoimmun_psoriasis",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 72,
+      "required": false,
+      "enabled": true,
+      "label": "Psoriasis (Schuppenflechte)?",
+      "info": "Kann Augenlider und Bindehaut betreffen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_autoimmun",
+        "value": "ja"
+      },
+      "icd": "L40.9"
+    },
+    {
+      "id": "autoimmun_rosacea",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 73,
+      "required": false,
+      "enabled": true,
+      "label": "Rosacea?",
+      "info": "Gesichtsrötung, kann trockene Augen verursachen.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_autoimmun",
+        "value": "ja"
+      },
+      "icd": "L71.9"
+    },
+    {
+      "id": "autoimmun_lupus",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 74,
+      "required": false,
+      "enabled": true,
+      "label": "Lupus erythematodes?",
+      "info": "Autoimmunerkrankung, die auch die Augen betreffen kann.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_autoimmun",
+        "value": "ja"
+      },
+      "icd": "M32.9"
+    },
+    {
+      "id": "autoimmun_sjogren",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 75,
+      "required": false,
+      "enabled": true,
+      "label": "Sjögren-Syndrom?",
+      "info": "Autoimmunerkrankung mit trockenen Augen und trockenem Mund.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "condition": {
+        "field": "kat_autoimmun",
+        "value": "ja"
+      },
+      "icd": "M35.0"
+    },
+    {
+      "id": "autoimmun_andere",
+      "section": "allgemein",
+      "type": "text",
+      "order": 76,
+      "required": false,
+      "enabled": true,
+      "label": "Andere Autoimmunerkrankungen",
+      "condition": {
+        "field": "kat_autoimmun",
+        "value": "ja"
+      },
+      "info": "Andere Autoimmunerkrankungen können auch das Auge betreffen."
+    },
+    {
+      "id": "kat_psyche",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 80,
+      "required": false,
+      "enabled": true,
+      "label": "🧘 Psychische Erkrankungen?",
+      "info": "Depression, Angststörung, Burnout, bipolare Störung",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "nerven_leiden_welche",
+      "section": "allgemein",
+      "type": "text",
+      "order": 81,
+      "required": false,
+      "enabled": true,
+      "label": "Welche?",
+      "condition": {
+        "field": "kat_psyche",
+        "value": "ja"
+      },
+      "info": "Z.B. Depression, Angststörung, bipolare Störung. Wichtig für Medikamentenwechselwirkungen."
+    },
+    {
+      "id": "kat_krebs",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 90,
+      "required": false,
+      "enabled": true,
+      "label": "⚠️ Krebserkrankungen?",
+      "info": "Aktuelle oder frühere Krebserkrankung",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "krebs_welcher",
+      "section": "allgemein",
+      "type": "text",
+      "order": 91,
+      "required": false,
+      "enabled": true,
+      "label": "Welcher Krebs?",
+      "condition": {
+        "field": "kat_krebs",
+        "value": "ja"
+      },
+      "info": "Wichtig für die Gesamtbeurteilung und mögliche Wechselwirkungen."
+    },
+    {
+      "id": "krebs_seit",
+      "section": "allgemein",
+      "type": "text",
+      "order": 92,
+      "required": false,
+      "enabled": true,
+      "label": "Seit wann?",
+      "condition": {
+        "field": "kat_krebs",
+        "value": "ja"
+      },
+      "info": "Hilft bei der Einschätzung des Krankheitsverlaufs."
+    },
+    {
+      "id": "krebs_chemo",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 93,
+      "required": false,
+      "enabled": true,
+      "label": "Chemotherapie?",
+      "condition": {
+        "field": "kat_krebs",
+        "value": "ja"
+      },
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ],
+      "info": "Chemotherapie kann Augenprobleme verursachen (z.B. trockene Augen, Lichtempfindlichkeit)."
+    },
+    {
+      "id": "krebs_tamoxifen",
+      "section": "allgemein",
+      "type": "radio",
+      "order": 94,
+      "required": false,
+      "enabled": true,
+      "label": "Tamoxifen?",
+      "info": "Brustkrebs-Medikament, das Netzhautablagerungen verursachen kann.",
+      "condition": {
+        "field": "kat_krebs",
+        "value": "ja"
+      },
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "tamoxifen_details",
+      "section": "allgemein",
+      "type": "text",
+      "order": 95,
+      "required": false,
+      "enabled": true,
+      "label": "Dosierung und seit wann?",
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "krebs_tamoxifen",
+            "value": "ja"
+          },
+          {
+            "field": "kat_krebs",
+            "value": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "allergien",
+      "section": "allergien",
+      "type": "radio",
+      "order": 1,
+      "required": false,
+      "enabled": true,
+      "label": "Allergien oder Unverträglichkeiten?",
+      "info": "Z.B. gegen Medikamente, Augentropfen, Pflaster, Latex, Kontrastmittel.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "allergien_welche",
+      "section": "allergien",
+      "type": "textarea",
+      "order": 2,
+      "required": false,
+      "enabled": true,
+      "label": "Welche?",
+      "placeholder": "Bitte alle bekannten Allergien auflisten",
+      "condition": {
+        "field": "allergien",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "medikamente",
+      "section": "medikamente",
+      "type": "radio",
+      "order": 1,
+      "required": false,
+      "enabled": true,
+      "label": "Nehmen Sie regelmäßig Medikamente ein?",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "medikamente_liste",
+      "section": "medikamente",
+      "type": "medication_autocomplete",
+      "order": 2,
+      "required": false,
+      "enabled": true,
+      "label": "Medikamentenliste",
+      "condition": {
+        "field": "medikamente",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "medikamentenplan",
+      "section": "medikamente",
+      "type": "file",
+      "order": 3,
+      "required": false,
+      "enabled": true,
+      "label": "Foto des Medikamentenplans",
+      "condition": {
+        "field": "medikamente",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "blutverduenner",
+      "section": "medikamente",
+      "type": "radio",
+      "order": 4,
+      "required": false,
+      "enabled": true,
+      "label": "Nehmen Sie Blutverdünner ein?",
+      "condition": {
+        "field": "medikamente",
+        "value": "ja"
+      },
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "cortison",
+      "section": "medikamente",
+      "type": "radio",
+      "order": 5,
+      "required": false,
+      "enabled": true,
+      "label": "Nehmen Sie regelmäßig Cortison ein?",
+      "condition": {
+        "field": "medikamente",
+        "value": "ja"
+      },
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "cortison_details",
+      "section": "medikamente",
+      "type": "text",
+      "order": 6,
+      "required": false,
+      "enabled": true,
+      "label": "Wie viel und seit wann?",
+      "condition": {
+        "field": "cortison",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "schmerzmittel",
+      "section": "medikamente",
+      "type": "radio",
+      "order": 7,
+      "required": false,
+      "enabled": true,
+      "label": "Nehmen Sie regelmäßig Schmerzmittel (NSAR)?",
+      "condition": {
+        "field": "medikamente",
+        "value": "ja"
+      },
+      "info": "z.B. Ibuprofen, Diclofenac, Naproxen",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "schmerzmittel_details",
+      "section": "medikamente",
+      "type": "text",
+      "order": 8,
+      "required": false,
+      "enabled": true,
+      "label": "Welche und wie oft?",
+      "condition": {
+        "field": "schmerzmittel",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "osteoporose_medikamente",
+      "section": "medikamente",
+      "type": "radio",
+      "order": 9,
+      "required": false,
+      "enabled": true,
+      "label": "Nehmen Sie Osteoporose-Medikamente ein?",
+      "condition": {
+        "field": "medikamente",
+        "value": "ja"
+      },
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        }
+      ]
+    },
+    {
+      "id": "osteoporose_medikamente_details",
+      "section": "medikamente",
+      "type": "text",
+      "order": 10,
+      "required": false,
+      "enabled": true,
+      "label": "Welche?",
+      "condition": {
+        "field": "osteoporose_medikamente",
+        "value": "ja"
+      }
+    },
+    {
+      "id": "schwanger",
+      "section": "schwangerschaft",
+      "type": "radio",
+      "order": 1,
+      "required": false,
+      "enabled": true,
+      "condition": {
+        "operator": "OR",
+        "conditions": [
+          {
+            "field": "geschlecht",
+            "value": "weiblich"
+          },
+          {
+            "field": "geschlecht",
+            "value": "divers"
+          }
+        ]
+      },
+      "label": "Könnten Sie schwanger sein oder stillen Sie?",
+      "info": "Wichtig für die Wahl der Medikamente.",
+      "options": [
+        {
+          "value": "ja",
+          "label": "Ja"
+        },
+        {
+          "value": "nein",
+          "label": "Nein"
+        },
+        {
+          "value": "nicht_zutreffend",
+          "label": "Nicht zutreffend"
+        }
+      ]
+    },
+    {
+      "id": "datenschutz_einwilligung",
+      "section": "unterschrift",
+      "type": "checkbox",
+      "order": 1,
+      "required": true,
+      "enabled": true,
+      "label": "Ich habe die Datenschutzerklärung gelesen und bin mit der Erhebung und Verarbeitung meiner Gesundheitsdaten zum Zweck der medizinischen Behandlung einverstanden."
+    },
+    {
+      "id": "einwilligung_richtigkeit",
+      "section": "unterschrift",
+      "type": "checkbox",
+      "order": 2,
+      "required": true,
+      "enabled": true,
+      "label": "Ich bestätige die Richtigkeit meiner Angaben."
+    },
+    {
+      "id": "unterschrift",
+      "section": "unterschrift",
+      "type": "signature",
+      "order": 3,
+      "required": true,
+      "enabled": true,
+      "label": "Unterschrift"
+    },
+    {
+      "id": "unterschrift_datum",
+      "section": "unterschrift",
+      "type": "date",
+      "order": 4,
+      "required": true,
+      "enabled": true,
+      "label": "Datum",
+      "default": "today"
+    }
+  ]
+}

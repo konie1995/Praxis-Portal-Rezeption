@@ -1,0 +1,828 @@
+/**
+ * Praxis-Portal: Fragebogen (Anamnesebogen) Styles
+ *
+ * @package PraxisPortal
+ * @since   4.2.9
+ */
+
+/* ── Reset / Wrapper ────────────────────────────────────── */
+
+.pp-fragebogen-wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.pp-fragebogen-wrapper *,
+.pp-fragebogen-wrapper *::before,
+.pp-fragebogen-wrapper *::after {
+    box-sizing: border-box;
+}
+
+/* ── Header (Praxis-Info) ───────────────────────────────── */
+
+.pp-fragebogen-header {
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.pp-fragebogen-header strong {
+    font-size: 17px;
+    color: #1a1a1a;
+}
+
+/* ── Sektionen ──────────────────────────────────────────── */
+
+.pp-section {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #eee;
+    transition: opacity 0.3s ease, max-height 0.4s ease;
+}
+
+.pp-section:last-child {
+    border-bottom: none;
+}
+
+.pp-section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0073aa;
+    margin: 0 0 18px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #0073aa;
+}
+
+.pp-section-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ── Felder ─────────────────────────────────────────────── */
+
+.pp-field {
+    transition: opacity 0.25s ease, max-height 0.35s ease;
+}
+
+/* ── Kategorie-Fragen (Vorabfragen) ─────────────────────── */
+
+/* Kategorie-Fragen als Header gestalten */
+.pp-field[data-field-id^="kat_"] {
+    margin-top: 32px;
+    margin-bottom: 16px;
+    padding-top: 24px;
+    border-top: 2px solid #e0e0e0;
+}
+
+/* Erste Kategorie ohne oberen Abstand */
+.pp-section-fields > .pp-field[data-field-id^="kat_"]:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+/* Kategorie-Label größer und hervorgehoben */
+.pp-field[data-field-id^="kat_"] .pp-field-label-row label,
+.pp-field[data-field-id^="kat_"] .pp-field-label-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0073aa;
+    margin-bottom: 8px;
+}
+
+/* Hintergrund für Kategorie-Felder */
+.pp-field[data-field-id^="kat_"] {
+    background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #d0e4f7;
+    box-shadow: 0 2px 4px rgba(0, 115, 170, 0.05);
+}
+
+/* Icon/Emoji größer machen */
+.pp-field[data-field-id^="kat_"] .pp-field-label-row label::first-line {
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+/* Kategorie Info-Text */
+.pp-field[data-field-id^="kat_"] .pp-field-info {
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+/* Radio-Buttons bei Kategorien größer */
+.pp-field[data-field-id^="kat_"] input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.pp-field[data-field-id^="kat_"] .pp-field-radios label {
+    font-size: 16px;
+    padding: 10px 16px;
+    font-weight: 500;
+}
+
+/* Hover-Effekt bei Kategorie-Feldern */
+.pp-field[data-field-id^="kat_"]:hover {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f3ff 100%);
+    border-color: #b8d4ed;
+    box-shadow: 0 3px 8px rgba(0, 115, 170, 0.1);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+/* Detail-Fragen nach Kategorien leicht einrücken */
+.pp-field[data-field-id^="kat_"] ~ .pp-field:not([data-field-id^="kat_"]) {
+    margin-left: 16px;
+    padding-left: 12px;
+    border-left: 3px solid #e8f3ff;
+}
+
+/* Trennlinie VOR jeder Kategorie (außer der ersten) */
+.pp-field[data-field-id^="kat_"]:not(:first-child)::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #e0e0e0 0%, #f0f0f0 50%, #e0e0e0 100%);
+    margin: -24px 0 24px -16px;
+    width: calc(100% + 32px);
+}
+
+.pp-field-label-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.pp-field-label-row label {
+    font-weight: 500;
+    color: #1a1a1a;
+    cursor: default;
+}
+
+.pp-field-label-text {
+    font-weight: 500;
+}
+
+.pp-required {
+    color: #dc3545;
+    font-weight: 700;
+}
+
+/* ── Inputs ─────────────────────────────────────────────── */
+
+.pp-field input[type="text"],
+.pp-field input[type="email"],
+.pp-field input[type="tel"],
+.pp-field input[type="date"],
+.pp-field select,
+.pp-field textarea {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #333;
+    background: #fff;
+    border: 1.5px solid #ced4da;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pp-field input:focus,
+.pp-field select:focus,
+.pp-field textarea:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+/* Fehler nur nach Interaktion oder Submit-Versuch anzeigen */
+.pp-field.pp-touched input:invalid,
+.pp-field.pp-touched select:invalid,
+.pp-field.pp-touched textarea:invalid,
+.pp-form.pp-submitted .pp-field input:invalid,
+.pp-form.pp-submitted .pp-field select:invalid,
+.pp-form.pp-submitted .pp-field textarea:invalid {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+/* Fehlermeldung unter dem Feld */
+.pp-field.pp-touched .pp-error-message,
+.pp-form.pp-submitted .pp-field .pp-error-message {
+    display: block;
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.pp-field .pp-error-message {
+    display: none;
+}
+
+.pp-field textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.pp-field select {
+    appearance: auto;
+    cursor: pointer;
+}
+
+/* ── Radio-Gruppen ──────────────────────────────────────── */
+
+.pp-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pp-radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #fff;
+    border: 1.5px solid #ced4da;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    user-select: none;
+    flex: 1;
+    min-width: 140px;
+}
+
+.pp-radio-option:hover {
+    border-color: #0073aa;
+    background: #f0f7fc;
+}
+
+.pp-radio-option:has(input:checked) {
+    border-color: #0073aa;
+    background: #e8f4fc;
+    font-weight: 500;
+}
+
+.pp-radio-option input[type="radio"] {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    accent-color: #0073aa;
+    cursor: pointer;
+}
+
+/* ── Checkbox-Gruppen ───────────────────────────────────── */
+
+.pp-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pp-checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #fff;
+    border: 1.5px solid #ced4da;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    user-select: none;
+}
+
+.pp-checkbox-option:hover {
+    border-color: #0073aa;
+    background: #f0f7fc;
+}
+
+.pp-checkbox-option:has(input:checked) {
+    border-color: #0073aa;
+    background: #e8f4fc;
+}
+
+.pp-checkbox-option input[type="checkbox"] {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    accent-color: #0073aa;
+    cursor: pointer;
+}
+
+/* ── Info-Trigger (i-Button) ────────────────────────────── */
+
+.pp-info-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    font-weight: 700;
+    font-style: italic;
+    color: #fff;
+    background: #6c757d;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s;
+    line-height: 1;
+    padding: 0;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.pp-info-trigger:hover {
+    background: #0073aa;
+}
+
+/* Info-Popup */
+.pp-info-popup {
+    position: relative;
+    margin-top: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #495057;
+    background: #e9f5ff;
+    border: 1px solid #b8daff;
+    border-radius: 6px;
+    animation: ppInfoFadeIn 0.2s ease;
+}
+
+.pp-info-popup::before {
+    content: "ℹ️ ";
+}
+
+@keyframes ppInfoFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Datei-Upload ───────────────────────────────────────── */
+
+.pp-file-upload-wrapper {
+    position: relative;
+}
+
+.pp-file-input {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+.pp-file-upload-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+    background: #fafbfc;
+    border: 2px dashed #ced4da;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.pp-file-upload-area:hover {
+    border-color: #0073aa;
+    background: #f0f7fc;
+}
+
+.pp-file-upload-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.pp-file-upload-text strong {
+    display: block;
+    font-size: 14px;
+    color: #0073aa;
+}
+
+.pp-file-upload-text span {
+    display: block;
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 2px;
+}
+
+.pp-file-preview {
+    margin-top: 8px;
+}
+
+.pp-file-preview-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: #e8f4fc;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.pp-file-preview-item .pp-file-remove {
+    margin-left: auto;
+    color: #dc3545;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 16px;
+    padding: 0;
+}
+
+/* ── Medikamenten-Autocomplete ──────────────────────────── */
+
+.pp-medication-input-wrapper {
+    position: relative;
+}
+
+.pp-medication-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.pp-medication-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    background: #e8f4fc;
+    border: 1px solid #b8daff;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.pp-medication-tag .pp-remove-med {
+    cursor: pointer;
+    color: #dc3545;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    background: none;
+    padding: 0;
+    line-height: 1;
+}
+
+.pp-medication-add {
+    position: relative;
+}
+
+.pp-medication-search {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #ced4da;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+.pp-medication-search:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+.pp-medication-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: #fff;
+    border: 1px solid #ced4da;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.pp-medication-suggestion {
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.pp-medication-suggestion:hover,
+.pp-medication-suggestion.active {
+    background: #e8f4fc;
+}
+
+/* ── Signatur ───────────────────────────────────────────── */
+
+.pp-signature-wrapper {
+    border: 1.5px solid #ced4da;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.pp-signature-pad {
+    display: block;
+    width: 100%;
+    height: 150px;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.pp-signature-actions {
+    display: flex !important;
+    justify-content: flex-end;
+    padding: 10px 12px;
+    background: #f8f9fa;
+    border-top: 1px solid #ced4da;
+    min-height: 45px;
+}
+
+.pp-signature-clear {
+    display: inline-block !important;
+    position: static !important;
+    padding: 8px 20px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #fff !important;
+    background: #dc3545 !important;
+    border: 2px solid #dc3545 !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+}
+
+.pp-signature-clear:hover {
+    background: #c82333 !important;
+    border-color: #c82333 !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+}
+
+.pp-signature-clear:active {
+    transform: scale(0.95) !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+}
+
+/* ── Action Buttons ─────────────────────────────────────── */
+
+.pp-action-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0073aa;
+    background: #fff;
+    border: 1px solid #0073aa;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 8px 0;
+}
+
+.pp-action-btn:hover {
+    background: #0073aa;
+    color: #fff;
+}
+
+.pp-action-btn:active {
+    transform: scale(0.98);
+}
+
+/* ── Hide date field (keep in form data) ───────────────── */
+
+.pp-field[data-field-id="unterschrift_datum"] {
+    display: none;
+}
+
+/* ── DSGVO-Einwilligung ─────────────────────────────────── */
+
+.pp-dsgvo-consent {
+    margin: 24px 0;
+    padding: 16px;
+    background: #fff8e1;
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+}
+
+.pp-dsgvo-consent label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.pp-dsgvo-consent input[type="checkbox"] {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    accent-color: #0073aa;
+    flex-shrink: 0;
+}
+
+/* ── Submit-Button ──────────────────────────────────────── */
+
+.pp-fragebogen-submit {
+    display: inline-block;
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: #0073aa;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.pp-fragebogen-submit:hover {
+    background: #005f8d;
+}
+
+.pp-fragebogen-submit:active {
+    transform: scale(0.98);
+}
+
+.pp-fragebogen-submit:disabled {
+    background: #adb5bd;
+    cursor: not-allowed;
+}
+
+/* ── Auswahl-Seite (mehrere Bögen) ──────────────────────── */
+
+.pp-fragebogen-selection h2 {
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+/* ── Fehlermeldung ──────────────────────────────────────── */
+
+.pp-fragebogen-error {
+    padding: 16px;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    color: #721c24;
+}
+
+/* ── Erfolg ─────────────────────────────────────────────── */
+
+.pp-fragebogen-success {
+    padding: 60px 40px !important;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%) !important;
+    border: 3px solid #28a745 !important;
+    border-radius: 16px !important;
+    color: #155724 !important;
+    text-align: center !important;
+    max-width: 700px !important;
+    margin: 60px auto !important;
+    box-shadow: 0 10px 40px rgba(40, 167, 69, 0.3) !important;
+    animation: successFadeIn 0.5s ease-out !important;
+    display: block !important;
+    position: relative !important;
+    width: auto !important;
+}
+
+@keyframes successFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.pp-success-icon {
+    font-size: 96px !important;
+    color: #28a745 !important;
+    margin-bottom: 30px !important;
+    font-weight: bold !important;
+    animation: successIconPulse 1s ease-in-out !important;
+    display: block !important;
+}
+
+@keyframes successIconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.pp-fragebogen-success h3 {
+    font-size: 36px !important;
+    margin-bottom: 24px !important;
+    color: #155724 !important;
+    font-weight: 700 !important;
+    display: block !important;
+}
+
+.pp-fragebogen-success p {
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 16px !important;
+    color: #155724 !important;
+    display: block !important;
+}
+
+.pp-success-note {
+    margin-top: 32px !important;
+    font-size: 16px !important;
+    color: #155724 !important;
+    opacity: 0.9 !important;
+    font-weight: 500 !important;
+    display: block !important;
+}
+
+/* ── Conditional Slide ──────────────────────────────────── */
+
+.pp-field[data-condition],
+.pp-section[data-condition] {
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.4s ease, margin 0.3s ease, padding 0.3s ease;
+}
+
+.pp-field.pp-hidden,
+.pp-section.pp-hidden {
+    display: none !important;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+    .pp-fragebogen-wrapper {
+        padding: 0 10px;
+        font-size: 14px;
+    }
+
+    .pp-radio-group {
+        flex-direction: column;
+    }
+
+    .pp-radio-option {
+        min-width: 0;
+    }
+
+    .pp-section-title {
+        font-size: 16px;
+    }
+
+    .pp-field input,
+    .pp-field select,
+    .pp-field textarea {
+        font-size: 16px; /* iOS zoom prevention */
+    }
+
+    .pp-fragebogen-submit {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Kategorie-Fragen auf Mobile */
+    .pp-field[data-field-id^="kat_"] {
+        margin-top: 24px;
+        padding: 12px;
+    }
+
+    .pp-field[data-field-id^="kat_"] .pp-field-label-row label,
+    .pp-field[data-field-id^="kat_"] .pp-field-label-text {
+        font-size: 16px;
+    }
+
+    /* Detail-Fragen nicht einrücken auf Mobile */
+    .pp-field[data-field-id^="kat_"] ~ .pp-field:not([data-field-id^="kat_"]) {
+        margin-left: 0;
+        padding-left: 8px;
+        border-left: 2px solid #e8f3ff;
+    }
+
+    /* Trennlinie schmaler auf Mobile */
+    .pp-field[data-field-id^="kat_"]:not(:first-child)::before {
+        margin: -24px 0 16px -12px;
+        width: calc(100% + 24px);
+    }
+}

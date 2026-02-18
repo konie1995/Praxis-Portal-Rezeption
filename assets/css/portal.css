@@ -1,0 +1,878 @@
+/**
+ * Praxis-Portal v4 - Portal Styles
+ * Drei-Spalten-Layout für Praxis-Personal
+ * Portiert aus v3.9.116 mit v4-Kompatibilität
+ */
+
+/* ============================================
+   CSS Variables
+   ============================================ */
+:root {
+    --portal-primary: #1a365d;
+    --portal-primary-light: #2c5282;
+    --portal-primary-dark: #1a202c;
+    --portal-accent: #c53030;
+    --portal-success: #38a169;
+    --portal-warning: #d69e2e;
+    --portal-danger: #e53e3e;
+    --portal-info: #3182ce;
+
+    --portal-bg: #f7fafc;
+    --portal-sidebar-bg: #edf2f7;
+    --portal-card-bg: #ffffff;
+    --portal-border: #e2e8f0;
+    --portal-border-dark: #cbd5e0;
+
+    --portal-text: #2d3748;
+    --portal-text-light: #718096;
+    --portal-text-muted: #a0aec0;
+
+    --portal-header-height: 60px;
+    --portal-sidebar-width: 240px;
+
+    --portal-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    --portal-shadow-lg: 0 4px 6px rgba(0,0,0,0.1);
+    --portal-radius: 8px;
+    --portal-radius-sm: 4px;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+.pp-portal-wrapper {
+    background: var(--portal-bg);
+    min-height: 100vh;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position: relative !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+}
+
+body .pp-portal-wrapper,
+.entry-content .pp-portal-wrapper,
+.page-content .pp-portal-wrapper,
+article .pp-portal-wrapper,
+main .pp-portal-wrapper,
+.site-content .pp-portal-wrapper,
+#content .pp-portal-wrapper,
+.content-area .pp-portal-wrapper {
+    position: relative !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    padding: 0 !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+}
+
+.pp-portal-wrapper *,
+.pp-portal-wrapper *::before,
+.pp-portal-wrapper *::after {
+    box-sizing: border-box;
+}
+
+.pp-portal-main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* ============================================
+   Login Overlay
+   ============================================ */
+.pp-login-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, var(--portal-primary) 0%, var(--portal-primary-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.pp-login-container {
+    background: white;
+    border-radius: var(--portal-radius);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.pp-login-header {
+    background: var(--portal-primary);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.pp-login-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+}
+
+.pp-login-header h1 {
+    margin: 0 0 5px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.pp-login-header p {
+    margin: 0;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.pp-login-form {
+    padding: 30px;
+}
+
+.pp-form-group {
+    margin-bottom: 20px;
+}
+
+.pp-form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: var(--portal-text);
+}
+
+.pp-form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--portal-border);
+    border-radius: var(--portal-radius-sm);
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pp-form-group input:focus {
+    outline: none;
+    border-color: var(--portal-primary);
+    box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+}
+
+.pp-login-error {
+    background: #fed7d7;
+    color: var(--portal-danger);
+    padding: 12px;
+    border-radius: var(--portal-radius-sm);
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.pp-btn-login {
+    width: 100%;
+    padding: 14px;
+    background: var(--portal-primary);
+    color: white;
+    border: none;
+    border-radius: var(--portal-radius-sm);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pp-btn-login:hover {
+    background: var(--portal-primary-light);
+}
+
+.pp-btn-login:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.pp-login-footer {
+    padding: 15px 30px;
+    background: var(--portal-bg);
+    text-align: center;
+    color: var(--portal-text-light);
+}
+
+.pp-spinner {
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+.pp-spinner-large {
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   Portal Header
+   ============================================ */
+.pp-portal-header {
+    height: var(--portal-header-height);
+    background: var(--portal-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: var(--portal-shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.pp-header-left h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pp-header-left h1 svg {
+    width: 24px;
+    height: 24px;
+}
+
+.pp-header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.pp-user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.pp-user-info svg {
+    width: 18px;
+    height: 18px;
+}
+
+.pp-btn-logout {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--portal-radius-sm);
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.pp-btn-logout:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.pp-btn-logout svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ============================================
+   Three-Column Layout
+   ============================================ */
+.pp-portal-content {
+    flex: 1;
+    display: flex;
+    height: calc(100vh - var(--portal-header-height));
+    width: 100%;
+    overflow: hidden;
+}
+
+.pp-sidebar {
+    width: var(--portal-sidebar-width);
+    min-width: var(--portal-sidebar-width);
+    background: var(--portal-sidebar-bg);
+    border-right: 1px solid var(--portal-border);
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.pp-sidebar-section {
+    padding: 15px;
+    border-bottom: 1px solid var(--portal-border);
+}
+
+.pp-sidebar-section h3 {
+    margin: 0 0 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--portal-text-light);
+}
+
+.pp-category-nav,
+.pp-filter-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pp-category-btn,
+.pp-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    border-radius: var(--portal-radius-sm);
+    color: var(--portal-text);
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.pp-category-btn:hover,
+.pp-filter-btn:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.pp-category-btn.active,
+.pp-filter-btn.active {
+    background: var(--portal-primary);
+    color: white;
+}
+
+.pp-category-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.pp-count {
+    background: rgba(0,0,0,0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.pp-category-btn.active .pp-count,
+.pp-filter-btn.active .pp-count {
+    background: rgba(255,255,255,0.2);
+}
+
+.pp-badge-unread {
+    width: 8px;
+    height: 8px;
+    background: var(--portal-accent);
+    border-radius: 50%;
+}
+
+.pp-location-select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 13px;
+    border: 1px solid var(--portal-border);
+    border-radius: var(--portal-radius-sm);
+    background: white;
+    cursor: pointer;
+}
+
+/* ============================================
+   List Panel
+   ============================================ */
+.pp-list-panel {
+    flex: 1;
+    min-width: 320px;
+    max-width: 400px;
+    background: var(--portal-card-bg);
+    border-right: 1px solid var(--portal-border);
+    display: flex;
+    flex-direction: column;
+}
+
+.pp-list-header {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--portal-border);
+    display: flex;
+    gap: 10px;
+}
+
+.pp-search-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--portal-bg);
+    border: 1px solid var(--portal-border);
+    border-radius: var(--portal-radius-sm);
+}
+
+.pp-search-box svg {
+    width: 18px;
+    height: 18px;
+    color: var(--portal-text-light);
+}
+
+.pp-search-box input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    outline: none;
+}
+
+.pp-btn-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--portal-border);
+    border-radius: var(--portal-radius-sm);
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.pp-btn-icon:hover {
+    background: var(--portal-bg);
+}
+
+.pp-btn-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.pp-list-table-wrapper {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.pp-list-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pp-list-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--portal-text-light);
+    border-bottom: 1px solid var(--portal-border);
+    background: var(--portal-bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.pp-list-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--portal-border);
+    font-size: 13px;
+}
+
+.pp-list-table tbody tr {
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.pp-list-table tbody tr:hover {
+    background: var(--portal-bg);
+}
+
+.pp-list-table tbody tr.active {
+    background: #ebf8ff;
+}
+
+.pp-list-table tbody tr.unread {
+    font-weight: 500;
+}
+
+.pp-list-table tbody tr.unread td:first-child::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--portal-accent);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.pp-type-label {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--portal-bg);
+    border-radius: var(--portal-radius-sm);
+    font-size: 11px;
+}
+
+.pp-type-label.type-rezept { background: #c6f6d5; color: #276749; }
+.pp-type-label.type-ueberweisung { background: #feebc8; color: #c05621; }
+.pp-type-label.type-brillenverordnung { background: #bee3f8; color: #2b6cb0; }
+.pp-type-label.type-dokument { background: #fed7e2; color: #b83280; }
+.pp-type-label.type-termin { background: #dbeafe; color: #1e40af; }
+.pp-type-label.type-terminabsage { background: #fee2e2; color: #991b1b; }
+
+.pp-list-empty,
+.pp-list-loading {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--portal-text-light);
+}
+
+.pp-list-empty svg,
+.pp-list-loading svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+/* ============================================
+   Preview Panel
+   ============================================ */
+.pp-preview-panel {
+    flex: 2;
+    min-width: 400px;
+    background: var(--portal-card-bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.pp-preview-empty,
+.pp-preview-loading {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--portal-text-light);
+}
+
+.pp-preview-empty svg,
+.pp-preview-loading svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 15px;
+    opacity: 0.4;
+}
+
+.pp-preview-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.pp-preview-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--portal-border);
+}
+
+.pp-preview-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.pp-type-badge {
+    padding: 4px 10px;
+    background: var(--portal-primary);
+    color: white;
+    border-radius: var(--portal-radius-sm);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.pp-preview-title h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.pp-preview-meta {
+    font-size: 13px;
+    color: var(--portal-text-light);
+}
+
+.pp-preview-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--portal-border);
+    padding: 0 20px;
+}
+
+.pp-tab-btn {
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--portal-text-light);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.pp-tab-btn:hover {
+    color: var(--portal-text);
+}
+
+.pp-tab-btn.active {
+    color: var(--portal-primary);
+    border-bottom-color: var(--portal-primary);
+}
+
+.pp-preview-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.pp-tab-content {
+    display: none;
+}
+
+.pp-tab-content.active {
+    display: block;
+}
+
+.pp-detail-section {
+    margin-bottom: 25px;
+}
+
+.pp-detail-section h4 {
+    margin: 0 0 12px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--portal-text-light);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--portal-border);
+}
+
+.pp-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.pp-detail-item {
+    padding: 10px;
+    background: var(--portal-bg);
+    border-radius: var(--portal-radius-sm);
+}
+
+.pp-detail-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.pp-detail-label {
+    font-size: 11px;
+    color: var(--portal-text-light);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.pp-detail-value {
+    font-size: 14px;
+    color: var(--portal-text);
+}
+
+.pp-preview-footer {
+    padding: 15px 20px;
+    border-top: 1px solid var(--portal-border);
+    display: flex;
+    gap: 10px;
+    background: var(--portal-bg);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.pp-btn-primary {
+    padding: 10px 20px;
+    background: var(--portal-primary);
+    color: white;
+    border: none;
+    border-radius: var(--portal-radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.pp-btn-primary:hover {
+    background: var(--portal-primary-light);
+}
+
+.pp-btn-secondary {
+    padding: 10px 20px;
+    background: white;
+    color: var(--portal-text);
+    border: 1px solid var(--portal-border);
+    border-radius: var(--portal-radius-sm);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pp-btn-secondary:hover {
+    background: var(--portal-bg);
+}
+
+.pp-btn-secondary svg {
+    width: 16px;
+    height: 16px;
+}
+
+.pp-btn-danger {
+    padding: 10px 20px;
+    background: var(--portal-danger);
+    color: white;
+    border: none;
+    border-radius: var(--portal-radius-sm);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pp-btn-danger:hover {
+    background: #c53030;
+}
+
+/* ============================================
+   Modals
+   ============================================ */
+.pp-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.pp-modal {
+    background: white;
+    border-radius: var(--portal-radius);
+    box-shadow: var(--portal-shadow-lg);
+    width: 100%;
+    max-width: 450px;
+    margin: 20px;
+}
+
+.pp-modal-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--portal-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pp-modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.pp-modal-close {
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.pp-modal-body {
+    padding: 20px;
+}
+
+.pp-modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid var(--portal-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background: var(--portal-bg);
+}
+
+/* ============================================
+   Toast
+   ============================================ */
+.pp-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    padding: 14px 20px;
+    background: #333;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.pp-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.pp-toast-success { background: var(--portal-success); }
+.pp-toast-error { background: var(--portal-danger); }
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 992px) {
+    .pp-portal-content {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .pp-sidebar,
+    .pp-list-panel {
+        width: 100%;
+        border-right: none;
+    }
+}

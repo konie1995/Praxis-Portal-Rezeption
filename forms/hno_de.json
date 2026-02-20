@@ -1,4 +1,6 @@
 {
+  "id": "hno",
+  "name": "HNO-Anamnesebogen",
   "form_key": "hno",
   "version": "4.2.908",
   "sections": [

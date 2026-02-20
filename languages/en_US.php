@@ -22,7 +22,7 @@ return [
     'Weiter'                        => 'Continue',
     'Absenden'                      => 'Submit',
     'Wird gesendet…'                => 'Sending…',
-    'Löschen'                       => 'Clear',
+    'Löschen'                       => 'Delete',
     'Abbrechen'                     => 'Cancel',
     'Ja'                            => 'Yes',
     'Nein'                          => 'No',
@@ -197,13 +197,10 @@ return [
     'Bezeichnung'                   => 'Name',
     'Dosierung'                     => 'Dosage',
     'Darreichungsform'              => 'Dosage form',
-    'Aktionen'                      => 'Actions',
 
     // Row actions
     'Bearbeiten'                    => 'Edit',
-    'Löschen'                       => 'Delete',
     'Speichern'                     => 'Save',
-    'Abbrechen'                     => 'Cancel',
 
     // No results
     'Keine Medikamente gefunden'    => 'No medications found',
@@ -213,7 +210,6 @@ return [
     'Importieren Sie Medikamente aus einer CSV-Datei. Die Datei kann mit Komma (,) oder Semikolon (;) getrennt sein.' => 'Import medications from a CSV file. The file can be separated by comma (,) or semicolon (;).',
     'Erwartete Spalten:'            => 'Expected columns:',
     'oder'                          => 'or',
-    'Pflichtfeld'                   => 'Required',
     'CSV-Datei hierher ziehen oder' => 'Drag CSV file here or',
     'klicken'                       => 'click',
     'zum Auswählen'                 => 'to select',
@@ -585,4 +581,485 @@ return [
     // ── AdminMedications: Location-Dropdown ──
     'Alle Standorte (global)' => 'All locations (global)',
     'Globale Medikamente sind für alle Standorte verfügbar.' => 'Global medications are available for all locations.',
+
+    // =====================================================================
+    // WIDGET – DEFAULT SERVICE LABELS
+    // =====================================================================
+    'Online-Service'                    => 'Online service',
+    'Nutzen Sie unseren'                => 'Use our',
+    'Wie können wir Ihnen helfen?'      => 'How can we help you?',
+    'Für Patienten unserer Praxis:'     => 'For our practice patients:',
+    'Überweisung'                       => 'Referral',
+    'Downloads'                         => 'Downloads',
+    'Terminabsage'                      => 'Appointment cancellation',
+    'Notfall'                           => 'Emergency',
+    'Anamnesebogen'                     => 'Medical history form',
+    'Medikament'                        => 'Medication',
+
+    // =====================================================================
+    // WIDGET – FORM UI
+    // =====================================================================
+    'Datei hierher ziehen oder klicken' => 'Drag file here or click',
+    'JPG, PNG, PDF – max. 10 MB'       => 'JPG, PNG, PDF – max. 10 MB',
+    'Entfernen'                         => 'Remove',
+    'Medikament %d'                     => 'Medication %d',
+    'Medikamentenname eingeben...'      => 'Enter medication name...',
+    'Name des Medikaments eingeben...'  => 'Enter medication name...',
+    'Art'                               => 'Type',
+    'Augentropfen'                      => 'Eye drops',
+    'Augensalbe'                        => 'Eye ointment',
+    'Tabletten'                         => 'Tablets',
+
+    // =====================================================================
+    // WIDGET – JS LOCALIZATION STRINGS
+    // =====================================================================
+    'Wird gesendet...'                  => 'Sending...',
+    'Anfrage erfolgreich gesendet!'     => 'Request successfully sent!',
+    'Verbindungsfehler. Bitte prüfen Sie Ihre Internetverbindung.' => 'Connection error. Please check your internet connection.',
+    'Datei zu groß (max. 10MB)'         => 'File too large (max. 10 MB)',
+    'Ungültiger Dateityp'               => 'Invalid file type',
+    'Datei hochgeladen'                 => 'File uploaded',
+    'Bitte füllen Sie dieses Feld aus.' => 'Please fill out this field.',
+    'Maximal 3 Medikamente möglich.'    => 'Maximum 3 medications allowed.',
+    'Bitte nehmen Sie sich etwas mehr Zeit.' => 'Please take a bit more time.',
+    'Suche...'                          => 'Search...',
+    'Mindestens 2 Zeichen eingeben'     => 'Enter at least 2 characters',
+
+    // =====================================================================
+    // WIDGET – VALIDATION ERRORS (Server-side)
+    // =====================================================================
+    'Sicherheitsüberprüfung fehlgeschlagen. Bitte laden Sie die Seite neu.' => 'Security check failed. Please reload the page.',
+    'Sicherheitsüberprüfung fehlgeschlagen.' => 'Security check failed.',
+    'Anfrage gesendet.'                 => 'Request sent.',
+    'Bitte stimmen Sie der Datenschutzerklärung zu.' => 'Please agree to the privacy policy.',
+    'Das monatliche Anfrage-Limit wurde erreicht. Bitte kontaktieren Sie die Praxis telefonisch oder upgraden Sie auf einen Premium-Plan.' => 'The monthly request limit has been reached. Please contact the practice by phone or upgrade to a Premium plan.',
+    'Ungültiger Service-Typ.'           => 'Invalid service type.',
+    'Bitte geben Sie ein gültiges Geburtsdatum ein.' => 'Please enter a valid date of birth.',
+    'Bitte geben Sie eine gültige E-Mail-Adresse an.' => 'Please enter a valid email address.',
+    'Ein technischer Fehler ist aufgetreten. Bitte kontaktieren Sie die Praxis telefonisch.' => 'A technical error occurred. Please contact the practice by phone.',
+    'Ein technischer Fehler ist aufgetreten. Bitte kontaktieren Sie die Praxis.' => 'A technical error occurred. Please contact the practice.',
+    'Fehler beim Speichern. Bitte versuchen Sie es erneut.' => 'Error saving. Please try again.',
+    'Ihre Anfrage wurde erfolgreich übermittelt.' => 'Your request has been successfully submitted.',
+    'Zu viele Anfragen. Bitte warten Sie %d Sekunden.' => 'Too many requests. Please wait %d seconds.',
+    'Bitte nehmen Sie sich etwas mehr Zeit zum Ausfüllen des Formulars.' => 'Please take a bit more time to fill out the form.',
+    'Bitte füllen Sie alle Pflichtfelder aus.' => 'Please fill out all required fields.',
+    'Bitte wählen Sie eine Versicherungsart.' => 'Please select an insurance type.',
+    'Bitte geben Sie mindestens ein Medikament an.' => 'Please specify at least one medication.',
+    'Bitte füllen Sie Diagnose und Überweisungsziel aus.' => 'Please fill in the diagnosis and referral destination.',
+    'Bitte wählen Sie mindestens eine Brillenart aus.' => 'Please select at least one type of glasses.',
+    'Bitte wählen Sie einen Dokumententyp aus.' => 'Please select a document type.',
+    'Bitte laden Sie ein Dokument hoch.' => 'Please upload a document.',
+    'Bitte geben Sie das Datum des abzusagenden Termins an.' => 'Please provide the date of the appointment to cancel.',
+    'Bitte geben Sie ein gültiges Datum an.' => 'Please enter a valid date.',
+    'Bitte geben Sie eine vollständige Versandadresse an.' => 'Please provide a complete shipping address.',
+
+    // =====================================================================
+    // WIDGET – FILE UPLOAD ERRORS
+    // =====================================================================
+    'Zu viele Uploads. Bitte warten Sie %d Sekunden.' => 'Too many uploads. Please wait %d seconds.',
+    'Keine Datei ausgewählt.'           => 'No file selected.',
+    'Datei zu groß (Server-Limit).'     => 'File too large (server limit).',
+    'Datei zu groß.'                    => 'File too large.',
+    'Upload unvollständig.'             => 'Upload incomplete.',
+    'Upload-Fehler.'                    => 'Upload error.',
+    'Datei zu groß (max. 10MB).'        => 'File too large (max. 10 MB).',
+    'Ungültiger Upload.'                => 'Invalid upload.',
+    'Ungültiger Dateityp. Erlaubt: JPG, PNG, GIF, WEBP, PDF' => 'Invalid file type. Allowed: JPG, PNG, GIF, WEBP, PDF',
+
+    // =====================================================================
+    // WIDGET – EMAIL NOTIFICATION
+    // =====================================================================
+    'Rezept-Anfrage'                    => 'Prescription request',
+    'Dokument-Upload'                   => 'Document upload',
+    'Terminanfrage'                     => 'Appointment request',
+    'Neue Service-Anfrage eingegangen'  => 'New service request received',
+    'Art der Anfrage'                   => 'Type of request',
+    'Eingegangen am'                    => 'Received on',
+    'Bitte öffnen Sie das Praxis-Portal, um die vollständigen Details einzusehen.' => 'Please open the Practice Portal to view the full details.',
+
+    // =====================================================================
+    // WIDGET – SETUP NOTICE (Admin)
+    // =====================================================================
+    'Praxisname'                        => 'Practice name',
+    'E-Mail für Benachrichtigungen'     => 'Email for notifications',
+    'Mindestens ein aktiver Service'    => 'At least one active service',
+    'Widget noch nicht aktiv'           => 'Widget not yet active',
+    'Bitte vervollständigen Sie die Standort-Konfiguration:' => 'Please complete the location configuration:',
+    'Jetzt einrichten'                  => 'Set up now',
+    'Dieser Hinweis ist nur für Admins sichtbar' => 'This notice is only visible to admins',
+
+    // =====================================================================
+    // ADMIN – LOCATION: VACATION MODE
+    // =====================================================================
+    'Urlaubshinweis'                                    => 'Vacation notice',
+    'Urlaubsmodus für diesen Standort aktivieren'       => 'Activate vacation mode for this location',
+    'Wenn aktiv, wird Patienten ein Urlaubshinweis angezeigt statt der Services.' =>
+        'When active, a vacation notice will be shown to patients instead of services.',
+    'Unsere Praxis ist derzeit im Urlaub. Wir sind ab dem XX.XX. wieder für Sie da.' =>
+        'Our practice is currently on vacation. We will be back from XX.XX.',
+    'Zeitraum (optional)'                              => 'Period (optional)',
+    'Wenn ein Zeitraum gesetzt ist, wird der Urlaubsmodus nur in diesem Zeitfenster aktiv.' =>
+        'If a period is set, vacation mode will only be active during this time window.',
+
+    // =====================================================================
+    // ADMIN – LOCATION: DOCUMENTS / DOWNLOADS
+    // =====================================================================
+    'Downloads für diesen Standort'                    => 'Downloads for this location',
+    'Dokumente verwalten, die Patienten über das Widget herunterladen können.' =>
+        'Manage documents that patients can download via the widget.',
+    'Hochgeladen'                                      => 'Uploaded',
+    'Noch keine Dokumente hochgeladen.'                => 'No documents uploaded yet.',
+    'Neues Dokument hochladen'                         => 'Upload new document',
+    'Titel'                                            => 'Title',
+    'Hochladen'                                        => 'Upload',
+    'Dokument gelöscht.'                               => 'Document deleted.',
+    'Dokument nicht gefunden.'                         => 'Document not found.',
+
+    // =====================================================================
+    // ADMIN – LOCATION: API KEY
+    // =====================================================================
+    'API-Key wurde generiert — bitte JETZT kopieren!'  => 'API key generated — please copy NOW!',
+    'Der Key wird nur einmal im Klartext angezeigt. Nach dem Schließen ist er nicht mehr abrufbar.' =>
+        'The key is only shown in plain text once. After closing, it cannot be retrieved again.',
+
+    // =====================================================================
+    // ADMIN – LOCATION: MISC
+    // =====================================================================
+    'Ungültige Standort-ID.'                           => 'Invalid location ID.',
+    'Dateityp nicht erlaubt.'                          => 'File type not allowed.',
+    'Grund-Optionen (eine pro Zeile)'                  => 'Reason options (one per line)',
+    'Name'                                             => 'Name',
+
+    // =====================================================================
+    // ADMIN – SETTINGS
+    // =====================================================================
+    'Versicherungs-Modus'                              => 'Insurance mode',
+    'Legt fest, welche Versicherungsoptionen in Fragebögen angezeigt werden. Deutschland-Modus zeigt alle deutschen Versicherungsarten, International-Modus vereinfacht auf Privat/Gesetzlich (z.B. für Niederlande).' =>
+        'Determines which insurance options are shown in questionnaires. Germany mode shows all German insurance types, International mode simplifies to Private/Public (e.g. for Netherlands).',
+    'Vollständig (A4)'                                 => 'Complete (A4)',
+    'Stammdaten'                                       => 'Master data',
+
+    // =====================================================================
+    // ADMIN – SUBMISSIONS
+    // =====================================================================
+    'Einreichungs-Details'                             => 'Submission details',
+    'Service'                                          => 'Service',
+    'Weitere Angaben'                                  => 'Additional information',
+    'Anhänge'                                          => 'Attachments',
+    'Ungültige Daten.'                                 => 'Invalid data.',
+    'Werte aktualisiert'                               => 'Values updated',
+    'Verordnungswerte bearbeiten'                      => 'Edit prescription values',
+    'Refraktionswerte'                                 => 'Refraction values',
+    'Prismen'                                          => 'Prisms',
+    'Weitere Werte'                                    => 'Additional values',
+    'HSA (mm)'                                         => 'BVD (mm)',
+    'PD Rechts (mm)'                                   => 'PD Right (mm)',
+    'PD Links (mm)'                                    => 'PD Left (mm)',
+    'PD Gesamt (mm)'                                   => 'PD Total (mm)',
+
+    // =====================================================================
+    // ADMIN – ICD-10 MAPPINGS
+    // =====================================================================
+    'ICD-10 Zuordnungen'                               => 'ICD-10 Mappings',
+    'Ordnen Sie Fragebogen-Felder den passenden ICD-10-GM Codes zu. Diese werden beim GDT-, HL7- und FHIR-Export automatisch verwendet.' =>
+        'Map questionnaire fields to the appropriate ICD-10-GM codes. These are automatically used in GDT, HL7, and FHIR exports.',
+    'Alle Standorte (Global)'                          => 'All locations (Global)',
+    'Standortspezifische Zuordnungen überschreiben die globalen Defaults.' =>
+        'Location-specific mappings override the global defaults.',
+    'Neue ICD-Codes aus DEFAULT_MAPPINGS importieren ohne bestehende zu löschen' =>
+        'Import new ICD codes from DEFAULT_MAPPINGS without deleting existing ones',
+    'Defaults aktualisieren'                           => 'Update defaults',
+    '%d Zuordnungen'                                   => '%d mappings',
+    'Frage-Feld'                                       => 'Question field',
+    'ICD-10 Code'                                      => 'ICD-10 code',
+    'Sich.'                                            => 'Cert.',
+    'Seite-Feld'                                       => 'Side field',
+    'Keine Zuordnungen vorhanden.'                     => 'No mappings available.',
+    'Defaults laden'                                   => 'Load defaults',
+    'Zuordnung aktivieren/deaktivieren'                => 'Activate/deactivate mapping',
+    'Global'                                           => 'Global',
+    'Neue Zuordnung'                                   => 'New mapping',
+    'Feld wählen'                                      => 'Select field',
+    'Eigenes Feld...'                                  => 'Custom field...',
+    'Gesichert'                                        => 'Confirmed',
+    'Verdacht'                                         => 'Suspected',
+    'Zustand nach'                                     => 'History of',
+    'Ausgeschlossen'                                   => 'Excluded',
+    'Die Zuordnungen werden beim GDT-, HL7- und FHIR-Export automatisch verwendet. GDT-Export ist im Free-Plan enthalten, HL7 und FHIR benötigen Premium.' =>
+        'Mappings are automatically used in GDT, HL7, and FHIR exports. GDT export is included in the Free plan, HL7 and FHIR require Premium.',
+    'Standortspezifische Zuordnungen überschreiben die globalen Defaults für den jeweiligen Standort.' =>
+        'Location-specific mappings override the global defaults for each location.',
+    'Zuordnung wirklich löschen?'                      => 'Really delete this mapping?',
+    'Frage-Feld und ICD-Code sind Pflichtfelder.'      => 'Question field and ICD code are required.',
+    'Zuordnung gespeichert'                            => 'Mapping saved',
+    'Default-Zuordnungen geladen'                      => 'Default mappings loaded',
+    'Wird aktualisiert...'                             => 'Updating...',
+    'neu'                                              => 'new',
+    'aktualisiert'                                     => 'updated',
+    'übersprungen'                                     => 'skipped',
+    'Fehler'                                           => 'Error',
+    'Netzwerkfehler'                                   => 'Network error',
+    'Löschen Sie die Zuordnung und erstellen Sie sie mit den neuen Werten neu.' =>
+        'Delete the mapping and recreate it with the new values.',
+    '%d Zuordnungen geladen'                           => '%d mappings loaded',
+    '%d neue Zuordnungen eingefügt, %d aktualisiert, %d übersprungen' =>
+        '%d new mappings inserted, %d updated, %d skipped',
+    'Fehler beim Löschen'                              => 'Error deleting',
+
+    // =====================================================================
+    // FRAGEBOGEN SHORTCODE
+    // =====================================================================
+    'Sicherheitsprüfung fehlgeschlagen. Bitte versuchen Sie es erneut.' =>
+        'Security check failed. Please try again.',
+    'Bitte unterschreiben Sie den Fragebogen.'         => 'Please sign the questionnaire.',
+    'Ungültige Formulardaten.'                         => 'Invalid form data.',
+    'Vielen Dank!'                                     => 'Thank you!',
+    'Ihr Fragebogen wurde erfolgreich übermittelt und gespeichert.' =>
+        'Your questionnaire has been successfully submitted and saved.',
+    'Wir haben Ihre Angaben erhalten und werden diese vor Ihrem Termin sorgfältig prüfen.' =>
+        'We have received your information and will carefully review it before your appointment.',
+    'Sie können dieses Fenster jetzt schließen.'       => 'You can now close this window.',
+    'Beim Speichern ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.' =>
+        'An error occurred while saving. Please try again later.',
+
+    // =====================================================================
+    // WIDGET – PRIVACY CONSENT (split fragments in WidgetRenderer)
+    // =====================================================================
+    'Ich stimme der'                                   => 'I consent to the',
+    'Datenschutzerklärung'                             => 'privacy policy',
+    'zu.'                                              => '.',
+
+    // =====================================================================
+    // PRIVACY HANDLER (DSGVO export/erase labels)
+    // =====================================================================
+    'Praxis Portal – Formulardaten'                    => 'Praxis Portal – Form data',
+    'Praxis Portal – Portal-Benutzer'                  => 'Praxis Portal – Portal users',
+    'Formulardaten'                                    => 'Form data',
+    'Portal-Benutzerkonto'                             => 'Portal user account',
+    'Erstellt am'                                      => 'Created on',
+    'Standort-ID'                                      => 'Location ID',
+    'Eingereicht am'                                   => 'Submitted on',
+    'Formular'                                         => 'Form',
+
+    // =====================================================================
+    // WIDGET – NOTFALL CARDS (v3-style layout)
+    // =====================================================================
+    'Notfall - Hilfe'                                  => 'Emergency – Help',
+    'Praxis-Notfallnummer'                             => 'Practice emergency number',
+    'Während unserer Sprechzeiten'                     => 'During our opening hours',
+    'Rufen Sie uns direkt an unter:'                   => 'Call us directly at:',
+    'Außerhalb der Sprechzeiten'                       => 'Outside opening hours',
+    'Der ärztliche Bereitschaftsdienst ist unter'      => 'The medical on-call service can be reached at',
+    'erreichbar.'                                      => 'available.',
+    'Giftnotruf'                                       => 'Poison control',
+    'Telefonseelsorge'                                 => 'Crisis helpline',
+    'In lebensbedrohlichen Notfällen wählen Sie bitte die' =>
+        'For life-threatening emergencies please dial',
+
+    // =====================================================================
+    // WIDGET – VACATION TEMPLATE (templates/widget/vacation.php)
+    // =====================================================================
+    'Urlaubsmodus aktiv'                               => 'Vacation mode active',
+    'Die Praxis befindet sich derzeit im Urlaub. Online-Anfragen sind aktuell nicht möglich.' =>
+        'The practice is currently on vacation. Online requests are not available at this time.',
+    'Voraussichtlich wieder erreichbar ab:'            => 'Expected to be available again from:',
+
+    // =====================================================================
+    // WIDGET – MAIN TEMPLATE (templates/widget/main.php)
+    // =====================================================================
+    'Praxis-Portal öffnen'                             => 'Open Practice Portal',
+    'Online-Rezeption'                                 => 'Online Reception',
+
+    // =====================================================================
+    // WIDGET – SUCCESS PARTIAL (templates/widget/partials/success.php)
+    // =====================================================================
+    'Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns schnellstmöglich bei Ihnen.' =>
+        'Your request was successfully sent. We will get back to you as soon as possible.',
+    'Neue Anfrage stellen'                             => 'Submit new request',
+
+    // =====================================================================
+    // WIDGET – DOWNLOADS FORM (templates/widget/forms/downloads.php)
+    // =====================================================================
+    'Dokumente und Formulare zum Herunterladen.'       => 'Documents and forms for download.',
+    'Aktuell keine Downloads verfügbar.'               => 'No downloads currently available.',
+
+    // =====================================================================
+    // WIDGET – LOCATION STEP (templates/widget/steps/location.php)
+    // =====================================================================
+    'Bitte wählen Sie den gewünschten Standort:'       => 'Please select the desired location:',
+
+    // =====================================================================
+    // WIDGET – SERVICES STEP (templates/widget/steps/services.php)
+    // =====================================================================
+    'Derzeit sind keine Services verfügbar.'           => 'No services are currently available.',
+
+    // =====================================================================
+    // WIDGET – WELCOME STEP (templates/widget/steps/welcome.php)
+    // =====================================================================
+    'Willkommen bei %s'                                => 'Welcome to %s',
+    'Sind Sie bereits Patient bei uns?'                => 'Are you already a patient with us?',
+    'Ja, bin Patient'                                  => 'Yes, I am a patient',
+    'Nein, Neupatient'                                 => 'No, new patient',
+
+    // =====================================================================
+    // WIDGET – BRILLENVERORDNUNG FORM (templates/widget/forms/brillenverordnung.php)
+    // =====================================================================
+    'Art der Brille'                                   => 'Type of glasses',
+    'Fernbrille'                                       => 'Distance glasses',
+    'Lesebrille'                                       => 'Reading glasses',
+    'Gleitsichtbrille'                                 => 'Progressive lenses',
+    'Bildschirmbrille'                                 => 'Computer glasses',
+    'Addition (ADD) - Leseteil'                        => 'Addition (ADD) – Reading section',
+    'Der Wert ist für beide Augen gleich.'             => 'This value is the same for both eyes.',
+    'Benötigen Sie Prismenwerte?'                      => 'Do you require prism values?',
+    'Prismenwerte'                                     => 'Prism values',
+    'Geben Sie die Prismenwerte an, falls bekannt.'    => 'Enter prism values if known.',
+    'Horizontal'                                       => 'Horizontal',
+    'Vertikal'                                         => 'Vertical',
+    'Wert'                                             => 'Value',
+    'Basis'                                            => 'Base',
+    'Innen'                                            => 'Inward',
+    'Außen'                                            => 'Outward',
+    'Oben'                                             => 'Upward',
+    'Unten'                                            => 'Downward',
+    'z.B. Musterstraße 12'                             => 'e.g. 123 Main Street',
+    'z.B. 12345'                                       => 'e.g. 12345',
+    'z.B. Berlin'                                      => 'e.g. Berlin',
+
+    // =====================================================================
+    // WIDGET – DOKUMENT FORM (templates/widget/forms/dokument.php)
+    // =====================================================================
+    'Dokument senden'                                  => 'Send document',
+    'Senden Sie uns Befunde, Bilder oder andere Dokumente.' =>
+        'Send us findings, images, or other documents.',
+    'Dokument'                                         => 'Document',
+    'Art des Dokuments'                                => 'Type of document',
+    'Befund / Arztbrief'                               => 'Medical report / doctor\'s letter',
+    'Foto / Bild'                                      => 'Photo / image',
+    'Medikamentenplan'                                 => 'Medication plan',
+    'Was enthält das Dokument?'                        => 'What does the document contain?',
+
+    // =====================================================================
+    // WIDGET – REZEPT FORM (templates/widget/forms/rezept.php)
+    // =====================================================================
+    'Bitte geben Sie Ihre Daten und die gewünschten Medikamente an.' =>
+        'Please enter your details and the desired medications.',
+    'Medikament 1'                                     => 'Medication 1',
+    'Weiteres Medikament'                              => 'Additional medication',
+    'Maximal 3 Medikamente pro Anfrage'                => 'Maximum 3 medications per request',
+    'Foto der Medikamentenpackung (optional)'          => 'Photo of medication packaging (optional)',
+    'Medikament fotografieren'                         => 'Photograph medication',
+    'Tippen zum Auswählen oder Datei hierher ziehen'   => 'Tap to select or drag file here',
+    'Hinweise zum Rezept'                              => 'Notes for prescription',
+    'z.B. geänderte Dosierung, Dauerrezept gewünscht'  => 'e.g. changed dosage, repeat prescription requested',
+    'Dürfen wir (falls möglich) einen elektronischen Versicherungsnachweis bei Ihrer Krankenkasse anfordern?' =>
+        'May we (if possible) request electronic insurance verification from your health insurer?',
+    'Wie möchten Sie das Rezept erhalten?'             => 'How would you like to receive the prescription?',
+    'In der Praxis abholen'                            => 'Pick up at the practice',
+    'Per Post zusenden'                                => 'Send by post',
+    'Versandadresse'                                   => 'Delivery address',
+    'Straße & Hausnummer'                              => 'Street & house number',
+    'Musterstraße 123'                                 => 'e.g. 123 Example Street',
+    'Musterstadt'                                      => 'e.g. Sample City',
+    'Rezept anfordern'                                 => 'Request prescription',
+
+    // =====================================================================
+    // WIDGET – TERMINABSAGE FORM (templates/widget/forms/terminabsage.php)
+    // =====================================================================
+    'Bitte sagen Sie Ihren Termin rechtzeitig ab, damit andere Patienten nachrücken können.' =>
+        'Please cancel your appointment in time so other patients can take your slot.',
+    'Termindetails'                                    => 'Appointment details',
+    'Datum des Termins'                                => 'Appointment date',
+    'Uhrzeit (ca.)'                                    => 'Time (approx.)',
+    'z.B. 10:30'                                       => 'e.g. 10:30',
+    'Neuen Termin gewünscht?'                          => 'New appointment requested?',
+    'Ja, bitte neuen Termin'                           => 'Yes, please arrange a new appointment',
+    'Absage senden'                                    => 'Send cancellation',
+
+    // =====================================================================
+    // WIDGET – UEBERWEISUNG FORM (templates/widget/forms/ueberweisung.php)
+    // =====================================================================
+    'Bitte geben Sie an, zu welchem Facharzt Sie überwiesen werden möchten.' =>
+        'Please indicate which specialist you would like to be referred to.',
+    'Fachrichtung'                                     => 'Specialty',
+    'Bitte wählen'                                     => 'Please select',
+    'Augenheilkunde'                                   => 'Ophthalmology',
+    'Chirurgie'                                        => 'Surgery',
+    'Dermatologie (Haut)'                              => 'Dermatology (skin)',
+    'Gastroenterologie (Magen/Darm)'                   => 'Gastroenterology (stomach/bowel)',
+    'Gynäkologie'                                      => 'Gynecology',
+    'HNO'                                              => 'ENT',
+    'Kardiologie (Herz)'                               => 'Cardiology (heart)',
+    'Neurologie'                                       => 'Neurology',
+    'Onkologie'                                        => 'Oncology',
+    'Orthopädie'                                       => 'Orthopedics',
+    'Radiologie (MRT/CT/Röntgen)'                      => 'Radiology (MRI/CT/X-ray)',
+    'Urologie'                                         => 'Urology',
+    'Sonstige'                                         => 'Other specialties',
+    'Gewünschter Arzt/Praxis'                          => 'Preferred doctor/practice',
+    'Optional: Name des Facharztes'                    => 'Optional: name of specialist',
+    'Grund der Überweisung'                            => 'Reason for referral',
+    'Kurze Beschreibung der Beschwerden'               => 'Brief description of symptoms',
+    'Dringlichkeit'                                    => 'Urgency',
+    'Normal'                                           => 'Normal',
+    'Dringend'                                         => 'Urgent',
+    'Überweisung anfordern'                            => 'Request referral',
+
+    // =====================================================================
+    // WIDGET – TERMIN FORM (templates/widget/forms/termin.php)
+    // =====================================================================
+    'Bitte beachten Sie: Dies ist eine Terminanfrage, keine verbindliche Buchung.' =>
+        'Please note: This is an appointment request, not a binding booking.',
+    'Terminwunsch'                                     => 'Appointment request',
+    'Grund des Termins'                                => 'Reason for appointment',
+    'Bevorzugte Tageszeit'                             => 'Preferred time of day',
+    'Morgens'                                          => 'Morning',
+    'Mittags'                                          => 'Midday',
+    'Nachmittags'                                      => 'Afternoon',
+    'Egal'                                             => 'Any',
+    'z.B. Beschwerden, Dringlichkeit'                  => 'e.g. symptoms, urgency',
+    // =====================================================================
+    // ERGÄNZUNGEN (aus Code-Analyse)
+    // =====================================================================
+    'Bei lebensbedrohlichen Notfällen rufen Sie bitte sofort den Rettungsdienst:' => 'In life-threatening emergencies, please call emergency services immediately:',
+    'Gesetzlich' => 'Statutory',
+    'Grund' => 'Reason',
+    'ID' => 'ID',
+    'Keine Berechtigung' => 'No permission',
+    'Privat' => 'Private',
+    'Schlüssel' => 'Key',
+    'Tage werden bei der Bereinigung gelöscht.' => 'days will be deleted during cleanup.',
+    'Versicherung' => 'Insurance',
+    'Weitere Notfallnummern' => 'Additional emergency numbers',
+    'both' => 'both',
+    'diagnosis_confirmed' => 'Confirmed diagnosis',
+    'diagnosis_excluded' => 'Excluded diagnosis',
+    'diagnosis_history' => 'History diagnosis',
+    'diagnosis_suspected' => 'Suspected diagnosis',
+    'left' => 'left',
+    'no' => 'no',
+    'right' => 'right',
+    'yes' => 'yes',
+    'Ärztlicher Bereitschaftsdienst' => 'Medical on-call service',
+
+    // =====================================================================
+    // PDF EXPORT – PdfAnamnese labels
+    // =====================================================================
+    'Patientenstammdaten'           => 'Patient master data',
+    'Privatpatient'                 => 'Private patient',
+    'Kassenpatient'                 => 'Statutory patient',
+    'Anrede / Titel'                => 'Salutation / Title',
+    'Anschrift'                     => 'Address',
+    'Geschlecht'                    => 'Gender',
+    'Adresse'                       => 'Address',
+    'Straße'                        => 'Street',
+    'PLZ / Ort'                     => 'Postcode / City',
+    'Kontakt'                       => 'Contact',
+    'Privatversichert'              => 'Privately insured',
+    'Gesetzlich versichert'         => 'Statutory insured',
+    'Krankenkasse'                  => 'Health insurance fund',
+    'Versicherungsname'             => 'Insurance name',
+    'Hauptversicherter'             => 'Primary policyholder',
+    'Bestätigung'                   => 'Confirmation',
+
 ];

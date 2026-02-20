@@ -240,6 +240,13 @@
             return;
         }
 
+        // Externes System: Service hat data-url → in neuem Tab öffnen
+        var extUrl = this.getAttribute('data-url');
+        if (extUrl) {
+            window.open(extUrl, '_blank');
+            return;
+        }
+
         $$('.pp-service-card', container).forEach(function (el) {
             el.classList.remove('pp-selected');
         });

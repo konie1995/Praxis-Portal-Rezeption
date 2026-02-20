@@ -423,7 +423,9 @@
     max-width: 640px;
     width: 90vw;
     max-height: 80vh;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .pp-modal-header {
@@ -455,6 +457,8 @@
 
 .pp-modal-body {
     padding: 20px;
+    overflow-y: auto;
+    flex: 1;
 }
 
 .pp-modal-footer {

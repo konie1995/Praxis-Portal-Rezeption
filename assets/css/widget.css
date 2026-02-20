@@ -1508,13 +1508,13 @@
 }
 
 /* Notfall-Seite (v3-Stil) */
-.pp-notfall-options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.pp-notfall-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
 
 .pp-notfall-card {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 14px;
-    padding: 16px;
+    padding: 14px 18px;
     background: #f8fafc;
     border: 2px solid #e2e8f0;
     border-radius: 12px;
@@ -1530,22 +1530,31 @@
     display: flex; align-items: center; justify-content: center; border-radius: 10px;
 }
 
-.pp-notfall-content { display: flex; flex-direction: column; gap: 4px; }
+.pp-notfall-content { display: flex; flex-direction: column; gap: 3px; flex: 1; }
 .pp-notfall-content strong { font-size: var(--pp-text-base); font-weight: 600; color: #1e293b; }
 .pp-notfall-content span { font-size: var(--pp-text-sm); color: #64748b; line-height: 1.4; }
+
+.pp-notfall-chevron {
+    font-size: var(--pp-text-xl); color: #94a3b8; flex-shrink: 0;
+    font-weight: 300; transition: all 0.2s ease;
+}
+.pp-notfall-card:hover .pp-notfall-chevron { transform: translateX(2px); }
 
 .pp-notfall-praxis { border-color: #86efac; background: #f0fdf4; }
 .pp-notfall-praxis:hover { border-color: #22c55e; background: #dcfce7; }
 .pp-notfall-praxis .pp-notfall-icon { background: #dcfce7; }
+.pp-notfall-praxis:hover .pp-notfall-chevron { color: #22c55e; }
 
 .pp-notfall-bereitschaft { border-color: #93c5fd; background: #eff6ff; }
 .pp-notfall-bereitschaft:hover { border-color: #3b82f6; background: #dbeafe; }
 .pp-notfall-bereitschaft .pp-notfall-icon { background: #dbeafe; }
+.pp-notfall-bereitschaft:hover .pp-notfall-chevron { color: #3b82f6; }
 
 .pp-notfall-notruf { border-color: #fca5a5; background: #fef2f2; }
 .pp-notfall-notruf:hover { border-color: #ef4444; background: #fee2e2; }
 .pp-notfall-notruf .pp-notfall-icon { background: #fee2e2; }
 .pp-notfall-notruf .pp-notfall-content strong { color: #dc2626; }
+.pp-notfall-notruf:hover .pp-notfall-chevron { color: #ef4444; }
 
 /* Downloads-Seite (v3-Stil) */
 .pp-downloads-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }

@@ -1,4 +1,6 @@
 {
+  "id": "dermatologe",
+  "name": "Dermatologe-Anamnesebogen",
   "form_key": "dermatologe",
   "version": "4.2.908",
   "sections": [

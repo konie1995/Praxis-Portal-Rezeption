@@ -306,25 +306,91 @@
         });
     });
 
-    // ── Custom Services (Modal via Prompt) ──
+    // ── Custom Services (Modal) ──
+    var emojiSet = ['📋','💊','📄','👓','📎','📥','📅','❌','🚨','📝','🔬','💉','🩺','🏥','📞','✉️','📊','🔑','⚕️','🩹','🌡️','💊','🧬','🫀','🦷','👁️','🧠','🏃','📱','🌐'];
+
+    function buildEmojiPicker(selected) {
+        return emojiSet.map(function (em) {
+            var sel = em === selected;
+            return '<span class="pp-emoji-pick' + (sel ? ' selected' : '') + '" data-emoji="' + em + '" '
+                + 'style="cursor:pointer;font-size:22px;padding:4px;border:2px solid ' + (sel ? '#2271b1' : 'transparent') + ';border-radius:4px;margin:2px;">'
+                + em + '</span>';
+        }).join('');
+    }
+
     $(document).on('click', '.pp-add-service', function (e) {
         e.preventDefault();
         var locId = $(this).data('location-id');
-        var label = prompt('Name des neuen Services:');
-        if (!label) return;
-        var icon  = prompt('Emoji-Icon (optional):', '📋') || '📋';
-        var key   = label.toLowerCase().replace(/[^a-z0-9]+/g, '_');
 
-        ppAjax('add_custom_service', {
-            location_id: locId,
-            label:       label,
-            icon:        icon,
-            service_key: key
-        }, {
-            button: this,
-            reload: true,
-            successMsg: 'Service hinzugefügt'
+        var $overlay = $('#pp-service-add-overlay');
+        if (!$overlay.length) {
+            $overlay = $('<div id="pp-service-add-overlay" class="pp-modal-overlay">'
+                + '<div class="pp-modal" style="max-width:520px;">'
+                + '<div class="pp-modal-header"><h3>➕ Custom Service hinzufügen</h3>'
+                + '<button type="button" class="pp-modal-close">&times;</button></div>'
+                + '<div class="pp-modal-body"></div>'
+                + '<div class="pp-modal-footer">'
+                + '<button type="button" class="button pp-modal-close">Abbrechen</button> '
+                + '<button type="button" class="button button-primary" id="pp-save-service-add">💾 Hinzufügen</button>'
+                + '</div></div></div>');
+            $('body').append($overlay);
+            $overlay.on('click', '.pp-modal-close', function () { $overlay.removeClass('active'); });
+            $overlay.on('click', function (ev) { if ($(ev.target).hasClass('pp-modal-overlay')) $overlay.removeClass('active'); });
+        }
+
+        $overlay.data('location-id', locId);
+
+        $overlay.find('.pp-modal-body').html(
+            '<table style="width:100%;border-collapse:collapse;">'
+            + '<tr><th style="text-align:left;padding:8px 0;width:110px;">Name *</th>'
+            + '<td><input type="text" id="pp-add-svc-label" class="regular-text" style="width:100%;" placeholder="z.B. Überweisung spezial" autofocus></td></tr>'
+            + '<tr><th style="text-align:left;padding:8px 0;">Icon</th>'
+            + '<td><input type="hidden" id="pp-add-svc-icon" value="📋">'
+            + '<div style="display:flex;flex-wrap:wrap;gap:2px;margin-top:4px;">' + buildEmojiPicker('📋') + '</div></td></tr>'
+            + '<tr><th style="text-align:left;padding:8px 0;">Externe URL</th>'
+            + '<td><input type="url" id="pp-add-svc-url" class="regular-text" style="width:100%;" placeholder="https://… (leer = internes Formular)"></td></tr>'
+            + '<tr><th style="text-align:left;padding:8px 0;">Reihenfolge</th>'
+            + '<td><input type="number" id="pp-add-svc-order" value="99" min="1" max="999" style="width:80px;"></td></tr>'
+            + '</table>'
+        );
+
+        // Emoji-Picker im Add-Modal
+        $overlay.off('click', '.pp-emoji-pick').on('click', '.pp-emoji-pick', function () {
+            $overlay.find('.pp-emoji-pick').css('border-color', 'transparent').removeClass('selected');
+            $(this).css('border-color', '#2271b1').addClass('selected');
+            $overlay.find('#pp-add-svc-icon').val($(this).data('emoji'));
         });
+
+        $overlay.find('#pp-save-service-add').off('click').on('click', function () {
+            var label = $overlay.find('#pp-add-svc-label').val().trim();
+            if (!label) {
+                $overlay.find('#pp-add-svc-label').focus().css('border-color', '#d63638');
+                return;
+            }
+            var icon     = $overlay.find('#pp-add-svc-icon').val() || '📋';
+            var extUrl   = $overlay.find('#pp-add-svc-url').val().trim();
+            var order    = parseInt($overlay.find('#pp-add-svc-order').val(), 10) || 99;
+            var key      = label.toLowerCase().replace(/[äöü]/g, function(c) {
+                return {ä:'ae',ö:'oe',ü:'ue'}[c];
+            }).replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+
+            ppAjax('add_custom_service', {
+                location_id:  $overlay.data('location-id'),
+                label:        label,
+                icon:         icon,
+                service_key:  key,
+                external_url: extUrl,
+                sort_order:   order
+            }, {
+                button: this,
+                reload: true,
+                successMsg: 'Service hinzugefügt'
+            });
+            $overlay.removeClass('active');
+        });
+
+        $overlay.addClass('active');
+        setTimeout(function () { $overlay.find('#pp-add-svc-label').focus(); }, 50);
     });
 
     $(document).on('click', '.pp-edit-service', function (e) {
@@ -352,12 +418,7 @@
             $overlay.on('click', function (ev) { if ($(ev.target).hasClass('pp-modal-overlay')) $overlay.removeClass('active'); });
         }
 
-        var emojiPicker = ['📋','💊','📄','👓','📎','📥','📅','❌','🚨','📝','🔬','💉','🩺','🏥','📞','✉️','📊','🔑','⚕️','🩹'];
-        var emojiHtml = emojiPicker.map(function(em) {
-            return '<span class="pp-emoji-pick' + (em === icon ? ' selected' : '') + '" data-emoji="' + em + '" '
-                + 'style="cursor:pointer;font-size:22px;padding:4px;border:2px solid ' + (em === icon ? '#2271b1' : 'transparent') + ';border-radius:4px;margin:2px;">'
-                + em + '</span>';
-        }).join('');
+        var emojiHtml = buildEmojiPicker(icon);
 
         var urlRow = (svcType === 'external' || svcType === 'link')
             ? '<tr><th style="text-align:left;padding:8px 0;">URL</th><td><input type="url" id="pp-svc-url" value="' + escHtml(extUrl) + '" class="regular-text" style="width:100%;"></td></tr>'
@@ -1112,8 +1173,6 @@
         $('#nc-emergency-text').val(config.emergency_text || '');
         $('#nc-practice-label').val(config.practice_emergency_label || '');
         $('#nc-show-bereitschaft').prop('checked', config.show_bereitschaftsdienst !== false);
-        $('#nc-show-giftnotruf').prop('checked', config.show_giftnotruf !== false);
-        $('#nc-show-seelsorge').prop('checked', config.show_telefonseelsorge !== false);
         $('#nc-additional-info').val(config.additional_info || '');
 
         // Eigene Nummern
@@ -1158,8 +1217,6 @@
             emergency_text:           $('#nc-emergency-text').val(),
             practice_emergency_label: $('#nc-practice-label').val(),
             show_bereitschaftsdienst: $('#nc-show-bereitschaft').is(':checked'),
-            show_giftnotruf:          $('#nc-show-giftnotruf').is(':checked'),
-            show_telefonseelsorge:    $('#nc-show-seelsorge').is(':checked'),
             custom_numbers:           [],
             additional_info:          $('#nc-additional-info').val()
         };

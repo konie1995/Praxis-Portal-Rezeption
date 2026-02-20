@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Hauptklasse des Plugins
  * 

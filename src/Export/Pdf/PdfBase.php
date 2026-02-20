@@ -189,9 +189,10 @@ abstract class PdfBase extends ExportBase
     /**
      * Lädt Praxis-Informationen (standortabhängig).
      */
-    protected function getPraxisInfo(string $locationUuid = ''): array
+    protected function getPraxisInfo(?string $locationUuid = ''): array
     {
         // UUID aus Property als Fallback
+        $locationUuid = $locationUuid ?? '';
         $uuid = $locationUuid !== '' ? $locationUuid : $this->locationUuid;
 
         // Standortspezifische Settings via LocationManager

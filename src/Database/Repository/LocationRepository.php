@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * LocationRepository – CRUD für pp_locations
  *

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Repository für Patienteneinreichungen (Submissions)
  *
@@ -121,6 +122,59 @@ class SubmissionRepository extends AbstractRepository
     }
 
     /**
+     * Gefilterte Submissions für das Portal-Dashboard
+     *
+     * Filtert per SQL nach location_id, status und Datum.
+     * Die Suche nach Patientennamen muss im Aufrufcode per PHP erfolgen,
+     * da encrypted_data nicht durchsucht werden kann.
+     *
+     * @param array $args {
+     *   location_id: int,
+     *   status:      string  ('new'|'read'|'done'|'archived'|'pending'|''),
+     *   search:      string  (ignoriert – Daten verschlüsselt),
+     *   date:        string  ('Y-m-d' oder ''),
+     *   page:        int,
+     *   per_page:    int,
+     * }
+     * @return array{items: array, total: int, pages: int, page: int}
+     */
+    public function findFiltered(array $args): array
+    {
+        $locationId = (int) ($args['location_id'] ?? 0);
+        $status     = sanitize_text_field($args['status'] ?? '');
+        $date       = sanitize_text_field($args['date'] ?? '');
+        $page       = max(1, (int) ($args['page'] ?? 1));
+        $perPage    = max(1, (int) ($args['per_page'] ?? 20));
+
+        $where  = 'location_id = %d AND deleted_at IS NULL';
+        $params = [$locationId];
+
+        if (!empty($status)) {
+            $where   .= ' AND status = %s';
+            $params[] = $status;
+        }
+
+        if (!empty($date) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+            $where   .= ' AND DATE(created_at) = %s';
+            $params[] = $date;
+        }
+
+        return $this->paginate($page, $perPage, 'created_at DESC', $where, $params);
+    }
+
+    /**
+     * Submissions mit bestimmtem Status für einen Standort zählen
+     *
+     * @param string $status     z.B. 'new', 'pending', 'read'
+     * @param int    $locationId 0 = alle Standorte
+     * @return int
+     */
+    public function countByStatus(string $status, int $locationId = 0): int
+    {
+        return $this->countForLocation($locationId, $status);
+    }
+
+    /**
      * Paginierte Submissions für einen Standort
      */
     public function listForLocation(
@@ -139,125 +193,13 @@ class SubmissionRepository extends AbstractRepository
         }
 
         if (!empty($serviceKey)) {
-            $where .= " AND service_key = %s";
+            // request_type ist 'widget_{key}' (Widget) oder '{key}' (Fragebogen-Shortcode)
+            $where .= " AND (request_type = %s OR request_type = %s)";
             $params[] = $serviceKey;
+            $params[] = 'widget_' . $serviceKey;
         }
 
-        return $this->paginate($page, $perPage, 'created_at DESC', $where, $params);
-    }
-
-    /**
-     * Gefilterte Submissions für Portal-Ansicht
-     *
-     * @param array $args {
-     *     @type int    $location_id Location ID (required)
-     *     @type string $status      Status-Filter (optional)
-     *     @type string $search      Suchbegriff (optional, sucht in entschlüsselten Daten)
-     *     @type string $date        Datumsfilter Y-m-d (optional)
-     *     @type int    $page        Seitennummer (default: 1)
-     *     @type int    $per_page    Items pro Seite (default: 25)
-     * }
-     * @return array{items: array, total: int}
-     */
-    public function findFiltered(array $args): array
-    {
-        $locationId = (int) ($args['location_id'] ?? 0);
-        $status = sanitize_text_field($args['status'] ?? '');
-        $search = sanitize_text_field($args['search'] ?? '');
-        $date = sanitize_text_field($args['date'] ?? '');
-        $page = max(1, (int) ($args['page'] ?? 1));
-        $perPage = max(1, min(100, (int) ($args['per_page'] ?? 25)));
-
-        // Base WHERE
-        $where = "location_id = %d AND deleted_at IS NULL";
-        $params = [$locationId];
-
-        // Status-Filter
-        if (!empty($status) && $status !== 'all') {
-            $where .= " AND status = %s";
-            $params[] = $status;
-        }
-
-        // Datumsfilter
-        if (!empty($date)) {
-            $where .= " AND DATE(created_at) = %s";
-            $params[] = $date;
-        }
-
-        // Suche: Wenn Suchbegriff vorhanden, müssen wir alle Rows entschlüsseln und filtern
-        // (ineffizient, aber notwendig für verschlüsselte Daten)
-        if (!empty($search)) {
-            return $this->findFilteredWithSearch($locationId, $status, $search, $date, $page, $perPage);
-        }
-
-        // Ohne Suche: Direkte DB-Abfrage
-        return $this->paginate($page, $perPage, 'created_at DESC', $where, $params);
-    }
-
-    /**
-     * Gefilterte Suche mit Entschlüsselung (langsam)
-     */
-    private function findFilteredWithSearch(
-        int $locationId,
-        string $status,
-        string $search,
-        string $date,
-        int $page,
-        int $perPage
-    ): array {
-        // Alle relevanten Submissions holen
-        $where = "location_id = %d AND deleted_at IS NULL";
-        $params = [$locationId];
-
-        if (!empty($status) && $status !== 'all') {
-            $where .= " AND status = %s";
-            $params[] = $status;
-        }
-
-        if (!empty($date)) {
-            $where .= " AND DATE(created_at) = %s";
-            $params[] = $date;
-        }
-
-        $sql = "SELECT * FROM {$this->table()} WHERE {$where} ORDER BY created_at DESC LIMIT 1000";
-        $allRows = $this->db->get_results(
-            $this->db->prepare($sql, ...$params),
-            ARRAY_A
-        ) ?: [];
-
-        // Entschlüsseln und filtern
-        $filtered = [];
-        $searchLower = mb_strtolower($search);
-
-        foreach ($allRows as $row) {
-            $decrypted = $this->decryptRow($row);
-            if (!$decrypted) {
-                continue;
-            }
-
-            // Suche in Name, Email, Telefon, Anmerkungen
-            $haystack = mb_strtolower(implode(' ', [
-                $decrypted['vorname'] ?? '',
-                $decrypted['nachname'] ?? '',
-                $decrypted['email'] ?? '',
-                $decrypted['telefon'] ?? '',
-                $decrypted['anmerkungen'] ?? '',
-            ]));
-
-            if (str_contains($haystack, $searchLower)) {
-                $filtered[] = $row;
-            }
-        }
-
-        // Paginierung manuell
-        $total = count($filtered);
-        $offset = ($page - 1) * $perPage;
-        $items = array_slice($filtered, $offset, $perPage);
-
-        return [
-            'items' => $items,
-            'total' => $total,
-        ];
+        return $this->paginate($page, $perPage, 'created_at DESC', $where, $params)['items'];
     }
 
     /**
@@ -294,18 +236,6 @@ class SubmissionRepository extends AbstractRepository
         }
 
         return $this->count($where, $params);
-    }
-
-    /**
-     * Zählt Submissions nach Status (für Portal-Badges)
-     *
-     * @param string $status     Status (z.B. 'new', 'pending', 'completed')
-     * @param int    $locationId Location ID
-     * @return int
-     */
-    public function countByStatus(string $status, int $locationId): int
-    {
-        return $this->countForLocation($locationId, $status);
     }
 
     /**

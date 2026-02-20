@@ -621,22 +621,22 @@ class WidgetHandler
         $formData['prismen'] = [
             'rechts' => [
                 'horizontal' => [
-                    'wert'  => sanitize_text_field($_POST['prisma_r_h_wert'] ?? ''),
-                    'basis' => sanitize_text_field($_POST['prisma_r_h_basis'] ?? ''),
+                    'wert'  => sanitize_text_field($_POST['prisma_rechts_h_wert'] ?? ''),
+                    'basis' => sanitize_text_field($_POST['prisma_rechts_h_basis'] ?? ''),
                 ],
                 'vertikal' => [
-                    'wert'  => sanitize_text_field($_POST['prisma_r_v_wert'] ?? ''),
-                    'basis' => sanitize_text_field($_POST['prisma_r_v_basis'] ?? ''),
+                    'wert'  => sanitize_text_field($_POST['prisma_rechts_v_wert'] ?? ''),
+                    'basis' => sanitize_text_field($_POST['prisma_rechts_v_basis'] ?? ''),
                 ],
             ],
             'links' => [
                 'horizontal' => [
-                    'wert'  => sanitize_text_field($_POST['prisma_l_h_wert'] ?? ''),
-                    'basis' => sanitize_text_field($_POST['prisma_l_h_basis'] ?? ''),
+                    'wert'  => sanitize_text_field($_POST['prisma_links_h_wert'] ?? ''),
+                    'basis' => sanitize_text_field($_POST['prisma_links_h_basis'] ?? ''),
                 ],
                 'vertikal' => [
-                    'wert'  => sanitize_text_field($_POST['prisma_l_v_wert'] ?? ''),
-                    'basis' => sanitize_text_field($_POST['prisma_l_v_basis'] ?? ''),
+                    'wert'  => sanitize_text_field($_POST['prisma_links_v_wert'] ?? ''),
+                    'basis' => sanitize_text_field($_POST['prisma_links_v_basis'] ?? ''),
                 ],
             ],
         ];

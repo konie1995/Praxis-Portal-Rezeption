@@ -139,19 +139,27 @@ class Widget
         }
 
         // 2. Automatisch Seite mit Shortcode finden
-        $wpdb = $GLOBALS['wpdb'];
+        $contentFilter = static function (string $where): string {
+            global $wpdb;
+            return $where . $wpdb->prepare(' AND post_content LIKE %s', '%[pp_fragebogen%');
+        };
 
-        $page = $wpdb->get_row(
-            "SELECT ID FROM {$wpdb->posts} 
-             WHERE post_content LIKE '%[pp_fragebogen%' 
-             AND post_status = 'publish' 
-             AND post_type IN ('page', 'post')
-             ORDER BY post_type ASC, ID ASC
-             LIMIT 1"
-        );
+        add_filter('posts_where', $contentFilter);
 
-        if ($page) {
-            return get_permalink($page->ID);
+        $query = new \WP_Query([
+            'post_type'      => ['page', 'post'],
+            'post_status'    => 'publish',
+            'posts_per_page' => 1,
+            'orderby'        => 'post_type',
+            'order'          => 'ASC',
+            'no_found_rows'  => true,
+            'fields'         => 'ids',
+        ]);
+
+        remove_filter('posts_where', $contentFilter);
+
+        if (!empty($query->posts)) {
+            return get_permalink((int) $query->posts[0]);
         }
 
         return false;
@@ -219,10 +227,13 @@ class Widget
             'widget_subtitle'    => $this->i18n->t('Nutzen Sie unseren'),
             'widget_welcome'     => $this->i18n->t('Wie können wir Ihnen helfen?'),
             'widget_position'    => get_option('pp_widget_position', 'right'),
-            'vacation_mode'      => false,
-            'vacation_message'   => '',
-            'vacation_start'     => '',
-            'vacation_end'       => '',
+            'vacation_mode'           => false,
+            'vacation_message'        => '',
+            'vacation_start'          => '',
+            'vacation_end'            => '',
+            'widget_status'           => get_option('pp_widget_status', 'active'),
+            'widget_pages'            => get_option('pp_widget_pages', 'all'),
+            'widget_disabled_message' => get_option('pp_widget_disabled_message', ''),
             'termin_url'         => '',
             'termin_button_text' => $this->i18n->t('Termin vereinbaren'),
             'privacy_url'        => $this->getPrivacyUrl(),
@@ -243,17 +254,14 @@ class Widget
             // Vacation Mode: Standort-spezifisch oder zeitgesteuert
             $this->cachedSettings['vacation_mode'] = $this->isVacationActive($location);
 
-            // Globaler Override: Widget komplett deaktiviert oder Urlaub
-            $globalStatus = get_option('pp_widget_status', 'active');
-            if ($globalStatus === 'vacation' || $globalStatus === 'disabled') {
+            // widget_status 'vacation' → vacation_mode erzwingen
+            if ($this->cachedSettings['widget_status'] === 'vacation') {
                 $this->cachedSettings['vacation_mode'] = true;
             }
         } else {
             $this->cachedSettings = $defaults;
 
-            // Globaler Urlaubsmodus
-            $globalStatus = get_option('pp_widget_status', 'active');
-            if ($globalStatus === 'vacation') {
+            if ($this->cachedSettings['widget_status'] === 'vacation') {
                 $this->cachedSettings['vacation_mode'] = true;
             }
         }
@@ -647,17 +655,18 @@ class Widget
      */
     public function enqueueAssets(): void
     {
-        $widgetStatus = get_option('pp_widget_status', 'active');
+        $settings     = $this->getLocationSettings();
+        $widgetStatus = $settings['widget_status'] ?? 'active';
 
         // Komplett deaktiviert → keine Assets
         if ($widgetStatus === 'disabled') {
             return;
         }
 
-        $isVacation = ($widgetStatus === 'vacation');
+        $isVacation = ($widgetStatus === 'vacation') || ($settings['vacation_mode'] ?? false);
 
         // Seiteneinschränkungen prüfen (nicht im Urlaub)
-        if (!$isVacation && !$this->shouldShowWidget()) {
+        if (!$isVacation && !$this->shouldShowWidget($settings)) {
             return;
         }
 
@@ -768,21 +777,20 @@ class Widget
      */
     public function renderWidget(): void
     {
-        // ── Status prüfen ──
-        $widgetStatus = get_option('pp_widget_status', 'active');
-
-        if ($widgetStatus === 'disabled') {
-            echo '<!-- PP4 Widget: deaktiviert (Einstellungen → Widget → Status) -->';
-            return;
-        }
-
         // ── Multi-Standort ──
         $allLocations    = $this->locationManager->getActive();
         $isMultiLocation = count($allLocations) > 1;
 
         // ── Settings + Services ──
-        $settings = $this->getLocationSettings();
-        $services = $this->getLocationServices();
+        $settings     = $this->getLocationSettings();
+        $services     = $this->getLocationServices();
+        $widgetStatus = $settings['widget_status'] ?? 'active';
+
+        if ($widgetStatus === 'disabled') {
+            $disabledMsg = $settings['widget_disabled_message'] ?? '';
+            echo '<!-- PP4 Widget: deaktiviert' . ($disabledMsg ? ' – ' . esc_html($disabledMsg) : '') . ' -->';
+            return;
+        }
 
         // ── Fallbacks für Pflichtfelder ──
         if (empty($settings['practice_name'])) {
@@ -803,11 +811,11 @@ class Widget
         }
 
         // ── Urlaubsmodus ──
-        $isVacation = ($widgetStatus === 'vacation') || ($settings['vacation_mode'] ?? false);
+        $isVacation = ($settings['vacation_mode'] ?? false);
 
         // Seiteneinschränkungen (nicht im Urlaub)
-        if (!$isVacation && !$this->shouldShowWidget()) {
-            echo '<!-- PP4 Widget: auf dieser Seite nicht aktiv (Einstellungen → Widget → Sichtbarkeit) -->';
+        if (!$isVacation && !$this->shouldShowWidget($settings)) {
+            echo '<!-- PP4 Widget: auf dieser Seite nicht aktiv (Standort → Widget → Sichtbarkeit) -->';
             return;
         }
 
@@ -866,9 +874,9 @@ class Widget
     /**
      * Prüft ob Widget auf aktueller Seite angezeigt werden soll
      */
-    private function shouldShowWidget(): bool
+    private function shouldShowWidget(array $settings = []): bool
     {
-        $enabledPages = get_option('pp_widget_pages', 'all');
+        $enabledPages = $settings['widget_pages'] ?? get_option('pp_widget_pages', 'all');
 
         if ($enabledPages === 'none') {
             return false;

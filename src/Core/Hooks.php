@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Hooks – Zentrale Hook-Registrierung
  *
@@ -193,16 +196,6 @@ class Hooks
     /* =========================================================================
      * PRIVACY (DSGVO)
      * ====================================================================== */
-
-    /**
-     * Privacy-Hooks werden jetzt von PrivacyHandler::register() registriert.
-     * Callback-Methoden registerPrivacyExporter/Eraser bleiben als Delegation erhalten.
-     * @see \PraxisPortal\Privacy\PrivacyHandler::register()
-     */
-    private function registerPrivacy(): void
-    {
-        // Leerer Stub — PrivacyHandler registriert die Hooks direkt
-    }
 
     /* =========================================================================
      * ADMIN-HOOKS
@@ -416,15 +409,6 @@ class Hooks
 
     // ── Shortcodes ──────────────────────────────────────────────
 
-    public function shortcodePortal(array $atts = []): string
-    {
-        if ($this->container->has(\PraxisPortal\Portal\Portal::class)) {
-            $portal = $this->container->get(\PraxisPortal\Portal\Portal::class);
-            return $portal->render($atts);
-        }
-        return '<!-- Praxis-Portal: Portal nicht aktiviert -->';
-    }
-
     public function shortcodeWidget(array $atts = []): string
     {
         $widget = $this->container->get(\PraxisPortal\Widget\Widget::class);
@@ -513,7 +497,7 @@ class Hooks
 
         nocache_headers();
         header('Content-Type: ' . $mimeType);
-        header('Content-Disposition: attachment; filename="' . $fileName . '"');
+        header("Content-Disposition: attachment; filename=\"" . $fileName . "\"; filename*=UTF-8''" . rawurlencode($fileName));
         header('Content-Length: ' . filesize($filePath));
         header('X-Content-Type-Options: nosniff');
 

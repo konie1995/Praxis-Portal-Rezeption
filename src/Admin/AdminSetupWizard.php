@@ -389,14 +389,14 @@ class AdminSetupWizard
                 </p>
 
             <?php else: ?>
-                <form method="post" class="pp-wizard-form" id="pp-location-form">
+                <form method="post" class="pp-wizard-form">
                     <?php wp_nonce_field('pp_wizard_action', '_pp_wizard_nonce'); ?>
                     <input type="hidden" name="pp_wizard_action" value="save_location">
 
                     <div class="pp-form-row">
-                        <label for="loc_name">Praxis-Name</label>
+                        <label for="loc_name">Praxis-Name *</label>
                         <input type="text" id="loc_name" name="loc_name" class="pp-input-wide"
-                               value="<?php echo esc_attr(get_bloginfo('name')); ?>">
+                               required value="<?php echo esc_attr(get_bloginfo('name')); ?>">
                     </div>
 
                     <div class="pp-form-row-group">
@@ -415,9 +415,9 @@ class AdminSetupWizard
                     </div>
 
                     <div class="pp-form-row">
-                        <label for="loc_email">E-Mail</label>
+                        <label for="loc_email">E-Mail *</label>
                         <input type="email" id="loc_email" name="loc_email" class="pp-input-wide"
-                               value="<?php echo esc_attr(get_option('admin_email')); ?>">
+                               required value="<?php echo esc_attr(get_option('admin_email')); ?>">
                     </div>
 
                     <div class="pp-form-row">
@@ -425,16 +425,13 @@ class AdminSetupWizard
                         <input type="tel" id="loc_telefon" name="loc_telefon" class="regular-text">
                     </div>
 
-                    <div class="pp-wizard-nav-buttons">
-                        <a href="<?php echo esc_url(admin_url('admin.php?page=pp-setup&step=2')); ?>" class="button">← Zurück</a>
-                        <button type="submit" class="button button-primary">Weiter →</button>
+                    <div class="pp-wizard-actions">
+                        <button type="submit" class="button button-primary">Standort anlegen</button>
                     </div>
                 </form>
             <?php endif; ?>
 
-            <?php if ($hasLocation): ?>
-                <?php $this->renderNavButtons(2, 4); ?>
-            <?php endif; ?>
+            <?php $this->renderNavButtons(2, 4); ?>
         </div>
         <?php
     }
@@ -739,19 +736,17 @@ class AdminSetupWizard
     }
 
     /**
-     * Standort anlegen (nur wenn Felder ausgefüllt sind).
+     * Standort anlegen.
      */
     private function handleSaveLocation(): int
     {
-        $name = sanitize_text_field($_POST['loc_name'] ?? '');
-
-        // Wenn Name leer ist, keinen Standort anlegen (Skip)
-        if (empty($name)) {
-            return 4; // Weiter zu Sicherheit ohne Standort
-        }
-
         /** @var LocationRepository $locationRepo */
         $locationRepo = $this->container->get(LocationRepository::class);
+
+        $name = sanitize_text_field($_POST['loc_name'] ?? '');
+        if (empty($name)) {
+            $name = get_bloginfo('name') ?: $this->t('Praxis');
+        }
 
         $locationRepo->create([
             'name'       => $name,

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Migration – Versionsbasierte Datenbank-Migrationen
  *
@@ -24,7 +25,7 @@ if (!defined('ABSPATH')) {
 class Migration
 {
     private const DB_VERSION_OPTION = 'pp_db_version';
-    private const DB_VERSION        = '4.2.9';
+    private const DB_VERSION        = '4.2.10';
 
     /** @var \wpdb */
     private $wpdb;
@@ -92,6 +93,10 @@ class Migration
 
         if (version_compare($currentVersion, '4.2.9', '<')) {
             $this->migrateToV429();
+        }
+
+        if (version_compare($currentVersion, '4.2.10', '<')) {
+            $this->migrateToV4210();
         }
 
         // Idempotent: UNIQUE-Constraints immer prüfen
@@ -469,6 +474,74 @@ class Migration
         }
 
         $this->log("v4.2.9 abgeschlossen – {$added} Spalten hinzugefügt");
+    }
+
+    /**
+     * v4.2.10: Widget-Einstellungen pro Standort
+     *
+     * Fügt widget_status, widget_pages, widget_disabled_message zur
+     * Locations-Tabelle hinzu und übernimmt globale Optionen als Startwert.
+     */
+    private function migrateToV4210(): void
+    {
+        $this->log('v4.2.10 Migration: Widget-Spalten pro Standort');
+
+        $table = $this->prefix . 'pp_locations';
+
+        $existingColumns = $this->wpdb->get_col(
+            $this->wpdb->prepare(
+                "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS
+                 WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = %s",
+                $table
+            )
+        );
+
+        $added = 0;
+
+        if (!in_array('widget_status', $existingColumns, true)) {
+            $this->wpdb->query("ALTER TABLE {$table} ADD COLUMN widget_status VARCHAR(20) DEFAULT 'active'");
+            $added++;
+        }
+
+        if (!in_array('widget_pages', $existingColumns, true)) {
+            $this->wpdb->query("ALTER TABLE {$table} ADD COLUMN widget_pages TEXT DEFAULT NULL");
+            $added++;
+        }
+
+        if (!in_array('widget_disabled_message', $existingColumns, true)) {
+            $this->wpdb->query("ALTER TABLE {$table} ADD COLUMN widget_disabled_message TEXT DEFAULT NULL");
+            $added++;
+        }
+
+        // Globale Optionen in alle bestehenden Standorte übernehmen
+        if ($added > 0) {
+            $globalStatus  = get_option('pp_widget_status', 'active');
+            $globalPages   = get_option('pp_widget_pages', 'all');
+            $globalDisabledMsg = get_option('pp_widget_disabled_message', '');
+
+            if ($globalStatus !== 'active') {
+                $this->wpdb->query($this->wpdb->prepare(
+                    "UPDATE {$table} SET widget_status = %s WHERE widget_status = 'active' OR widget_status IS NULL",
+                    $globalStatus
+                ));
+            }
+
+            if (!empty($globalPages) && $globalPages !== 'all') {
+                $this->wpdb->query($this->wpdb->prepare(
+                    "UPDATE {$table} SET widget_pages = %s WHERE widget_pages IS NULL",
+                    $globalPages
+                ));
+            }
+
+            if (!empty($globalDisabledMsg)) {
+                $this->wpdb->query($this->wpdb->prepare(
+                    "UPDATE {$table} SET widget_disabled_message = %s WHERE widget_disabled_message IS NULL",
+                    $globalDisabledMsg
+                ));
+            }
+        }
+
+        $this->log("v4.2.10 abgeschlossen – {$added} Spalten hinzugefügt");
     }
 
     /**

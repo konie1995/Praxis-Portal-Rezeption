@@ -72,7 +72,6 @@ class AdminSettings
 
         $tabs = [
             'general'  => '⚙️ Allgemein',
-            'widget'   => '💬 Widget',
             'email'    => '📧 E-Mail',
             'portal'   => '🏥 Portal',
             'security' => '🔒 Sicherheit',
@@ -108,7 +107,6 @@ class AdminSettings
 
                 <?php
                 switch ($activeTab) {
-                    case 'widget':   $this->renderWidgetTab(); break;
                     case 'email':    $this->renderEmailTab(); break;
                     case 'portal':   $this->renderPortalTab(); break;
                     case 'security': $this->renderSecurityTab(); break;
@@ -175,7 +173,7 @@ class AdminSettings
                     <td style="padding:6px 0;"><strong>Shortcodes</strong></td>
                     <td>
                         <code style="font-size:12px;">[pp_fragebogen]</code>
-                        <code style="font-size:12px;">[praxis_portal]</code> oder <code style="font-size:12px;">[pp_portal]</code>
+                        <code style="font-size:12px;">[pp_praxis_portal]</code>
                     </td>
                 </tr>
             </table>
@@ -245,86 +243,6 @@ class AdminSettings
                     <p class="description" style="margin-top:10px; padding:10px; background:#fff3cd; border-radius:4px;">
                         💡 <strong><?php echo esc_html($this->t('Empfohlen für Entwickler/Tester')); ?></strong> — <?php echo esc_html($this->t('verhindert Datenverlust bei Plugin-Updates oder Tests.')); ?>
                     </p>
-                </td>
-            </tr>
-        </table>
-        <?php
-    }
-
-    private function renderWidgetTab(): void
-    {
-        $widgetStatus = get_option('pp_widget_status', 'active');
-        $disabledMsg  = get_option('pp_widget_disabled_message', '');
-        $vacFrom      = get_option('pp_vacation_from', '');
-        $vacUntil     = get_option('pp_vacation_until', '');
-        $widgetPages  = get_option('pp_widget_pages', 'all');
-
-        // Published pages for selection
-        $allPages = get_pages(['post_status' => 'publish', 'sort_column' => 'post_title']);
-        $selectedIds = ($widgetPages !== 'all' && $widgetPages !== 'none')
-            ? array_filter(array_map('intval', explode(',', $widgetPages)))
-            : [];
-        ?>
-        <table class="form-table">
-            <tr>
-                <th><?php echo esc_html($this->t('Widget-Status')); ?></th>
-                <td>
-                    <fieldset>
-                        <label><input type="radio" name="widget_status" value="active" <?php checked($widgetStatus, 'active'); ?>> ✅ <strong><?php echo esc_html($this->t('Aktiv')); ?></strong> — <?php echo esc_html($this->t('Widget ist sichtbar')); ?></label><br>
-                        <label><input type="radio" name="widget_status" value="vacation" <?php checked($widgetStatus, 'vacation'); ?>> 🌴 <strong><?php echo esc_html($this->t('Urlaub')); ?></strong> — <?php echo esc_html($this->t('Zeigt Urlaubshinweis')); ?></label><br>
-                        <label><input type="radio" name="widget_status" value="disabled" <?php checked($widgetStatus, 'disabled'); ?>> 🔴 <strong><?php echo esc_html($this->t('Deaktiviert')); ?></strong> — <?php echo esc_html($this->t('Widget ausgeblendet')); ?></label>
-                    </fieldset>
-                </td>
-            </tr>
-            <tr>
-                <th><?php echo esc_html($this->t('Widget-Sichtbarkeit')); ?></th>
-                <td>
-                    <fieldset>
-                        <label><input type="radio" name="widget_pages_mode" value="all" <?php checked($widgetPages, 'all'); ?> class="pp-pages-mode"> 🌐 <strong>Alle Seiten</strong> — Widget wird auf jeder Seite angezeigt</label><br>
-                        <label><input type="radio" name="widget_pages_mode" value="selected" <?php echo ($widgetPages !== 'all' && $widgetPages !== 'none') ? 'checked' : ''; ?> class="pp-pages-mode"> 📄 <strong>Ausgewählte Seiten</strong> — Nur auf bestimmten Seiten</label><br>
-                        <label><input type="radio" name="widget_pages_mode" value="none" <?php checked($widgetPages, 'none'); ?> class="pp-pages-mode"> 🚫 <strong>Keine Seiten</strong> — Nur per Shortcode <code>[praxis_widget]</code></label>
-                    </fieldset>
-
-                    <div id="pp-pages-select" style="margin-top:12px;<?php echo ($widgetPages === 'all' || $widgetPages === 'none') ? 'display:none;' : ''; ?>">
-                        <p class="description" style="margin-bottom:8px;">Wählen Sie die Seiten, auf denen das Widget angezeigt werden soll:</p>
-                        <div style="max-height:250px;overflow-y:auto;border:1px solid #ccd0d4;border-radius:4px;padding:10px;background:#fff;">
-                            <?php if (!empty($allPages)): ?>
-                                <?php foreach ($allPages as $page): ?>
-                                <label style="display:block;padding:4px 0;">
-                                    <input type="checkbox" name="widget_page_ids[]" value="<?php echo (int) $page->ID; ?>"
-                                        <?php echo in_array((int) $page->ID, $selectedIds, true) ? 'checked' : ''; ?>>
-                                    <?php echo esc_html($page->post_title); ?>
-                                    <span style="color:#999;font-size:12px;"> — /<?php echo esc_html($page->post_name); ?></span>
-                                </label>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p style="color:#999;"><?php echo esc_html($this->t('Keine veröffentlichten Seiten gefunden.')); ?></p>
-                            <?php endif; ?>
-                        </div>
-                        <p class="description" style="margin-top:6px;">💡 Tipp: Das Widget kann zusätzlich per Shortcode <code>[praxis_widget]</code> auf jeder Seite eingebettet werden.</p>
-                    </div>
-
-                    <script>
-                    jQuery(function($){
-                        $('input.pp-pages-mode').on('change', function(){
-                            $('#pp-pages-select').toggle($(this).val() === 'selected');
-                        });
-                    });
-                    </script>
-                </td>
-            </tr>
-            <tr>
-                <th><label for="disabled_message"><?php echo esc_html($this->t('Deaktiviert-Nachricht')); ?></label></th>
-                <td>
-                    <textarea id="disabled_message" name="disabled_message" rows="3" class="large-text"><?php echo esc_textarea($disabledMsg); ?></textarea>
-                </td>
-            </tr>
-            <tr>
-                <th><?php echo esc_html($this->t('Urlaubszeitraum')); ?></th>
-                <td>
-                    <label><?php echo esc_html($this->t('Von')); ?>: <input type="date" name="vacation_from" value="<?php echo esc_attr($vacFrom); ?>"></label>
-                    &nbsp;&nbsp;
-                    <label><?php echo esc_html($this->t('Bis')); ?>: <input type="date" name="vacation_until" value="<?php echo esc_attr($vacUntil); ?>"></label>
                 </td>
             </tr>
         </table>
@@ -597,28 +515,6 @@ class AdminSettings
                 update_option('pp_keep_data_on_uninstall', isset($post['keep_data_on_uninstall']) ? '1' : '0');
                 break;
 
-            case 'widget':
-                $status = sanitize_text_field($post['widget_status'] ?? 'active');
-                if (in_array($status, ['active', 'vacation', 'disabled'], true)) {
-                    update_option('pp_widget_status', $status);
-                }
-                update_option('pp_widget_disabled_message', sanitize_textarea_field($post['disabled_message'] ?? ''));
-                update_option('pp_vacation_from', sanitize_text_field($post['vacation_from'] ?? ''));
-                update_option('pp_vacation_until', sanitize_text_field($post['vacation_until'] ?? ''));
-
-                // Widget-Seitensichtbarkeit
-                $pagesMode = sanitize_text_field($post['widget_pages_mode'] ?? 'all');
-                if ($pagesMode === 'all') {
-                    update_option('pp_widget_pages', 'all');
-                } elseif ($pagesMode === 'none') {
-                    update_option('pp_widget_pages', 'none');
-                } else {
-                    // Ausgewählte Seiten-IDs
-                    $pageIds = array_filter(array_map('intval', $post['widget_page_ids'] ?? []));
-                    update_option('pp_widget_pages', !empty($pageIds) ? implode(',', $pageIds) : 'none');
-                }
-                break;
-
             case 'email':
                 update_option('pp_email_enabled', isset($post['email_enabled']) ? '1' : '0');
                 update_option('pp_notification_email', sanitize_email($post['notification_email'] ?? ''));
@@ -643,24 +539,24 @@ class AdminSettings
                 break;
 
             case 'export':
-                $validFormats = ['pdf', 'gdt', 'both'];
-                $validPdf     = ['a4', 'a5', 'receipt'];
+                $validFormats = ['pdf', 'gdt', 'gdt_image', 'hl7', 'fhir'];
+                $validPdf     = ['full', 'stammdaten'];
 
-                $wFmt = sanitize_text_field($post['widget_format'] ?? 'pdf');
-                if (in_array($wFmt, $validFormats, true)) update_option('pp_widget_format', $wFmt);
-                update_option('pp_widget_delete_after', isset($post['widget_delete_after']) ? '1' : '0');
+                $wFmt = sanitize_text_field($post['pp_export_widget_format'] ?? 'pdf');
+                if (in_array($wFmt, $validFormats, true)) update_option('pp_export_widget_format', $wFmt);
+                update_option('pp_export_widget_delete_after', isset($post['pp_export_widget_delete_after']) ? '1' : '0');
 
-                $akFmt = sanitize_text_field($post['anamnese_kasse_format'] ?? 'pdf');
-                if (in_array($akFmt, $validFormats, true)) update_option('pp_anamnese_kasse_format', $akFmt);
-                $akPdf = sanitize_text_field($post['anamnese_kasse_pdf_type'] ?? 'a4');
-                if (in_array($akPdf, $validPdf, true)) update_option('pp_anamnese_kasse_pdf_type', $akPdf);
-                update_option('pp_anamnese_kasse_delete_after', isset($post['anamnese_kasse_delete_after']) ? '1' : '0');
+                $akFmt = sanitize_text_field($post['pp_export_anamnese_kasse_format'] ?? 'pdf');
+                if (in_array($akFmt, $validFormats, true)) update_option('pp_export_anamnese_kasse_format', $akFmt);
+                $akPdf = sanitize_text_field($post['pp_export_anamnese_kasse_pdf_type'] ?? 'full');
+                if (in_array($akPdf, $validPdf, true)) update_option('pp_export_anamnese_kasse_pdf_type', $akPdf);
+                update_option('pp_export_anamnese_kasse_delete_after', isset($post['pp_export_anamnese_kasse_delete_after']) ? '1' : '0');
 
-                $apFmt = sanitize_text_field($post['anamnese_privat_format'] ?? 'pdf');
-                if (in_array($apFmt, $validFormats, true)) update_option('pp_anamnese_privat_format', $apFmt);
-                $apPdf = sanitize_text_field($post['anamnese_privat_pdf_type'] ?? 'a4');
-                if (in_array($apPdf, $validPdf, true)) update_option('pp_anamnese_privat_pdf_type', $apPdf);
-                update_option('pp_anamnese_privat_delete_after', isset($post['anamnese_privat_delete_after']) ? '1' : '0');
+                $apFmt = sanitize_text_field($post['pp_export_anamnese_privat_format'] ?? 'pdf');
+                if (in_array($apFmt, $validFormats, true)) update_option('pp_export_anamnese_privat_format', $apFmt);
+                $apPdf = sanitize_text_field($post['pp_export_anamnese_privat_pdf_type'] ?? 'full');
+                if (in_array($apPdf, $validPdf, true)) update_option('pp_export_anamnese_privat_pdf_type', $apPdf);
+                update_option('pp_export_anamnese_privat_delete_after', isset($post['pp_export_anamnese_privat_delete_after']) ? '1' : '0');
                 break;
 
             case 'pvs':

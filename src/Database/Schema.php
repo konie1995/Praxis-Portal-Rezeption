@@ -30,7 +30,7 @@ if (!defined('ABSPATH')) {
 
 class Schema
 {
-    public const VERSION = '4.2.908';
+    public const VERSION = '4.2.910';
     public const VERSION_OPTION = 'pp_db_version';
     
     // =========================================================================
@@ -129,6 +129,9 @@ class Schema
             vacation_message    TEXT,
             vacation_start      DATE,
             vacation_end        DATE,
+            widget_status       VARCHAR(20)  DEFAULT 'active',
+            widget_pages        TEXT,
+            widget_disabled_message TEXT,
             termin_url          VARCHAR(255),
             termin_button_text  VARCHAR(50)  DEFAULT 'Termin vereinbaren',
             privacy_url         VARCHAR(255),

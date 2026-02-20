@@ -204,7 +204,18 @@ class AdminLocations
         $auditRepo    = $this->container->get(AuditRepository::class);
 
         $locationId = (int) ($_POST['location_id'] ?? 0);
-        $data       = $this->sanitizeLocationData($_POST);
+        $activeTab  = sanitize_text_field($_POST['active_tab'] ?? 'general');
+
+        // Widget-Tab: eigener schlanker Speicher-Pfad
+        if ($activeTab === 'widget' && $locationId) {
+            $widgetData = $this->sanitizeWidgetData($_POST);
+            $locationRepo->update($locationId, $widgetData);
+            $auditRepo->logLocation('location_updated', $locationId, $widgetData);
+            wp_redirect(admin_url('admin.php?page=pp-location-edit&location_id=' . $locationId . '&tab=widget&message=updated'));
+            exit;
+        }
+
+        $data = $this->sanitizeLocationData($_POST);
 
         // Validierung
         if (empty($data['name'])) {
@@ -420,16 +431,18 @@ class AdminLocations
             wp_send_json_error(['message' => $this->t('Ungültiger Standort.')], 400);
         }
 
+        $extUrl = esc_url_raw($_POST['external_url'] ?? '');
+
         $data = [
             'location_id'  => $locationId,
             'service_key'  => sanitize_key($_POST['service_key'] ?? ''),
             'label'        => sanitize_text_field($_POST['label'] ?? ''),
             'icon'         => sanitize_text_field($_POST['icon'] ?? '📋'),
             'description'  => sanitize_text_field($_POST['description'] ?? ''),
-            'form_id'      => sanitize_text_field($_POST['form_id'] ?? ''),
-            'is_custom'    => 1,
             'is_active'    => 1,
             'sort_order'   => (int) ($_POST['sort_order'] ?? 99),
+            'external_url' => $extUrl,
+            'service_type' => !empty($extUrl) ? 'external' : 'custom',
         ];
 
         if (empty($data['label'])) {
@@ -824,6 +837,7 @@ class AdminLocations
     {
         $tabs = [
             'general'   => '⚙️ Allgemein',
+            'widget'    => '💬 Widget',
             'services'  => '📋 Services',
             'downloads' => '📥 Downloads',
             'users'     => '👥 Portal-Benutzer',
@@ -846,6 +860,9 @@ class AdminLocations
 
         <?php
         switch ($activeTab) {
+            case 'widget':
+                $this->renderWidgetTab($location);
+                break;
             case 'services':
                 $this->renderServicesTab($location);
                 break;
@@ -992,6 +1009,124 @@ class AdminLocations
     }
 
     /**
+     * Tab: Widget-Einstellungen pro Standort
+     */
+    private function renderWidgetTab(array $location): void
+    {
+        $locationId      = (int) $location['id'];
+        $widgetStatus    = $location['widget_status'] ?? 'active';
+        $widgetPages     = $location['widget_pages'] ?? 'all';
+        $disabledMsg     = $location['widget_disabled_message'] ?? '';
+
+        $selectedIds = ($widgetPages !== 'all' && $widgetPages !== 'none' && !empty($widgetPages))
+            ? array_filter(array_map('intval', explode(',', $widgetPages)))
+            : [];
+        $pagesMode = ($widgetPages === 'all' || $widgetPages === 'none') ? $widgetPages : 'selected';
+
+        $allPages = get_pages(['post_status' => 'publish', 'sort_column' => 'post_title']);
+        ?>
+        <form method="post">
+            <?php wp_nonce_field('pp_save_location'); ?>
+            <input type="hidden" name="location_id" value="<?php echo $locationId; ?>">
+            <input type="hidden" name="active_tab" value="widget">
+            <input type="hidden" name="pp_save_location" value="1">
+
+            <h3>💬 Widget-Status</h3>
+            <table class="form-table">
+                <tr>
+                    <th><?php echo esc_html($this->t('Widget-Status')); ?></th>
+                    <td>
+                        <fieldset>
+                            <label>
+                                <input type="radio" name="widget_status" value="active" <?php checked($widgetStatus, 'active'); ?>>
+                                ✅ <strong><?php echo esc_html($this->t('Aktiv')); ?></strong> — <?php echo esc_html($this->t('Widget ist sichtbar')); ?>
+                            </label><br>
+                            <label>
+                                <input type="radio" name="widget_status" value="vacation" <?php checked($widgetStatus, 'vacation'); ?>>
+                                🌴 <strong><?php echo esc_html($this->t('Urlaub')); ?></strong> — <?php echo esc_html($this->t('Zeigt Urlaubshinweis (Urlaubsdaten im Tab Allgemein)')); ?>
+                            </label><br>
+                            <label>
+                                <input type="radio" name="widget_status" value="disabled" <?php checked($widgetStatus, 'disabled'); ?>>
+                                🔴 <strong><?php echo esc_html($this->t('Deaktiviert')); ?></strong> — <?php echo esc_html($this->t('Widget vollständig ausgeblendet')); ?>
+                            </label>
+                        </fieldset>
+
+                        <div id="pp-loc-disabled-msg-wrap" style="margin-top:12px;<?php echo ($widgetStatus !== 'disabled') ? 'display:none;' : ''; ?>">
+                            <label for="widget_disabled_message"><strong><?php echo esc_html($this->t('Hinweis für Patienten (optional)')); ?></strong></label>
+                            <textarea id="widget_disabled_message" name="widget_disabled_message" rows="2" class="large-text"
+                                      placeholder="<?php echo esc_attr($this->t('Das Widget ist derzeit deaktiviert.')); ?>"><?php echo esc_textarea($disabledMsg); ?></textarea>
+                            <p class="description"><?php echo esc_html($this->t('Wird im HTML-Quelltext als Kommentar ausgegeben (nicht sichtbar für Patienten).')); ?></p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <h3 style="margin-top:20px;">👁️ Widget-Sichtbarkeit</h3>
+            <table class="form-table">
+                <tr>
+                    <th><?php echo esc_html($this->t('Auf welchen Seiten')); ?></th>
+                    <td>
+                        <fieldset>
+                            <label>
+                                <input type="radio" name="widget_pages_mode" value="all" <?php checked($pagesMode, 'all'); ?> class="pp-loc-pages-mode">
+                                🌐 <strong>Alle Seiten</strong> — Widget wird auf jeder Seite angezeigt
+                            </label><br>
+                            <label>
+                                <input type="radio" name="widget_pages_mode" value="selected" <?php checked($pagesMode, 'selected'); ?> class="pp-loc-pages-mode">
+                                📄 <strong>Ausgewählte Seiten</strong> — Nur auf bestimmten Seiten
+                            </label><br>
+                            <label>
+                                <input type="radio" name="widget_pages_mode" value="none" <?php checked($pagesMode, 'none'); ?> class="pp-loc-pages-mode">
+                                🚫 <strong>Keine Seiten</strong> — Nur per Shortcode <code>[praxis_widget]</code>
+                            </label>
+                        </fieldset>
+
+                        <div id="pp-loc-pages-select" style="margin-top:12px;<?php echo ($pagesMode !== 'selected') ? 'display:none;' : ''; ?>">
+                            <p class="description" style="margin-bottom:8px;"><?php echo esc_html($this->t('Seiten auswählen, auf denen das Widget erscheinen soll:')); ?></p>
+                            <div style="max-height:250px;overflow-y:auto;border:1px solid #ccd0d4;border-radius:4px;padding:10px;background:#fff;">
+                                <?php if (!empty($allPages)): ?>
+                                    <?php foreach ($allPages as $page): ?>
+                                    <label style="display:block;padding:4px 0;">
+                                        <input type="checkbox" name="widget_page_ids[]" value="<?php echo (int) $page->ID; ?>"
+                                            <?php echo in_array((int) $page->ID, $selectedIds, true) ? 'checked' : ''; ?>>
+                                        <?php echo esc_html($page->post_title); ?>
+                                        <span style="color:#999;font-size:12px;"> — /<?php echo esc_html($page->post_name); ?></span>
+                                    </label>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p style="color:#999;"><?php echo esc_html($this->t('Keine veröffentlichten Seiten gefunden.')); ?></p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <?php submit_button($this->t('Widget-Einstellungen speichern')); ?>
+        </form>
+
+        <script>
+        (function(){
+            // Status-Toggle
+            document.querySelectorAll('input[name="widget_status"]').forEach(function(radio) {
+                radio.addEventListener('change', function() {
+                    document.getElementById('pp-loc-disabled-msg-wrap').style.display =
+                        this.value === 'disabled' ? '' : 'none';
+                });
+            });
+            // Sichtbarkeits-Toggle
+            document.querySelectorAll('.pp-loc-pages-mode').forEach(function(radio) {
+                radio.addEventListener('change', function() {
+                    document.getElementById('pp-loc-pages-select').style.display =
+                        this.value === 'selected' ? '' : 'none';
+                });
+            });
+        })();
+        </script>
+        <?php
+    }
+
+    /**
      * Tab: Services-Verwaltung
      */
     private function renderServicesTab(array $location): void
@@ -1126,7 +1261,7 @@ class AdminLocations
                     <td>
                         <?php
                         $type = $svc['service_type'] ?? 'builtin';
-                        $typeLabels = ['builtin' => '🔧 Intern', 'external' => '🔗 Extern', 'link' => '↗ Link'];
+                        $typeLabels = ['builtin' => '🔧 Intern', 'external' => '🔗 Extern', 'link' => '↗ Link', 'custom' => '⚡ Custom'];
                         echo esc_html($typeLabels[$type] ?? $type);
                         ?>
                     </td>
@@ -1152,7 +1287,7 @@ class AdminLocations
                                 data-type="<?php echo esc_attr($svc['service_type'] ?? 'builtin'); ?>"
                                 data-url="<?php echo esc_attr($svc['external_url'] ?? ''); ?>"
                                 title="Label, Icon und Reihenfolge bearbeiten">✏️ Bearbeiten</button>
-                        <?php if (!empty($svc['is_custom'])): ?>
+                        <?php if (($svc['service_type'] ?? 'builtin') !== 'builtin'): ?>
                             <button type="button" class="button button-small pp-delete-service" data-id="<?php echo esc_attr($svc['id']); ?>" title="Custom Service löschen">🗑️</button>
                         <?php endif; ?>
                     </td>
@@ -1161,14 +1296,10 @@ class AdminLocations
             </tbody>
         </table>
 
-        <p style="margin-top:15px;">
-            <button type="button" class="button pp-add-service" data-location-id="<?php echo esc_attr($location['id']); ?>">
-                + Custom Service hinzufügen
-            </button>
-        </p>
+        <?php /* Custom Service Button – ausgeblendet bis Modular-Form-Picker implementiert */ ?>
 
         <!-- ── Termin-Konfigurations-Modal ── -->
-        <div id="pp-termin-config-overlay" class="pp-modal-overlay" style="display:none;">
+        <div id="pp-termin-config-overlay" class="pp-modal-overlay">
             <div class="pp-modal" style="max-width:560px;">
                 <div class="pp-modal-header">
                     <h3>📅 Termin-Formular konfigurieren</h3>
@@ -1239,7 +1370,7 @@ sonstiges|Sonstiges</textarea>
         </div>
 
         <!-- ── Notfall-Konfigurations-Modal ── -->
-        <div id="pp-notfall-config-overlay" class="pp-modal-overlay" style="display:none;">
+        <div id="pp-notfall-config-overlay" class="pp-modal-overlay">
             <div class="pp-modal" style="max-width:600px;">
                 <div class="pp-modal-header">
                     <h3>🚨 Notfall-Seite konfigurieren</h3>
@@ -1284,14 +1415,6 @@ sonstiges|Sonstiges</textarea>
                         <label style="display:block;margin:6px 0;">
                             <input type="checkbox" id="nc-show-bereitschaft" checked>
                             <strong>Ärztlicher Bereitschaftsdienst</strong> <small>(116 117)</small>
-                        </label>
-                        <label style="display:block;margin:6px 0;">
-                            <input type="checkbox" id="nc-show-giftnotruf" checked>
-                            <strong>Giftnotruf</strong> <small>(030 19240)</small>
-                        </label>
-                        <label style="display:block;margin:6px 0;">
-                            <input type="checkbox" id="nc-show-seelsorge" checked>
-                            <strong>Telefonseelsorge</strong> <small>(0800 111 0 111)</small>
                         </label>
                     </div>
 
@@ -1613,6 +1736,33 @@ sonstiges|Sonstiges</textarea>
     /* =====================================================================
      * PRIVATE: DATEN-HELPER
      * ================================================================== */
+
+    /**
+     * Widget-POST-Daten sanitizen (nur Widget-Tab)
+     */
+    private function sanitizeWidgetData(array $post): array
+    {
+        $status = sanitize_text_field($post['widget_status'] ?? 'active');
+        if (!in_array($status, ['active', 'vacation', 'disabled'], true)) {
+            $status = 'active';
+        }
+
+        $pagesMode = sanitize_text_field($post['widget_pages_mode'] ?? 'all');
+        if ($pagesMode === 'all') {
+            $pages = 'all';
+        } elseif ($pagesMode === 'none') {
+            $pages = 'none';
+        } else {
+            $pageIds = array_filter(array_map('intval', $post['widget_page_ids'] ?? []));
+            $pages   = !empty($pageIds) ? implode(',', $pageIds) : 'none';
+        }
+
+        return [
+            'widget_status'           => $status,
+            'widget_pages'            => $pages,
+            'widget_disabled_message' => sanitize_textarea_field($post['widget_disabled_message'] ?? ''),
+        ];
+    }
 
     /**
      * Location-POST-Daten sanitizen

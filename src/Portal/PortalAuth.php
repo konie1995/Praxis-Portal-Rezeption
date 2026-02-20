@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Portal-Authentifizierung
  *
@@ -137,8 +138,8 @@ class PortalAuth
      */
     public function verifyAjaxRequest(): void
     {
-        // Nonce prüfen
-        $nonce = sanitize_text_field($_POST['nonce'] ?? '');
+        // Nonce prüfen (GET für Downloads/Exports, POST für AJAX-Calls)
+        $nonce = sanitize_text_field($_POST['nonce'] ?? $_GET['nonce'] ?? '');
         if (!wp_verify_nonce($nonce, 'pp_portal_nonce')) {
             $this->auditRepo->log('portal_security_error', null, [
                 'reason' => 'invalid_nonce',

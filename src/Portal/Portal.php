@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Portal – Hauptklasse für das Praxis-Personal
  *
@@ -88,7 +89,7 @@ class Portal
      */
     public function handleAction(): void
     {
-        $action = sanitize_text_field($_POST['portal_action'] ?? '');
+        $action = sanitize_text_field($_POST['portal_action'] ?? $_GET['portal_action'] ?? '');
 
         $actionMap = [
             'logout'            => 'handleLogout',
@@ -156,15 +157,19 @@ class Portal
             $locationId = $userLocationId;
         }
 
+        // 'unread' ist ein UI-Alias – DB speichert 'pending' für ungelesene Einreichungen
+        if ($status === 'unread') {
+            $status = 'pending';
+        }
+
         $perPage = 50;
         $repo    = $this->getSubmissionRepo();
 
         // Submissions laden (verschlüsselt)
         $statusFilter  = ($status !== 'all') ? $status : '';
         $serviceFilter = ($type !== 'all') ? $type : '';
-        $result = $repo->listForLocation($locationId ?? 0, $page, $perPage, $statusFilter, $serviceFilter);
-        $rows   = $result['items'] ?? [];
-        $total  = $result['total'] ?? 0;
+        $rows  = $repo->listForLocation($locationId ?? 0, $page, $perPage, $statusFilter, $serviceFilter);
+        $total = $repo->countForLocation($locationId ?? 0, $statusFilter);
 
         // Entschlüsseln & filtern
         $submissions = [];
@@ -592,7 +597,7 @@ class Portal
 
     private function handleExportGdt(): void
     {
-        $this->requireFileAccessAndExportPermission();
+        $this->requireExportPermission();
         $this->auth->addDownloadSecurityHeaders();
 
         $id = (int) ($_GET['id'] ?? $_POST['id'] ?? 0);
@@ -634,7 +639,7 @@ class Portal
 
     private function handleExportPdf(): void
     {
-        $this->requireFileAccessAndExportPermission();
+        $this->requireExportPermission();
         $this->auth->addDownloadSecurityHeaders();
 
         $id = (int) ($_GET['id'] ?? $_POST['id'] ?? 0);
@@ -643,25 +648,29 @@ class Portal
         }
 
         $submission = $this->loadAndAuthorizeSubmission($id);
-        $locationId = (int) ($submission['location_id'] ?? 0);
 
-        $gate = $this->getFeatureGate();
-        if (!$gate->hasFeature('pdf_export', $locationId)) {
-            wp_die('PDF-Export ist für diesen Plan nicht verfügbar.');
-        }
+        $data        = $this->decryptSubmission($submission);
+        $serviceType = $this->normalizeType($data['service_type'] ?? 'anamnese');
 
         $this->getAuditRepo()->log('portal_export_pdf', $id);
 
-        // PDF-Klasse generiert und sendet
         $container = Container::getInstance();
-        $pdfExport = $container->get(\PraxisPortal\Export\Pdf\PdfAnamnese::class);
-        $pdfExport->generateAndSend($id);
+
+        if ($serviceType === 'anamnese') {
+            // Anamnesebogen-PDF (TCPDF falls verfügbar, sonst HTML)
+            $pdfExport = $container->get(\PraxisPortal\Export\Pdf\PdfAnamnese::class);
+            $pdfExport->generateAndSend($id);
+        } else {
+            // Service-Anfragen (Rezept, Überweisung, Termin, etc.) – druckbares HTML
+            $pdfWidget = $container->get(\PraxisPortal\Export\Pdf\PdfWidget::class);
+            $pdfWidget->generatePrintPage($id, $serviceType);
+        }
         exit;
     }
 
     private function handleExportFhir(): void
     {
-        $this->requireFileAccessAndExportPermission();
+        $this->requireExportPermission();
         $this->auth->addDownloadSecurityHeaders();
 
         $id = (int) ($_GET['id'] ?? $_POST['id'] ?? 0);
@@ -708,7 +717,7 @@ class Portal
      */
     private function handleExportHl7(): void
     {
-        $this->requireFileAccessAndExportPermission();
+        $this->requireExportPermission();
         $this->auth->addDownloadSecurityHeaders();
 
         $id = (int) ($_GET['id'] ?? $_POST['id'] ?? 0);
@@ -776,7 +785,7 @@ class Portal
         }
 
         wp_enqueue_style('pp-portal', PP_PLUGIN_URL . 'assets/css/portal.css', [], $version);
-        wp_enqueue_script('pp-portal', PP_PLUGIN_URL . 'assets/js/portal.js', [], $version, true);
+        wp_enqueue_script('pp-portal', PP_PLUGIN_URL . 'assets/js/portal.js', ['jquery'], $version, true);
 
         // Standorte für JS
         $locationRepo = $this->getLocationRepo();
@@ -854,7 +863,14 @@ class Portal
                 return null;
             }
             $data = json_decode($decrypted, true);
-            return is_array($data) ? $data : null;
+            if (!is_array($data)) {
+                return null;
+            }
+            // Fallback: service_type aus unverschlüsseltem DB-Feld service_key
+            if (empty($data['service_type']) && !empty($row['service_key'])) {
+                $data['service_type'] = $row['service_key'];
+            }
+            return $data;
         } catch (\Exception $e) {
             error_log('PP Portal decrypt error ID ' . ($row['id'] ?? '?') . ': ' . $e->getMessage());
             return null;
@@ -863,7 +879,12 @@ class Portal
 
     private function normalizeType(string $type): string
     {
-        return preg_replace('/^widget_/', '', $type);
+        $type = preg_replace('/^widget_/', '', $type);
+        // Aliase normalisieren
+        if ($type === 'anamnesebogen' || $type === 'form_anamnese') {
+            return 'anamnese';
+        }
+        return $type;
     }
 
     private function buildPatientName(array $data): string
@@ -915,11 +936,19 @@ class Portal
         if (!empty($data['ueberweisungsziel'])) {
             $data['facharzt'] = $data['ueberweisungsziel'];
         }
+        // fachrichtung → facharzt (FormHandler-Feldname vs. Portal-Anzeige)
+        if (!empty($data['fachrichtung']) && empty($data['facharzt'])) {
+            $data['facharzt'] = $data['fachrichtung'];
+        }
         if (!empty($data['diagnose'])) {
             $data['grund'] = $data['diagnose'];
         }
         if (!empty($data['anmerkungen']) && empty($data['anmerkung'])) {
             $data['anmerkung'] = $data['anmerkungen'];
+        }
+        // versicherung → kasse (Widget-Feldname vs. Portal-Anzeige-Feldname)
+        if (!empty($data['versicherung']) && empty($data['kasse'])) {
+            $data['kasse'] = $data['versicherung'];
         }
         if (!empty($data['rezept_lieferung'])) {
             $data['lieferung'] = $data['rezept_lieferung'];
@@ -1045,9 +1074,45 @@ class Portal
      */
     private function getTypeCounts(?int $locationId = null): array
     {
-        // Typ-basierte Zählung ist aktuell nicht in SubmissionRepository implementiert.
-        // Gibt leere Counts zurück, da service_type verschlüsselt ist und nicht per SQL gezählt werden kann.
-        return [];
+        global $wpdb;
+        $table = $wpdb->prefix . 'pp_submissions';
+
+        $where  = 'deleted_at IS NULL';
+        $params = [];
+
+        if ($locationId !== null && $locationId > 0) {
+            $where    .= ' AND location_id = %d';
+            $params[]  = $locationId;
+        }
+
+        $sql  = "SELECT service_key, COUNT(*) AS cnt FROM `{$table}` WHERE {$where} GROUP BY service_key";
+        $rows = empty($params)
+            ? $wpdb->get_results($sql, ARRAY_A)
+            : $wpdb->get_results($wpdb->prepare($sql, $params), ARRAY_A);
+
+        $counts = [];
+        $total  = 0;
+        foreach ((array) $rows as $row) {
+            $key = $this->normalizeType($row['service_key']);
+            $cnt = (int) $row['cnt'];
+            $counts[$key] = ($counts[$key] ?? 0) + $cnt;
+            $total += $cnt;
+        }
+        $counts['all'] = $total;
+
+        // Ungelesen zählen (status = pending/new)
+        $unreadWhere  = "status IN ('pending', 'new') AND deleted_at IS NULL";
+        $unreadParams = [];
+        if ($locationId !== null && $locationId > 0) {
+            $unreadWhere   .= ' AND location_id = %d';
+            $unreadParams[] = $locationId;
+        }
+        $unreadSql = "SELECT COUNT(*) FROM `{$table}` WHERE {$unreadWhere}";
+        $counts['unread'] = empty($unreadParams)
+            ? (int) $wpdb->get_var($unreadSql)
+            : (int) $wpdb->get_var($wpdb->prepare($unreadSql, $unreadParams));
+
+        return $counts;
     }
 
     // =========================================================================
@@ -1154,6 +1219,18 @@ class Portal
         }
     }
 
+    /**
+     * Export-Berechtigung prüfen via reguläre Session.
+     * Wird von Export-Handlern genutzt, die bereits via verifyAjaxRequest()
+     * authentifiziert wurden (kein separates File-Token nötig).
+     */
+    private function requireExportPermission(): void
+    {
+        if (!$this->auth->hasPermission('can_export')) {
+            wp_die('Sie haben keine Export-Berechtigung.');
+        }
+    }
+
     private function loadAndAuthorizeSubmission(int $id): array
     {
         $repo       = $this->getSubmissionRepo();
@@ -1163,8 +1240,8 @@ class Portal
             wp_die('Eintrag nicht gefunden');
         }
 
-        // Location-Check
-        $session = $this->auth->getSessionFromFileToken();
+        // Location-Check via reguläre Session (kein File-Token nötig)
+        $session = $this->auth->getSessionData();
         if ($session && !empty($session['location_id'])) {
             if ((int) $session['location_id'] !== (int) ($submission['location_id'] ?? 0)) {
                 wp_die('Keine Berechtigung für diesen Standort.');

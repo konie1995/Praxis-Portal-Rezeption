@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ApiKeyRepository – CRUD für pp_api_keys
  *

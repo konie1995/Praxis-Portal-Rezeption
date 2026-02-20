@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Export-Konfiguration – zentrale Steuerung für alle Export-Formate
  *
@@ -228,7 +229,7 @@ class ExportConfig
         return [
             'pdf_type'     => $this->getLocationOption("anamnese_{$type}_pdf_type",     $d['pdf_type'], $locationId),
             'format'       => $this->getLocationOption("anamnese_{$type}_format",        $d['format'],   $locationId),
-            'delete_after' => (bool) $this->getLocationOption("anamnese_{$type}_delete", $d['delete'],   $locationId),
+            'delete_after' => (bool) $this->getLocationOption("anamnese_{$type}_delete_after", $d['delete'], $locationId),
         ];
     }
 

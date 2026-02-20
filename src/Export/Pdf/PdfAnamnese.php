@@ -1,16 +1,16 @@
 <?php
 /**
- * PDF Export für Anamnesebögen (Privatpatienten)
+ * PDF Export für Anamnesebögen (alle Patienten)
  *
  * Generiert druckoptimierte HTML / echtes PDF mit Stammdaten + Unterschrift.
- * Nur für Privatpatienten (kasse === 'privat').
+ * Für Kassen- und Privatpatienten (einheitliche Versicherungs-Darstellung).
  *
  * Modi:
  *  - compact  – 11 pt, biometrisch eingebettet (API / PVS-Übergabe)
  *  - full     – 12 pt, Druckbutton (Browser-Ansicht)
  *
  * Multistandort: getPraxisInfo() löst automatisch den richtigen Standort auf.
- * Mehrsprachigkeit: über ExportBase::setLanguage() / t()-System.
+ * Mehrsprachigkeit: pp__() für alle Labels (I18n-System).
  * Lizenz: PDF-Export über FeatureGate geprüft (Aufrufer verantwortlich).
  *
  * @package    PraxisPortal\Export\Pdf
@@ -42,10 +42,6 @@ class PdfAnamnese extends PdfBase
         $data = $this->decryptSubmissionData($submission);
         if (!$data) {
             return new \WP_Error('decrypt_error', 'Entschlüsselungsfehler');
-        }
-
-        if (strtolower($data['kasse'] ?? '') !== 'privat') {
-            return new \WP_Error('not_private', 'PDF nur für Privatpatienten');
         }
 
         $praxis        = $this->getPraxisInfoByLocationId((int) ($submission['location_id'] ?? 0));
@@ -81,10 +77,6 @@ class PdfAnamnese extends PdfBase
         $data = $this->decryptSubmissionData($submission);
         if (!$data) {
             wp_die('Fehler beim Entschlüsseln.');
-        }
-
-        if (strtolower($data['kasse'] ?? '') !== 'privat') {
-            wp_die('PDF-Export nur für Privatpatienten.');
         }
 
         $praxis      = $this->getPraxisInfoByLocationId((int) ($submission['location_id'] ?? 0));
@@ -186,8 +178,10 @@ class PdfAnamnese extends PdfBase
         array $data, array $praxis, string $refId,
         ?string $sigData, string $createdAt, ?array $bio
     ): void {
-        $nm = esc_html(($data['vorname'] ?? '') . ' ' . ($data['nachname'] ?? ''));
-        $dt = esc_html(date('d.m.Y H:i', strtotime($createdAt)));
+        $nm       = esc_html(($data['vorname'] ?? '') . ' ' . ($data['nachname'] ?? ''));
+        $dt       = esc_html(date('d.m.Y H:i', strtotime($createdAt)));
+        $kasseVal = strtolower($data['kasse'] ?? '');
+        $isPrivat = $kasseVal === 'privat';
         echo '<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8">';
         echo '<title>Patientenstammdaten - ' . $nm . '</title>';
         echo '<style>';
@@ -207,31 +201,38 @@ class PdfAnamnese extends PdfBase
         // Header (Multistandort: praxis kommt vom richtigen Standort)
         echo '<div class="hdr"><div class="pi"><h1>' . esc_html($praxis['name']) . '</h1>';
         if (!empty($praxis['address'])) echo '<p>' . esc_html($praxis['address']) . '</p>';
-        echo '</div><div class="di"><div class="dt">Patientenstammdaten</div><div>Privatpatient</div><div>' . $dt . '</div></div></div>';
+        $kasseLabel = $isPrivat ? pp__('Privatpatient') : pp__('Kassenpatient');
+        echo '</div><div class="di"><div class="dt">' . pp__('Patientenstammdaten') . '</div><div>' . $kasseLabel . '</div><div>' . $dt . '</div></div></div>';
 
         // Persönliche Daten
-        echo '<div class="sec"><div class="st">Persönliche Daten</div>';
-        echo $this->row('Name:', '<strong>' . $nm . '</strong>');
-        echo $this->row('Geburtsdatum:', esc_html($data['geburtsdatum'] ?? '-'));
-        echo $this->row('Geschlecht:', esc_html($data['geschlecht'] ?? '-'));
+        echo '<div class="sec"><div class="st">' . pp__('Persönliche Daten') . '</div>';
+        echo $this->row(pp__('Name') . ':', '<strong>' . $nm . '</strong>');
+        echo $this->row(pp__('Geburtsdatum') . ':', esc_html($data['geburtsdatum'] ?? '-'));
+        if (!empty($data['geschlecht'])) echo $this->row(pp__('Geschlecht') . ':', esc_html($data['geschlecht']));
         echo '</div>';
 
         // Adresse
-        echo '<div class="sec"><div class="st">Adresse</div>';
-        echo $this->row('Straße:', esc_html($data['strasse'] ?? '-'));
-        echo $this->row('PLZ / Ort:', esc_html(($data['plz'] ?? '') . ' ' . ($data['ort'] ?? '')));
+        echo '<div class="sec"><div class="st">' . pp__('Adresse') . '</div>';
+        echo $this->row(pp__('Straße') . ':', esc_html($data['strasse'] ?? '-'));
+        echo $this->row(pp__('PLZ / Ort') . ':', esc_html(($data['plz'] ?? '') . ' ' . ($data['ort'] ?? '')));
         echo '</div>';
 
         // Kontakt
-        echo '<div class="sec"><div class="st">Kontakt</div>';
-        echo $this->row('Telefon:', esc_html($data['telefon'] ?? '-'));
-        echo $this->row('E-Mail:', esc_html($data['email'] ?? '-'));
+        echo '<div class="sec"><div class="st">' . pp__('Kontakt') . '</div>';
+        echo $this->row(pp__('Telefon') . ':', esc_html($data['telefon'] ?? '-'));
+        echo $this->row(pp__('E-Mail') . ':', esc_html($data['email'] ?? '-'));
         echo '</div>';
 
         // Versicherung
-        echo '<div class="sec"><div class="st">Versicherung</div>';
-        echo $this->row('Art:', 'Privat');
-        if (!empty($data['versicherung_name'])) echo $this->row('Versicherung:', esc_html($data['versicherung_name']));
+        echo '<div class="sec"><div class="st">' . pp__('Versicherung') . '</div>';
+        $artLabel = $isPrivat ? pp__('Privatversichert') : pp__('Gesetzlich versichert');
+        echo $this->row(pp__('Art') . ':', $artLabel);
+        if (!$isPrivat && !empty($data['kasse'])) {
+            echo $this->row(pp__('Krankenkasse') . ':', esc_html($data['kasse']));
+        }
+        if (!empty($data['versicherung_name'])) {
+            echo $this->row(pp__('Versicherungsname') . ':', esc_html($data['versicherung_name']));
+        }
         echo '</div>';
 
         // Unterschrift
@@ -270,9 +271,11 @@ class PdfAnamnese extends PdfBase
         array $data, array $praxis, string $refId,
         ?string $sigData, string $createdAt
     ): void {
-        $nm     = esc_html(($data['vorname'] ?? '') . ' ' . ($data['nachname'] ?? ''));
-        $dShort = esc_html(date('d.m.Y', strtotime($createdAt)));
-        $dFull  = esc_html(date('d.m.Y \u\m H:i', strtotime($createdAt)));
+        $nm       = esc_html(($data['vorname'] ?? '') . ' ' . ($data['nachname'] ?? ''));
+        $dShort   = esc_html(date('d.m.Y', strtotime($createdAt)));
+        $dFull    = esc_html(date('d.m.Y \u\m H:i', strtotime($createdAt)));
+        $kasseVal = strtolower($data['kasse'] ?? '');
+        $isPrivat = $kasseVal === 'privat';
 
         echo '<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8">';
         echo '<meta name="viewport" content="width=device-width,initial-scale=1">';
@@ -312,45 +315,53 @@ class PdfAnamnese extends PdfBase
         echo '<div class="ph no-print">💡 Für PDF: „Als PDF speichern" wählen</div>';
 
         // Header (Multistandort)
+        $kasseLabel = $isPrivat ? pp__('Privatpatient') : pp__('Kassenpatient');
         echo '<div class="hdr"><div class="pi"><h1>' . esc_html($praxis['name']) . '</h1>';
         if (!empty($praxis['address'])) echo '<p>' . esc_html($praxis['address']) . '</p>';
-        echo '</div><div class="di"><div class="dt">Patientenstammdaten</div><div>' . $dShort . '</div></div></div>';
+        echo '</div><div class="di"><div class="dt">' . pp__('Patientenstammdaten') . '</div><div>' . $kasseLabel . '</div><div>' . $dShort . '</div></div></div>';
 
         echo '<div class="rb"><span class="rl">Referenz:</span> <span class="ri">' . esc_html($refId) . '</span></div>';
 
         // Persönliche Daten
-        echo '<div class="sec pb"><h2>Persönliche Daten</h2><div class="dg">';
-        echo $this->gridItem('Anrede / Titel', trim(($data['anrede'] ?? '') . ' ' . ($data['titel'] ?? '')));
-        echo $this->gridItem('Geburtsdatum', $data['geburtsdatum'] ?? '-');
-        echo $this->gridItem('Vorname', $data['vorname'] ?? '-');
-        echo $this->gridItem('Nachname', $data['nachname'] ?? '-');
-        echo $this->gridItem('Anschrift', ($data['strasse'] ?? '') . ', ' . ($data['plz'] ?? '') . ' ' . ($data['ort'] ?? ''), true);
-        echo $this->gridItem('Telefon', $data['telefon'] ?? '-');
-        echo $this->gridItem('E-Mail', $data['email'] ?? '-');
+        echo '<div class="sec pb"><h2>' . pp__('Persönliche Daten') . '</h2><div class="dg">';
+        echo $this->gridItem(pp__('Anrede / Titel'), trim(($data['anrede'] ?? '') . ' ' . ($data['titel'] ?? '')));
+        echo $this->gridItem(pp__('Geburtsdatum'), $data['geburtsdatum'] ?? '-');
+        echo $this->gridItem(pp__('Vorname'), $data['vorname'] ?? '-');
+        echo $this->gridItem(pp__('Nachname'), $data['nachname'] ?? '-');
+        echo $this->gridItem(pp__('Anschrift'), ($data['strasse'] ?? '') . ', ' . ($data['plz'] ?? '') . ' ' . ($data['ort'] ?? ''), true);
+        echo $this->gridItem(pp__('Telefon'), $data['telefon'] ?? '-');
+        echo $this->gridItem(pp__('E-Mail'), $data['email'] ?? '-');
         echo '</div></div>';
 
-        // Versicherung
-        echo '<div class="is pb"><h3>Privatversicherung</h3><div class="id">';
-        $privatArt = $data['privat_art'] ?? [];
-        if (is_string($privatArt)) $privatArt = json_decode($privatArt, true) ?: [];
-        foreach ($privatArt as $opt) {
-            echo '<div>✓ <strong>' . esc_html($opt) . '</strong></div>';
+        // Versicherung (einheitlich für Kassen- und Privatpatienten)
+        echo '<div class="is pb"><h3>' . pp__('Versicherung') . '</h3><div class="id">';
+        $artLabel = $isPrivat ? pp__('Privatversichert') : pp__('Gesetzlich versichert');
+        echo '<div>' . $artLabel . '</div>';
+        if (!$isPrivat && !empty($data['kasse'])) {
+            echo '<div>' . pp__('Krankenkasse') . ': <strong>' . esc_html($data['kasse']) . '</strong></div>';
         }
-        $hvN = $data['hv_nachname'] ?? '';
-        if ($hvN) {
-            $hvV = $data['hv_vorname'] ?? '';
-            $hvS = $data['hv_strasse'] ?? '';
-            $hvP = $data['hv_plz'] ?? '';
-            $hvO = $data['hv_ort'] ?? '';
-            echo '<div>Hauptvers.: <strong>' . esc_html($hvV . ' ' . $hvN) . '</strong>';
-            if ($hvS) echo ' (' . esc_html($hvS . ', ' . $hvP . ' ' . $hvO) . ')';
-            echo '</div>';
+        if ($isPrivat) {
+            $privatArt = $data['privat_art'] ?? [];
+            if (is_string($privatArt)) $privatArt = json_decode($privatArt, true) ?: [];
+            foreach ($privatArt as $opt) {
+                echo '<div>✓ <strong>' . esc_html($opt) . '</strong></div>';
+            }
+            $hvN = $data['hv_nachname'] ?? '';
+            if ($hvN) {
+                $hvV = $data['hv_vorname'] ?? '';
+                $hvS = $data['hv_strasse'] ?? '';
+                $hvP = $data['hv_plz'] ?? '';
+                $hvO = $data['hv_ort'] ?? '';
+                echo '<div>' . pp__('Hauptversicherter') . ': <strong>' . esc_html($hvV . ' ' . $hvN) . '</strong>';
+                if ($hvS) echo ' (' . esc_html($hvS . ', ' . $hvP . ' ' . $hvO) . ')';
+                echo '</div>';
+            }
         }
         echo '</div></div>';
 
         // Unterschrift
         if ($sigData) {
-            echo '<div class="ss"><h3>Bestätigung</h3>';
+            echo '<div class="ss"><h3>' . pp__('Bestätigung') . '</h3>';
             echo '<p class="ct">Hiermit bestätige ich die Richtigkeit der oben gemachten Angaben.</p>';
             echo '<div class="sb">';
             echo '<div class="sd"><span class="sv">' . $dShort . '</span><div class="sl">Datum</div></div>';

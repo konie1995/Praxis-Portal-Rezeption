@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * BDT/GDT 3.0 Export
  *

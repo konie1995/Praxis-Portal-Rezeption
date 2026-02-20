@@ -370,6 +370,12 @@ CSS;
             }
         }
 
+        // eEB (nur Kassenpatienten)
+        if (isset($d['evn_erlaubt'])) {
+            $evnJa = ($d['evn_erlaubt'] === '1' || $d['evn_erlaubt'] === 1);
+            $html .= $this->fieldHtml('Elektr. Ersatzbescheinigung', $evnJa ? '✓ Ja' : '✗ Nein');
+        }
+
         return $html;
     }
 
@@ -380,6 +386,13 @@ CSS;
         $e = fn(string $s) => $this->esc($s);
         $html  = $this->fieldHtml('Überweisungsziel', $e($d['ueberweisungsziel'] ?? '-'));
         $html .= $this->fieldHtml('Diagnose', $e($d['diagnose'] ?? '-'), true);
+
+        // eEB
+        if (isset($d['ueberweisung_evn_erlaubt'])) {
+            $evnJa = ($d['ueberweisung_evn_erlaubt'] === '1' || $d['ueberweisung_evn_erlaubt'] === 1);
+            $html .= $this->fieldHtml('Elektr. Ersatzbescheinigung', $evnJa ? '✓ Ja' : '✗ Nein');
+        }
+
         return $html;
     }
 
@@ -421,14 +434,49 @@ CSS;
             }
         }
 
-        // EVN
-        if (!empty($d['evn'])) {
+        // Prismenwerte
+        if (!empty($d['prismen'])) {
+            $pv = $d['prismen'];
+            $pvHtml = '';
+            foreach (['rechts' => 'Rechts', 'links' => 'Links'] as $key => $label) {
+                if (!empty($pv[$key])) {
+                    $p = $pv[$key];
+                    $pvHtml .= '<strong>' . $label . ':</strong> ';
+                    if (!empty($p['horizontal']['wert'])) {
+                        $pvHtml .= 'H: ' . $e($p['horizontal']['wert']);
+                        if (!empty($p['horizontal']['basis'])) $pvHtml .= ' ' . $e($p['horizontal']['basis']);
+                        $pvHtml .= ' pdpt ';
+                    }
+                    if (!empty($p['vertikal']['wert'])) {
+                        $pvHtml .= 'V: ' . $e($p['vertikal']['wert']);
+                        if (!empty($p['vertikal']['basis'])) $pvHtml .= ' ' . $e($p['vertikal']['basis']);
+                        $pvHtml .= ' pdpt';
+                    }
+                    $pvHtml .= '<br>';
+                }
+            }
+            if ($pvHtml) {
+                $html .= $this->fieldHtml('Prismenwerte', $pvHtml, true);
+            }
+        }
+
+        // eEB / EVN
+        if (isset($d['brillen_evn_erlaubt'])) {
+            $evnJa = ($d['brillen_evn_erlaubt'] === '1' || $d['brillen_evn_erlaubt'] === 1);
+            $html .= $this->fieldHtml('Elektr. Ersatzbescheinigung', $evnJa ? '✓ Ja' : '✗ Nein');
+        } elseif (!empty($d['evn'])) {
             $html .= $this->fieldHtml('EVN', $e($d['evn']));
         }
 
         // Lieferung
         if (!empty($d['brillen_lieferung'])) {
             $html .= $this->fieldHtml('Lieferung', $d['brillen_lieferung'] === 'post' ? 'Per Post' : 'Abholung Praxis');
+
+            if ($d['brillen_lieferung'] === 'post' && !empty($d['brillen_versandadresse'])) {
+                $va = $d['brillen_versandadresse'];
+                $adresse = $e($va['strasse'] ?? '') . '<br>' . $e(($va['plz'] ?? '') . ' ' . ($va['ort'] ?? ''));
+                $html .= $this->fieldHtml('Versandadresse', $adresse, true);
+            }
         }
 
         return $html;
@@ -445,23 +493,33 @@ CSS;
             $html .= $this->fieldHtml('Anliegen', $e($d['termin_anliegen']));
         }
 
+        if (!empty($d['termin_grund'])) {
+            $html .= $this->fieldHtml('Grund', $e($d['termin_grund']));
+        }
+
         if (!empty($d['termin_zeit'])) {
             $zeitLabels = ['vormittags' => 'Vormittags', 'nachmittags' => 'Nachmittags', 'egal' => 'Egal'];
-            $html .= $this->fieldHtml('Bevorzugte Zeit', $zeitLabels[$d['termin_zeit']] ?? $d['termin_zeit']);
+            $html .= $this->fieldHtml('Bevorzugte Zeit', $zeitLabels[$d['termin_zeit']] ?? $e($d['termin_zeit']));
         }
 
         if (!empty($d['termin_tage']) && is_array($d['termin_tage'])) {
             $tageLabels = ['mo' => 'Mo', 'di' => 'Di', 'mi' => 'Mi', 'do' => 'Do', 'fr' => 'Fr', 'sa' => 'Sa', 'egal' => 'Egal'];
             $tage = array_map(fn($t) => $tageLabels[$t] ?? $t, $d['termin_tage']);
             $html .= $this->fieldHtml('Bevorzugte Tage', implode(', ', $tage));
+        } elseif (!empty($d['termin_tage_display'])) {
+            $html .= $this->fieldHtml('Bevorzugte Tage', $e($d['termin_tage_display']));
         }
 
         if (!empty($d['termin_schnellstmoeglich']) && $d['termin_schnellstmoeglich'] === '1') {
-            $html .= $this->fieldHtml('Schnellstmöglich', '✓ Ja');
+            $html .= $this->fieldHtml('Schnellstmöglich', '✓ Ja, so schnell wie möglich');
         }
 
         if (!empty($d['termin_beschwerden'])) {
             $html .= $this->fieldHtml('Beschwerden', $e($d['termin_beschwerden']), true);
+        }
+
+        if (!empty($d['termin_wunschzeit'])) {
+            $html .= $this->fieldHtml('Wunschzeit', $e($d['termin_wunschzeit']));
         }
 
         return $html;
@@ -480,6 +538,10 @@ CSS;
 
         if (!empty($d['absage_grund'])) {
             $html .= $this->fieldHtml('Grund', $e($d['absage_grund']), true);
+        }
+
+        if (!empty($d['absage_neuer_termin'])) {
+            $html .= $this->fieldHtml('Neuer Termin gewünscht', $d['absage_neuer_termin'] === 'ja' ? '✓ Ja' : '✗ Nein');
         }
 
         return $html;

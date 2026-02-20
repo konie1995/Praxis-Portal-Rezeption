@@ -1,28 +1,19 @@
 <?php
 /**
- * Praxis-Portal v4 – Portal-Template (v3 UI Design)
- *
- * Wird von Portal::renderPortalHtml() per include eingebunden.
- * Kontext: $this = Portal-Instanz
- * JS-Daten: pp_portal (wp_localize_script)
- *
- * Server-Side: Login-Formular vs. Dashboard je nach Session.
- * Client-Side: Submissions-Liste, Detail, Export per AJAX.
- *
- * @package PraxisPortal
- * @since   4.2.0
+ * Portal Template mit Server-seitiger Authentifizierungsprüfung
+ * SICHERHEIT: Portal-Inhalt wird NUR gerendert wenn authentifiziert
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-$isAuthenticated = $this->auth->isAuthenticated();
-$exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
+$is_authenticated = $this->auth->isAuthenticated();
+$export_format = get_option('pp_export_format', 'both'); // gdt, pdf, both
 ?>
 <div class="pp-portal-wrapper">
 
-<?php if (!$isAuthenticated): ?>
+<?php if (!$is_authenticated): ?>
 <!-- ============================================ -->
 <!-- LOGIN-FORMULAR - NUR wenn NICHT authentifiziert -->
 <!-- ============================================ -->
@@ -35,25 +26,25 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
             <h1>Praxis-Portal</h1>
             <p><?php echo esc_html(get_option('pp_praxis_name', get_bloginfo('name'))); ?></p>
         </div>
-
+        
         <form id="pp-login-form" class="pp-login-form">
             <div class="pp-form-group">
                 <label for="pp-login-username">Benutzername</label>
                 <input type="text" id="pp-login-username" name="username" required autocomplete="username">
             </div>
-
+            
             <div class="pp-form-group">
                 <label for="pp-login-password">Passwort</label>
                 <input type="password" id="pp-login-password" name="password" required autocomplete="current-password">
             </div>
-
+            
             <div id="pp-login-error" class="pp-login-error" style="display:none;"></div>
-
+            
             <button type="submit" class="pp-btn-primary pp-btn-login">
                 <span class="btn-text">Anmelden</span>
             </button>
         </form>
-
+        
         <div class="pp-login-footer">
             <small>Verschlüsselte Verbindung • Nur für autorisiertes Personal</small>
         </div>
@@ -64,36 +55,8 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
 <!-- ============================================ -->
 <!-- PORTAL-HAUPTBEREICH - NUR wenn authentifiziert -->
 <!-- ============================================ -->
-<?php
-    // Session-Daten
-    $session         = $this->auth->getSessionData();
-    $userName        = esc_html($session['username'] ?? 'Portal-Benutzer');
-    $userLocationId  = intval($session['location_id'] ?? 0);
-
-    // Standorte laden (für Multi-Location Support)
-    $locationRepo = $this->getLocationRepo();
-    $locations    = $locationRepo->findAll();
-    $multiLoc     = count($locations) > 1;
-
-    // Aktiver Standort
-    $activeLocId = $userLocationId;
-    if (!$activeLocId && !empty($locations)) {
-        $activeLocId = intval($locations[0]['id']);
-    }
-
-    // Aktiver Standort-Name
-    $activeLocName = '';
-    foreach ($locations as $loc) {
-        if ((int)$loc['id'] === $activeLocId) {
-            $activeLocName = esc_html($loc['name']);
-            break;
-        }
-    }
-
-    $praxisName = esc_html(get_option('pp_praxis_name', get_bloginfo('name')));
-?>
 <div id="pp-portal-main" class="pp-portal-main">
-
+    
     <!-- Header -->
     <header class="pp-portal-header">
         <div class="pp-header-left">
@@ -101,7 +64,7 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                 </svg>
-                <span><?php echo $praxisName; ?></span>
+                <span><?php echo esc_html(get_option('pp_praxis_name', get_bloginfo('name'))); ?></span>
             </h1>
         </div>
         <div class="pp-header-right">
@@ -109,10 +72,7 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                 </svg>
-                <?php echo $userName; ?>
-                <?php if ($activeLocName): ?>
-                    <small>(<?php echo $activeLocName; ?>)</small>
-                <?php endif; ?>
+                Portal-Benutzer
             </span>
             <button type="button" id="pp-logout-btn" class="pp-btn-logout">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -122,10 +82,10 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
             </button>
         </div>
     </header>
-
+    
     <!-- Drei-Spalten-Layout -->
     <div class="pp-portal-content">
-
+        
         <!-- Linke Spalte: Kategorien -->
         <aside class="pp-sidebar">
             <div class="pp-sidebar-section">
@@ -190,7 +150,7 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                     </button>
                 </nav>
             </div>
-
+            
             <div class="pp-sidebar-section">
                 <h3>Filter</h3>
                 <nav class="pp-filter-nav">
@@ -204,24 +164,16 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                     </button>
                 </nav>
             </div>
-
+            
             <!-- Standort-Filter (nur bei Multi-Standort) -->
-            <?php if ($multiLoc): ?>
-            <div class="pp-sidebar-section pp-location-filter" id="pp-location-filter-section">
+            <div class="pp-sidebar-section pp-location-filter" id="pp-location-filter-section" style="display: none;">
                 <h3>Standort</h3>
                 <select id="pp-location-filter" class="pp-location-select">
                     <option value="0">Alle Standorte</option>
-                    <?php foreach ($locations as $loc): ?>
-                        <option value="<?php echo intval($loc['id']); ?>"
-                                <?php selected($activeLocId, intval($loc['id'])); ?>>
-                            <?php echo esc_html($loc['name']); ?>
-                        </option>
-                    <?php endforeach; ?>
                 </select>
             </div>
-            <?php endif; ?>
         </aside>
-
+        
         <!-- Mittlere Spalte: Liste -->
         <main class="pp-list-panel">
             <div class="pp-list-header">
@@ -237,14 +189,14 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                     </svg>
                 </button>
             </div>
-
+            
             <!-- Loading State -->
             <div class="pp-list-loading" style="display: flex;">
                 <svg class="pp-spinner-large" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" stroke-dasharray="30 70"/>
                 </svg>
             </div>
-
+            
             <!-- Empty State -->
             <div class="pp-list-empty" style="display: none;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -252,7 +204,7 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                 </svg>
                 <p>Keine Einträge gefunden.</p>
             </div>
-
+            
             <!-- Table -->
             <div class="pp-list-table-wrapper" style="display: none;">
                 <table class="pp-list-table">
@@ -261,19 +213,17 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                             <th class="col-date">Datum</th>
                             <th class="col-patient">Patient</th>
                             <th class="col-type">Typ</th>
-                            <?php if ($multiLoc): ?>
-                                <th class="col-location pp-multi-location-only">Standort</th>
-                            <?php endif; ?>
+                            <th class="col-location pp-multi-location-only" style="display:none;">Standort</th>
                         </tr>
                     </thead>
                     <tbody id="pp-list-body">
                     </tbody>
                 </table>
             </div>
-
+            
             <div id="pp-pagination" class="pp-pagination"></div>
         </main>
-
+        
         <!-- Rechte Spalte: Detailansicht -->
         <aside class="pp-preview-panel">
             <!-- Empty State -->
@@ -283,14 +233,14 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                 </svg>
                 <p>Eintrag auswählen</p>
             </div>
-
+            
             <!-- Loading State -->
             <div class="pp-preview-loading" style="display:none;">
                 <svg class="pp-spinner-large" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" stroke-dasharray="30 70"/>
                 </svg>
             </div>
-
+            
             <!-- Content -->
             <div class="pp-preview-content" style="display:none;">
                 <div class="pp-preview-header">
@@ -300,29 +250,29 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                     </div>
                     <div class="pp-preview-meta"></div>
                 </div>
-
+                
                 <div class="pp-preview-tabs">
                     <button type="button" class="pp-tab-btn active" data-tab="details">Details</button>
                     <button type="button" class="pp-tab-btn" data-tab="files">Dateien</button>
                     <button type="button" class="pp-tab-btn" data-tab="response">Antwort</button>
                 </div>
-
+                
                 <div class="pp-preview-body">
                     <!-- Details Tab -->
                     <div id="pp-tab-details" class="pp-tab-content active">
                         <div id="pp-details-content"></div>
                     </div>
-
+                    
                     <!-- Dateien Tab -->
                     <div id="pp-tab-files" class="pp-tab-content">
                         <div id="pp-files-content"></div>
                     </div>
-
+                    
                     <!-- Antwort Tab -->
                     <div id="pp-tab-response" class="pp-tab-content">
                         <div class="pp-response-section">
                             <h4>Schnellantwort senden</h4>
-
+                            
                             <div class="pp-response-buttons">
                                 <button type="button" class="pp-response-btn pp-response-ready" data-response="ready">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -363,21 +313,21 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                                     Ablehnen
                                 </button>
                             </div>
-
+                            
                             <div class="pp-response-text-wrapper" style="display:none;">
                                 <label for="pp-response-text">Nachricht an Patient:</label>
                                 <textarea id="pp-response-text" rows="4" placeholder="Ihre Nachricht..."></textarea>
                             </div>
-
+                            
                             <button type="button" id="pp-send-response" class="pp-btn-primary" disabled>
                                 ✓ Antwort senden
                             </button>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="pp-preview-footer">
-                    <?php if ($exportFormat === 'gdt' || $exportFormat === 'both'): ?>
+                    <?php if ($export_format === 'gdt' || $export_format === 'both'): ?>
                     <button type="button" id="pp-export-bdt" class="pp-btn-secondary" title="GDT Export für Praxissoftware">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
@@ -385,7 +335,7 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                         GDT Export
                     </button>
                     <?php endif; ?>
-                    <?php if ($exportFormat === 'pdf' || $exportFormat === 'both'): ?>
+                    <?php if ($export_format === 'pdf' || $export_format === 'both'): ?>
                     <button type="button" id="pp-export-pdf" class="pp-btn-secondary" title="PDF herunterladen">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
@@ -406,7 +356,7 @@ $exportFormat = get_option('pp_export_format', 'both'); // gdt, pdf, both
                 </div>
             </div>
         </aside>
-
+        
     </div>
 </div>
 

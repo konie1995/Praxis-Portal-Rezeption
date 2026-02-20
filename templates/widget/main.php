@@ -111,18 +111,5 @@ $widgetTitle    = $renderer->get('widget_title', $renderer->t('Online-Service'))
         <?php echo $renderer->renderAllForms(); ?>
     </div>
 
-    <?php // ── Portal-Link Footer (v3-Stil) ── ?>
-    <?php if (get_option('pp_portal_enabled', '0') === '1'):
-        $portalUrl = get_option('pp_anamnesebogen_url', '');
-        if (empty($portalUrl)) {
-            // Fallback: Seite mit Portal-Shortcode suchen
-            $portalUrl = '#';
-        }
-    ?>
-        <div class="pp-widget-footer-portal" onclick="window.open('<?php echo esc_url($portalUrl); ?>', '_blank')">
-            <span class="pp-portal-icon">✦</span>
-            <span><?php echo esc_html($renderer->t('Online-Rezeption')); ?></span>
-        </div>
-    <?php endif; ?>
 
 </div>

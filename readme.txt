@@ -1,270 +1,211 @@
 === Praxis-Portal ===
 Contributors: praxisportal
-Tags: arztpraxis, patientenportal, anamnese, dsgvo, medizin
+Tags: medical, praxis, anamnese, dsgvo, gdpr, patient, portal, widget
 Requires at least: 5.8
 Tested up to: 6.7
+Stable tag: 4.2.909
 Requires PHP: 8.0
-Stable tag: 4.2.6
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 DSGVO-konformes Patientenportal für medizinische Praxen – Service-Widget, digitale Anamnese, Multi-Standort, AES-256-Verschlüsselung.
 
 == Description ==
 
-**Praxis-Portal** verwandelt Ihre WordPress-Seite in ein vollwertiges Patientenportal. Patienten können Rezepte bestellen, Überweisungen anfragen, Termine vereinbaren und digitale Anamnesebögen ausfüllen – alles DSGVO-konform und end-to-end verschlüsselt.
+Praxis-Portal verwandelt Ihre Praxis-Website in ein vollwertiges Patientenportal. Patienten können Rezepte bestellen, Termine anfragen und Anamnesebögen digital ausfüllen – verschlüsselt und datenschutzkonform.
 
-= Hauptfunktionen =
+= Service-Widget =
 
-* **Service-Widget** – Rezept, Überweisung, Brillenverordnung, Dokument, Termin, Terminabsage
-* **Digitale Anamnese** – Augenarzt, Allgemeinarzt, HNO (weitere über JSON erweiterbar)
-* **Multi-Standort** – Beliebig viele Praxis-Standorte mit eigenen Services, Öffnungszeiten und Lizenzen
-* **AES-256-GCM Verschlüsselung** – Alle sensiblen Patientendaten werden verschlüsselt gespeichert
-* **DSGVO-konform** – Einwilligungsverwaltung, Lösch-Workflow, Audit-Log, Datenexport
-* **Portal für MFA** – Geschützter Bereich für MFA mit Statusverwaltung und GDT-Export
-* **PDF-Erstellung** – Automatische PDF-Anamnese mit Signatur
-* **GDT / HL7 / FHIR** – Export für Praxisverwaltungssysteme
-* **Medikamenten-Datenbank** – Autocomplete mit über 1.300 Medikamenten
-* **Mehrsprachig** – Deutsch, Englisch, Französisch, Italienisch, Niederländisch
-* **Self-Hosted Updates** – Automatische Updates über Ihren Lizenzserver
-* **Urlaubsmodus** – Pro Standort aktivierbar
+Patienten nutzen ein Sticky-Widget auf Ihrer Website für alltägliche Anfragen:
 
-= Für wen? =
+* **Rezept-Bestellung** – mit Medikamenten-Autocomplete (1.300+ Einträge), Foto-Upload und Kassenwahl
+* **Überweisung anfragen** – für Bestandspatienten
+* **Brillenverordnung** – inkl. Prismen und HSA-Werte
+* **Dokument hochladen** – PDF, JPG, PNG, WebP (max. 10 MB)
+* **Termin anfragen** – auch für Neupatienten
+* **Termin absagen** – für Bestandspatienten
 
-* Augenarztpraxen
-* Allgemeinarztpraxen / Hausärzte
-* HNO-Praxen
-* Jede Facharztpraxis (eigene Formulare über JSON definierbar)
+Alle Widget-Services sind im **Free-Plan kostenlos** enthalten.
+
+= Digitale Anamnese =
+
+JSON-basierte Fragebögen für 6 Fachrichtungen (564 Felder, 204 konditional):
+
+* Augenarzt, Allgemeinarzt, HNO, Zahnarzt, Dermatologe, Orthopäde
+* Eigene Formulare als JSON definierbar
+* Unterschrift-Feld mit Signatur-Capture
+
+= Multi-Standort =
+
+* Beliebig viele Praxis-Standorte mit eigenen Services, Öffnungszeiten und Lizenzen
+* UUID-basierte Standort-Identifikation
+* Automatische Standort-Erkennung per URL-Slug
+
+= Portal für MFA =
+
+Geschützter Bereich für Medizinische Fachangestellte:
+
+* Eingangs-Übersicht mit Status-Verwaltung (Neu → In Bearbeitung → Erledigt)
+* Detail-Ansicht mit entschlüsselten Patientendaten
+* PDF-Druck und Datei-Download
+
+= Export für Praxissoftware (PVS) =
+
+* **GDT/BDT 3.0** – Medistar, Albis, Turbomed, Duria u.v.m.
+* **FHIR R4** – Moderner Standard (experimentell)
+* **HL7** – Klinik-Integration (experimentell)
+* **PDF** – Automatische Anamnese-PDFs mit Signatur
 
 = Sicherheit =
 
-* AES-256-GCM Verschlüsselung aller Patientendaten
-* Schlüsseldatei außerhalb des Web-Root
-* CSRF-Schutz (Nonce-Validierung)
+* **AES-256 Verschlüsselung** – Sodium (XSalsa20-Poly1305) oder OpenSSL AES-256-GCM
+* Schlüsseldatei außerhalb des Web-Root (chmod 0600)
+* CSRF-Schutz (Nonce-Validierung) auf allen Endpunkten
 * Rate-Limiting gegen Brute-Force
-* Content Security Policy Headers
 * Verschlüsselte Portal-Passwörter (bcrypt)
-* Audit-Log für alle Zugriffe
+* Audit-Log für alle Datenzugriffe
+
+= DSGVO-Konformität =
+
+* Einwilligungsverwaltung mit Versionierung
+* WordPress Privacy-Export & -Löschung integriert
+* Automatische Datenbereinigung (konfigurierbar)
+* Soft-Delete mit nachträglicher endgültiger Löschung
+* Vollständiger Uninstaller (67 Options, alle Tabellen, verschlüsselte Dateien)
+
+= Mehrsprachigkeit =
+
+Deutsch, Englisch, Französisch, Italienisch, Niederländisch
 
 == Installation ==
 
-1. Plugin-ZIP über WordPress → Plugins → Installieren hochladen
-2. Plugin aktivieren → Der Einrichtungsassistent startet automatisch
+1. Plugin-ZIP über **WordPress → Plugins → Installieren** hochladen
+2. Plugin aktivieren – der **Einrichtungsassistent** startet automatisch
 3. Dem Wizard folgen: Systemcheck → Lizenz → Standort → Sicherheit → Portal
-4. Widget per Shortcode `[praxis_portal]` auf einer Seite einbinden
-5. Optional: Weitere Standorte und Services konfigurieren
+4. Widget per Shortcode auf einer Seite einbinden: `[pp_widget]`
 
-= Systemanforderungen =
+= Shortcodes =
 
-* WordPress 5.8+
-* PHP 8.0+
-* MySQL 5.7+ / MariaDB 10.3+
-* OpenSSL-Extension (für AES-256-GCM)
-* mbstring-Extension
+* `[pp_widget]` – Service-Widget (auch: `[praxis_widget]`, `[pp_anamnesebogen]`)
+* `[pp_fragebogen]` – Eigenständiger Anamnesebogen
+* `[pp_portal]` – MFA-Portal (auch: `[praxis_portal]`)
+
+= Konfiguration in wp-config.php =
+
+Für maximale Sicherheit kann der Verschlüsselungsschlüssel manuell konfiguriert werden:
+
+`define('PP_ENCRYPTION_KEY_PATH', '/home/user/pp-secure/.encryption_key');`
+
+Uploads außerhalb des Web-Root:
+
+`define('PP_UPLOAD_PATH', '/home/user/pp-encrypted-uploads/');`
 
 == Frequently Asked Questions ==
 
 = Brauche ich einen Lizenzschlüssel? =
 
-Ja, für den vollen Funktionsumfang ist ein Lizenzschlüssel erforderlich. Dieser wird pro Standort vergeben.
+Für den Free-Plan nicht. Premium-Features erfordern einen Schlüssel pro Standort.
 
 = Wo werden die Daten gespeichert? =
 
-Alle Daten werden in der WordPress-Datenbank gespeichert (AES-256 verschlüsselt). Hochgeladene Dateien liegen im verschlüsselten Upload-Verzeichnis. Es werden keine Daten an externe Server übermittelt – außer dem Lizenz-Heartbeat.
+Lokal in Ihrer WordPress-Datenbank (AES-256 verschlüsselt). Keine externen Server außer dem Lizenz-Heartbeat.
 
-= Kann ich eigene Formulare erstellen? =
+= Funktioniert das mit meiner Praxissoftware? =
 
-Ja, Formulare werden als JSON-Dateien definiert. Sie können eigene Anamnesebögen in `wp-content/uploads/pp-custom-forms/` ablegen.
+Über GDT-Export kompatibel mit Medistar, Albis, Turbomed, Duria und anderen deutschen PVS-Systemen.
 
-= Funktioniert das Plugin mit meiner Praxissoftware? =
+= WordPress Multisite? =
 
-Über den GDT-Export können Daten in gängige PVS-Systeme übernommen werden. Zusätzlich werden HL7 und FHIR (experimentell) unterstützt.
+Nicht offiziell unterstützt. Multi-Standort wird über die eingebaute Standortverwaltung gelöst.
 
-= Unterstützt das Plugin Multisite? =
+= Welche PHP-Extensions werden benötigt? =
 
-Aktuell wird WordPress Multisite nicht offiziell unterstützt. Multi-Standort wird über die eingebaute Standortverwaltung gelöst.
+OpenSSL und mbstring sind Pflicht. libsodium (Sodium) wird empfohlen (Fallback: OpenSSL).
 
 == Screenshots ==
 
-1. Service-Widget auf der Patienten-Seite
-2. Digitaler Anamnesebogen (Augenarzt)
-3. Portal-Dashboard für MFA
-4. Admin-Einstellungen mit Standortverwaltung
-5. Medikamenten-Autocomplete
+1. Service-Widget – Sticky-Button auf der Praxis-Website
+2. Widget-Formular – Rezept-Bestellung mit Medikamenten-Autocomplete
+3. MFA-Portal – Eingangsübersicht mit Status-Verwaltung
+4. Admin – Standortverwaltung mit Multi-Standort-Übersicht
+5. Admin – Einrichtungsassistent (Setup-Wizard)
 
 == Changelog ==
 
-= 4.2.6 =
-* FIX: Widget-Flow v3-Stil: "Sind Sie Patient?" → Standort → Services → Formular
-* FIX: Rezept-Formular v3-Logik: Privat→Abholung/Versand, Gesetzlich→EVN-Checkbox
-* FIX: Medikamenten-Eingabe v3-Stil: Art-Dropdown + "Weiteres Medikament" Button (max 3)
-* FIX: Foto-Upload für Medikamentenpackung wiederhergestellt
-* FIX: Medikamenten-Suche nutzt jetzt DB statt CSV (eine Datenquelle für Widget + Admin)
-* FIX: CSV-Import Spalten-Mapping korrigiert (Wirkstoff+Stärke → Dosierung, Kategorie → Form)
-* FIX: Medikationsliste (.pp-medication-list Container) fehlte im Rezept-Formular
-* FIX: service_key Mapping in services.php (war 'key' statt 'service_key')
-* FIX: JS Submit-Selektor (.pp-submit-form → .pp-service-form)
-* FIX: patient_restriction Mapping (DB: String vs. Code: Boolean)
-* FIX: CSS-Klasse pp-medication-input-wrapper passt jetzt zum Template
-* Entfernt: Footer-Link "Praxis-Portal" (wie v3)
-* Verbesserung: Standard-Medikamente Import-Button im Datenbank-Tab
-* Verbesserung: Progress-Bar und Back-Button werden korrekt aktualisiert
-* Neue Regressions-Tests in Diagnose-Tool (Gruppen 21)
+= 4.2.909 =
+* Widget: „Online-Rezeption"-Button im Footer entfernt
+* Widget: Notfall-Seite mit neuem Karten-Layout (V3-Stil) – zentrierte Cards, Chevron-Navigation, farbige Hover-Effekte
+* Widget: Giftnotruf und Telefonseelsorge aus Notfall-Seite entfernt
+* Widget: Externe URL bei allen Services korrekt geöffnet (nicht nur Anamnesebogen)
+* Admin: Notfall-Konfigurations-Modal öffnet jetzt korrekt (inline style-Override behoben)
+* Admin: Giftnotruf und Telefonseelsorge aus Notfall-Admin-Modal entfernt
+* Admin: Modal-Footer immer sichtbar – nur Body scrollt (Flex-Layout-Fix)
+* Admin: Custom-Service-Fehler behoben (nicht existente DB-Spalten form_id und is_custom entfernt)
+* Admin: Custom Services nutzen jetzt service_type = custom/external statt is_custom-Flag
+* Admin: „Custom Service hinzufügen"-Button vorerst ausgeblendet (modularer Form-Picker in Planung)
+
+= 4.2.908 =
+* Grundlegende Architektur-Überarbeitung: 65 PHP-Klassen in 12 Namespaces
+* Diagnose-Tool mit 22 Testgruppen (Encryption, Portal, Multi-Standort, DSGVO, Export, API)
+* 6 Fachrichtungen für digitale Anamnesebögen (564 Felder, 204 konditional)
+* Self-Hosted Updater mit SHA256-Integritätsprüfung
+* Versionsbasierte DB-Migrationen (v3.0 → v4.2.9)
 
 = 4.2.5 =
-* FIX: 26+ Bugs behoben (Widget, SQL, Hooks, Templates)
-* FIX: PP4_ → PP_ Migration (1072 Ersetzungen, 39 Dateien)
-* FIX: SQL %% in LIKE-Klauseln (WordPress 6.x Kompatibilität)
-* FIX: Hook-Duplikate aufgelöst (Admin.php, Hooks.php)
-* NEU: Diagnose-Tool mit 22 Testgruppen inkl. Runtime-Tests
-* NEU: Medikamenten-Seite mit Tabs, CSV-Import, Inline-Edit
-* Widget: Vertikale Menü-Listenansicht (v3-Stil)
-* Uninstaller: 67 Optionen, DSGVO-konform
+* ICD-10 Admin-Bereich für Diagnose-Verwaltung
+* Formular-Editor im Admin-Backend
+* Medikamenten-Verwaltung mit Import-Funktion
+* Setup-Wizard überarbeitet (5 Schritte)
 
 = 4.2.4 =
-* FIX: Anamnesebogen-Service öffnet konfigurierte URL in neuem Tab
-* Widget: anamnesebogen_url an JavaScript übergeben
-* Redirect-Logik statt AJAX für Anamnesebogen
+* DSGVO-Admin-Bereich mit Audit-Log-Ansicht
+* Lösch-Workflow für Patientendaten verbessert
+* Export-Konfiguration pro Standort
 
 = 4.2.3 =
-* FIX: Widget::render() Methode für Shortcode-Unterstützung hinzugefügt
-* FIX: Widget::register() wird jetzt in Plugin.php aufgerufen
-* FIX: Shortcodes direkt in Plugin.php statt totem Hooks.php Code
+* Multi-Standort-Architektur stabilisiert
+* LocationResolver mit 5 Prioritätsstufen
+* LocationContext als zentraler Datenträger im Request
 
 = 4.2.2 =
-* Augenarzt: Doppelte Order-Werte in allgemein-Section behoben
-* HNO: 8 Info-Tooltips ergänzt (Tonsillektomie, Asthma, Rauchen etc.)
-* Alle 6 Formulare: Qualitäts-Audit bestanden ✓
+* RateLimiter mit Object Cache Unterstützung (Redis/Memcached)
+* Transient-basierter Fallback für Shared Hosting
+* Rate-Limit-Hinweise im Admin
 
 = 4.2.1 =
-* NEU: Zahnarzt-Anamnesebogen (110 Felder, 48 konditional)
-* NEU: Dermatologischer Anamnesebogen (95 Felder, 36 konditional)
-* NEU: Orthopädischer Anamnesebogen (102 Felder, 37 konditional)
-* 6 Fachrichtungen insgesamt: Augenarzt, Allgemeinarzt, HNO, Zahnarzt, Dermatologe, Orthopäde
-* 564 Formularfelder gesamt, 204 konditionale Felder
-* Fachspezifische Besonderheiten:
-  - Zahnarzt: Bisphosphonat-Warnung, Endokarditisprophylaxe, CMD/Bruxismus, Implantate
-  - Dermatologe: Hautkrebsvorsorge (ABCDE), Fitzpatrick-Hauttyp, Biologika, STI
-  - Orthopäde: BG-Unfallversicherung, Wirbelsäule, Gelenkprothesen, Gehstrecke, Hilfsmittel
-* Tests aktualisiert: 6 Fachrichtungen-Validierung
-
-= 4.2.4 =
-* FIX: Anamnesebogen-Service öffnet konfigurierte URL in neuem Tab
-* Widget: anamnesebogen_url an JavaScript übergeben
-* Redirect-Logik statt AJAX für Anamnesebogen
-
-= 4.2.3 =
-* FIX: Widget::render() Methode für Shortcode-Unterstützung hinzugefügt
-* FIX: Widget::register() wird jetzt in Plugin.php aufgerufen
-* FIX: Shortcodes direkt in Plugin.php statt totem Hooks.php Code
-
-= 4.2.2 =
-* Augenarzt: Doppelte Order-Werte in allgemein-Section behoben
-* HNO: 8 Info-Tooltips ergänzt (Tonsillektomie, Asthma, Rauchen etc.)
-* Alle 6 Formulare: Qualitäts-Audit bestanden ✓
-
-= 4.2.1 =
-* 6 Fachrichtungen: Augenarzt, Allgemeinarzt, HNO, Zahnarzt, Dermatologe, Orthopäde
-* Allgemeinarzt + HNO auf Standard gebracht: Hauptversicherter, privat_art, File-Upload
-* HNO: Titel-Feld + Medikamentenplan-Upload nachgerüstet
-* Alle 6 Formulare: Konsistenz-Check ✓ (Sections, Stammdaten, Unterschrift, Signatur)
-* Tests: Erwartungen für aufgerüstete Formulare angepasst
+* Widget-Urlaubsmodus mit konfigurierbarer Nachricht
+* Standort-spezifische Öffnungszeiten
+* Termin-Absage-Formular
 
 = 4.2.0 =
-* NEU: 16 funktionale Testgruppen (vorher statisch)
-* Portal-Login: Passwort-Hashing, falsches PW, Deaktivierung
-* Multi-Standort: Datenisolation, UUID-Suche, Slug-Duplikate
-* FormValidator: E-Mail, PLZ, Privatpatient-Signatur, Konditionslogik
-* Medikamenten-Suche: SQL-Injection-Schutz, Umlautsuche
-* DSGVO: Verschlüsselung, Löschung, Nicht-Auffindbarkeit
-* Verschlüsselung: Grenzwerte, Manipulation, IV-Variation
-* Export-Pipeline: GDT/FHIR/HL7 mit echten Patientendaten
-* FormHandler E2E: Verarbeitung, XSS-Bereinigung, DB-Check
-* LocationContext: Resolution, Slug-Duplikate, UUID-Lookup
-* API-Key: Erstellen, Validieren, Deaktivieren, Berechtigungen
-* Concurrent Submissions: 10 parallele Einreichungen
-* Admin-AJAX: Hook-Registrierung, searchDecrypted, Audit-Log
-* Nonce/CSRF: Cross-Action-Validierung
-* Sanitizer: XSS, SQL-Injection, Sonderzeichen
-
-= 4.1.9 =
-* Versionsnummern synchronisiert (Plugin-Header, Konstante, readme.txt)
-* Setup-Wizard Feinschliff und Stabilität
-
-= 4.1.8 =
-* NEU: Setup-Wizard – geführte Ersteinrichtung in 6 Schritten (Systemcheck, Lizenz, Standort, Sicherheit, Portal, Fertig)
-* Automatischer Redirect zum Wizard nach Plugin-Aktivierung
-* Erneut startbar über System-Status → Einrichtungsassistent
-* Migration: Default-Standort und Medikamenten-Import laufen jetzt idempotent (unabhängig von DB-Version)
-* FormValidator: Widget akzeptiert jetzt alle DSGVO-Feldnamen (datenschutz, dsgvo_consent, datenschutz_einwilligung)
-* KeyManager: Dateiberechtigungs-Prüfung wird auf Windows übersprungen (chmod nicht unterstützt)
-* Test-Suite: PP_VERSION-Test nicht mehr hardcoded (version_compare >= 4.1.0)
-
-= 4.1.5 =
-* Behebt Fatal Error: PdfWidget fehlende abstrakte Methoden (render, getMimeType, getFileExtension)
-* ZIP-Build-Prozess mit MD5-Verifizierung aller kritischen Dateien
-
-= 4.1.4 =
-* Behebt Fatal Error: Fehlende Migration-Klasse Import in Plugin.php
-* Behebt Fatal Error: Migration-Constructor ohne $wpdb Parameter
-* Widget: Settings-Key location_uuid statt uuid
-* Migration: MySQL 5.7-kompatibles DROP INDEX (kein IF EXISTS)
-* Migration: Default-Standort mit UUID-Generierung
-
-= 4.1.2 =
-* Medikamenten-Datenbank: CSV-Import (1.355 Einträge) mit Autocomplete-Suche
-* MedicationRepository mit bulkInsert, search, CRUD
-* Schema: pp_medications Tabelle mit Index
-* Migration: Spalte location_uuid → uuid (v4.1.0)
-* Sanitizer: UTF-8 safe (mb_substr statt substr)
-* I18n: getLocale() Rückgabetyp-Fix
-* Test-Suite: Erweitert auf 28 Testgruppen
+* Multi-Standort UUID-basiert (LOC-xxxxxxx)
+* Portal-Authentifizierung mit Session-Timeout
+* Audit-Log für alle Datenzugriffe
 
 = 4.1.0 =
-* Umfassende Test-Suite mit 34 Testgruppen und 496 Assertions
-* 100% Klassen-Abdeckung aller 56 PHP-Klassen
-* Tests für alle 3 Formulare (Augenarzt, Allgemeinarzt, HNO)
-* Repository-Detail-Tests (AbstractRepository + 8 konkrete Repositories)
-* Hooks-Registrierungs-Tests (AJAX, Shortcodes, Cron, Enqueue)
-* RateLimiter-Funktionstests (Throttling, Lockout, Cleanup)
-* Plugin-Bootstrap-Tests (Konstanten, Autoloader, Aktivierung)
-* Template- und Asset-Existenzprüfungen (13 Templates, 8 Assets)
-* Uninstall-DSGVO-Compliance-Tests
+* FHIR R4 Export (experimentell)
+* HL7 Export (experimentell)
+* PVS-REST-API mit API-Key-Authentifizierung
 
 = 4.0.0 =
-* Komplette Neuentwicklung auf Basis moderner PHP 8.0+ Architektur
-* Namespaced PSR-4 Klassenstruktur (56 PHP-Klassen)
-* AES-256-GCM Verschlüsselung (statt AES-256-CBC)
-* Multi-Standort-System mit location_uuid und license_key
-* Self-Hosted Update-System mit SHA256-Integritätsprüfung
-* Neue Formulare: Allgemeinarzt, HNO
-* 5 Sprachen: DE, EN, FR, IT, NL
-* GDT / HL7 / FHIR Export
-* Automatische v3→v4 Migration
-* Rate-Limiting und Audit-Log
+* Komplette Neuentwicklung auf Namespace-Basis (PraxisPortal\*)
+* Dependency Injection Container mit Zirkulärerkennung
+* AES-256-GCM / XSalsa20-Poly1305 Verschlüsselung (AEAD)
+* Repository-Pattern für alle Datenbankzugriffe
+* GDT/BDT 3.0 Export
+* DSGVO-konforme Deinstallation
 
-= 3.9.60 =
-* Erweiterte encrypted-Spalten für große Formulardaten
-
-= 3.9.40 =
-* Terminabsage als neuer Service
-
-= 3.3.2 =
-* Documents-Tabelle für Dateianhänge
-
-= 3.2.19 =
-* Downloads-Service hinzugefügt
-
-= 3.0.0 =
-* Erstveröffentlichung mit Grundfunktionen
+= 3.x =
+* Legacy-Version (nicht mehr unterstützt)
+* Migration auf v4.0 erfolgt automatisch
 
 == Upgrade Notice ==
 
-= 4.1.8 =
-Neuer Setup-Wizard, Bugfixes für Migration und Windows-Kompatibilität. Keine Breaking Changes.
+= 4.2.909 =
+Bugfix-Release: Notfall-Widget überarbeitet, Admin-Modal-Fixes, DB-Fehler beim Anlegen von Custom Services behoben.
 
-= 4.1.0 =
-Qualitätssicherung – umfassende Test-Suite mit 34 Gruppen und 100% Klassenabdeckung. Keine Breaking Changes.
+= 4.2.908 =
+Stabiles Release nach umfangreicher Architektur-Überarbeitung. Update empfohlen. Datenbank-Migration läuft automatisch.
 
 = 4.0.0 =
-Großes Update – bitte vorher Backup erstellen. Die Migration von v3 auf v4 läuft automatisch. Bestehende Daten werden übernommen und re-verschlüsselt.
+Vollständige Neuentwicklung. Backup vor dem Update erstellen. Migration von v3.x läuft automatisch.

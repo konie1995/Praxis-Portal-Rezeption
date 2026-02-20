@@ -3,12 +3,11 @@
  * Plugin Name: Praxis-Portal
  * Plugin URI:  https://praxis-portal.de
  * Description: DSGVO-konformes Patientenportal für medizinische Praxen – Anamnese, Service-Widget, Multi-Standort
- * Version:     4.2.908
+ * Version:     4.2.909
  * Requires at least: 5.8
  * Requires PHP: 8.0
  * Author:      Praxis-Portal
- * License:     GPL v3
- * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * License:     GPL v2 or later
  * Text Domain: praxis-portal
  */
 
@@ -20,7 +19,7 @@ if (!defined('ABSPATH')) {
 // ============================================================================
 // PLUGIN-KONSTANTEN
 // ============================================================================
-define('PP_VERSION',         '4.2.908');
+define('PP_VERSION',         '4.2.909');
 define('PP_MIN_PHP',         '8.0');
 define('PP_MIN_WP',          '5.8');
 define('PP_PLUGIN_FILE',     __FILE__);
@@ -88,4 +87,13 @@ if (is_admin() && file_exists(PP_PLUGIN_DIR . 'tests/pp-diagnostic.php')) {
             require_once PP_PLUGIN_DIR . 'tests/pp-diagnostic.php';
         }
     });
+}
+
+// Integration-Test (nur für Administratoren)
+if (is_admin() && file_exists(PP_PLUGIN_DIR . 'tests/pp-integration-test.php')) {
+    add_action('admin_menu', function () {
+        if (current_user_can('manage_options')) {
+            require_once PP_PLUGIN_DIR . 'tests/pp-integration-test.php';
+        }
+    }, 998);
 }
